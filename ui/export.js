@@ -76,6 +76,7 @@ const snapshot = {
     lights: mapDef.lights || []
   },
   view,
+  overlays: eng.overlays(),
   diagnostics: diag,
   contacts: view.contacts,
   account: acct.dump(),

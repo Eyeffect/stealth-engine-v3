@@ -407,11 +407,29 @@ function makeEngine(cfg){
       exposure:(p.wounds||[]).length>0?'WOUNDED':'OK'};
   }
 
+  // overlay data for the GUI — derived from world, filtered to player perception
+  function overlays(){
+    const lm={};
+    for(const f in map.cells){lm[f]=P.lightAt(map,f,lights,env)}
+    const sounds=(world.sounds||[]).filter(s=>world.clock-s.time<=12).map(s=>({
+      cell:s.cell,db:s.db,type:s.type,desc:s.desc,at:s.time,
+      heard:!!audibility(player().cell,s).heard}));
+    const seen=new Set([norm(player().cell)]);
+    for(const f in map.cells){
+      if(map.los(player().cell,f,{openDoors:openDoors()}).clear&&lm[f]>=0.8)seen.add(f)}
+    const cams=(mission.cameras||[]).map(c=>({
+      id:c.id,cell:'L0-'+String(c.cell).replace('L0-',''),facing:c.facing,fov:c.fov,range:c.range,ir:!!c.ir,
+      visible:seen.has('L0-'+String(c.cell).replace('L0-',''))}));
+    const cones=world.npcs.filter(n=>n.alive!==false&&seen.has(norm(posOf(n.id).cell||n.cell)))
+      .map(n=>({id:n.id,cell:norm(posOf(n.id).cell||n.cell),facing:(world.positions[n.id]||{}).facing||n.facing,
+        range:n.range||20}));
+    return{lightmap:lm,sounds:sounds,cameras:cams,guardCones:cones,visible:[...seen]};
+  }
   function diagnostics(){return{heat:heat.status(),beliefs:world.beliefs||{},brainTrace:world.brainTrace||'',
     positions:world.positions,audit:(function(){try{return require('fs').readFileSync(path.join(__dirname,'..','audit.log'),'utf8').trim().split('\n').slice(-20)}catch(e){return []}})(),
     movement:world.movementLog||[],trigger:{armed:world.triggerArmedAt||null,fired:!!world.triggerFired,disarmed:!!world.triggerDisarmed}};}
 
-  return{turn,actions:Object.keys(actions),playerView,diagnostics,world,map,heat,mission,ledger,
+  return{turn,actions:Object.keys(actions),playerView,diagnostics,overlays,world,map,heat,mission,ledger,
     save(){return JSON.stringify({world,mapDoors:map.doors})},
     load(json){const d=JSON.parse(json);Object.assign(world,d.world);for(const k in d.mapDoors)map.setDoor(k,d.mapDoors[k]);}
   };

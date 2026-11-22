@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T08:55:03.026Z",
+  "generatedAt": "2026-11-22T09:14:30.487Z",
   "exporterVersion": 1,
   "missionId": "m1_manifest",
   "campaign": {
@@ -742,7 +742,7 @@
       "L0-F2|L0-F3": "open",
       "L0-F3|L0-F4": "open",
       "L0-E4|L0-F4": "open",
-      "L0-E2|L0-E3": "closed",
+      "L0-E2|L0-E3": "open",
       "L0-E1|L0-F1": "open"
     },
     "lights": [
@@ -820,6 +820,55 @@
     "light": 0.55464400750007,
     "material": "concrete",
     "exposure": "OK"
+  },
+  "overlays": {
+    "lightmap": {
+      "L0-A1": 0.55464400750007,
+      "L0-B1": 0.8285954792089683,
+      "L0-C1": 0.9666666666666668,
+      "L0-D1": 0.8285954792089683,
+      "L0-E1": 0.55464400750007,
+      "L0-F1": 0.3,
+      "L0-A2": 0.4215299344583438,
+      "L0-B2": 0.5166666666666667,
+      "L0-C2": 0.8854212304355027,
+      "L0-D2": 1.1553537186794343,
+      "L0-E2": 0.984314575050762,
+      "L0-F2": 0.5801084082500771,
+      "L0-A3": 0.44295032375636273,
+      "L0-B3": 0.5321488698022421,
+      "L0-C3": 1.226064396798089,
+      "L0-D3": 1.8518004980571177,
+      "L0-E3": 1.496994335208351,
+      "L0-F3": 0.8814550271298651,
+      "L0-A4": 0.4142977396044841,
+      "L0-B4": 0.5136610018750175,
+      "L0-C4": 1.084314575050762,
+      "L0-D4": 1.546994335208351,
+      "L0-E4": 1.6486123146552463,
+      "L0-F4": 1.0333333333333334,
+      "L0-A5": 0.6171572875253809,
+      "L0-B5": 0.7,
+      "L0-C5": 0.8972656957754581,
+      "L0-D5": 1.0342414316299071,
+      "L0-E5": 1.0333333333333334,
+      "L0-F5": 0.8814550271298651
+    },
+    "sounds": [
+      {
+        "cell": "L0-E2",
+        "db": 50,
+        "type": "footstep",
+        "desc": "Bodyguard Rusk footsteps on marble",
+        "at": 6,
+        "heard": false
+      }
+    ],
+    "cameras": [],
+    "guardCones": [],
+    "visible": [
+      "L0-A1"
+    ]
   },
   "diagnostics": {
     "heat": {
@@ -956,29 +1005,29 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":3,\"margin\":57,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-04:panic:nerve\",\"target\":35,\"roll\":84,\"margin\":-49,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":21,\"margin\":59,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":1,\"margin\":79,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":56,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.847Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":35,\"margin\":10,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.847Z\",\"label\":\"sight S-03 -> player\",\"target\":19,\"roll\":74,\"margin\":-55,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-04 -> player\",\"target\":19,\"roll\":14,\"margin\":5,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-05 -> player\",\"target\":19,\"roll\":80,\"margin\":-61,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-06 -> player\",\"target\":19,\"roll\":99,\"margin\":-80,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-08 -> player\",\"target\":19,\"roll\":30,\"margin\":-11,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":65,\"margin\":-5,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":76,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":8,\"margin\":52,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-04:panic:nerve\",\"target\":35,\"roll\":42,\"margin\":-7,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":81,\"margin\":-1,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":90,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":66,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":44,\"margin\":1,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T08:55:03.017Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":23,\"margin\":37,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
+      "{\"ts\":\"2026-11-22T08:59:43.745Z\",\"label\":\"A-05 fires at player\",\"target\":45,\"roll\":89,\"margin\":-44,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.745Z\",\"label\":\"A-06 fires at player\",\"target\":45,\"roll\":27,\"margin\":18,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.745Z\",\"label\":\"shoot A-04 (center)\",\"target\":27,\"roll\":100,\"margin\":-73,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.746Z\",\"label\":\"same-cell A-04\",\"target\":95,\"roll\":87,\"margin\":8,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.746Z\",\"label\":\"same-cell A-05\",\"target\":95,\"roll\":43,\"margin\":52,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.747Z\",\"label\":\"same-cell A-06\",\"target\":95,\"roll\":4,\"margin\":91,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.747Z\",\"label\":\"A-01:alert:nerve\",\"target\":60,\"roll\":60,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-02:alert:nerve\",\"target\":60,\"roll\":42,\"margin\":18,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-03:lockdown:nerve\",\"target\":55,\"roll\":83,\"margin\":-28,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-05:shield:nerve\",\"target\":75,\"roll\":91,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-06:shield:nerve\",\"target\":75,\"roll\":24,\"margin\":51,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-07:alert:nerve\",\"target\":60,\"roll\":60,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.748Z\",\"label\":\"A-04 fires at player\",\"target\":45,\"roll\":94,\"margin\":-49,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.749Z\",\"label\":\"A-05 fires at player\",\"target\":45,\"roll\":45,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:59:43.749Z\",\"label\":\"A-06 fires at player\",\"target\":45,\"roll\":45,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T09:06:43.115Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":29,\"margin\":31,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T09:07:20.529Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":21,\"margin\":39,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T09:07:58.684Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":89,\"margin\":-29,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T09:08:54.953Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":44,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T09:14:30.477Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":63,\"margin\":-3,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
     ],
     "movement": [
-      "6 | T-04 door L0-E2|L0-E3 closed",
+      "6 | T-04 door L0-E2|L0-E3 left open",
       "6 | T-04 L0-E3 -> L0-E2 50dB"
     ],
     "trigger": {

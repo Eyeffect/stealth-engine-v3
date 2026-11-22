@@ -56,6 +56,15 @@
     letter-spacing:.14em;font-size:10px;text-transform:uppercase;display:flex;justify-content:space-between}
 
   /* ---------- map ---------- */
+  .overlays{display:flex;gap:6px;padding:8px 12px 0;flex-wrap:wrap}
+  .overlays button{background:#0d1419;border:1px solid var(--line);color:var(--dim);
+    padding:4px 11px;font-size:10px;letter-spacing:.1em;cursor:pointer;border-radius:3px}
+  .overlays button:hover{color:var(--txt)}
+  .overlays button.on{border-color:#39c5d9;color:#39c5d9;background:rgba(57,197,217,.08)}
+  .ov-light{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(255,214,140,.42)}
+  .ov-los{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(248,113,113,.18)}
+  .ov-cam{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(169,140,224,.2)}
+  .ov-sound{position:absolute;inset:2px;z-index:3;pointer-events:none;border:2px solid #39c5d9;box-shadow:inset 0 0 10px rgba(57,197,217,.35)}
   .map-wrap{padding:12px}
   #grid{
     display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,82px);
@@ -183,6 +192,12 @@ python -m http.server 8000
     <div>
       <section class="panel">
         <div class="panel-hd"><span id="mapTitle">TACTICAL MAP</span><span id="mapSub"></span></div>
+        <div class="overlays" id="overlays">
+          <button data-ov="light">LIGHT</button>
+          <button data-ov="los">LOS</button>
+          <button data-ov="sound">SOUND</button>
+          <button data-ov="cam">CAM</button>
+        </div>
         <div class="map-wrap"><div id="grid"></div></div>
         <div class="legend">
           <span><i class="lw"></i>WALL</span>
@@ -222,6 +237,7 @@ python -m http.server 8000
 (function(){
   'use strict';
   var S=null, currentTab='OPERATOR';
+  var OV={light:false,los:false,sound:false,cam:false};
   var GM=/[?&]gm\b/.test(location.search);
   var TABS=GM?['OPERATOR','TARGET','INTEL','SHOP','GM']:['OPERATOR','TARGET','INTEL','SHOP'];
 
@@ -300,6 +316,17 @@ python -m http.server 8000
       return {cls:'e-wall',title:'WALL'};
     }
     var vis=new Set(S.view.visible||[]);
+    var ov=S.overlays||{},lm=ov.lightmap||{},snd=ov.sounds||[],cams=ov.cameras||[],cones=ov.guardCones||[];
+    var soundCells=new Set(snd.filter(function(s){return s.heard}).map(function(s){return s.cell;}));
+    var camCells=new Set(cams.filter(function(c){return c.visible}).map(function(c){return c.cell;}));
+    var coneCells=new Set();
+    if(OV.los){var dirs={N:[0,1],S:[0,-1],E:[1,0],W:[-1,0]};
+      cones.forEach(function(g){var d=dirs[g.facing]||[0,1];var a=cells[g.cell]||cells[short(g.cell)];if(!a)return;
+        arr.forEach(function(t){var vx=t.x-a.x,vy=t.y-a.y,len=Math.hypot(vx,vy)||1;
+          if((vx*d[0]+vy*d[1])/len<0.4)return;
+          if(Math.hypot(vx,vy)>(g.range||20)/4)return;
+          var k=[a.id,t.id].sort().join('|'),e=byKey[k];if(e&&e[2]!=='open'&&e[2]!=='door'&&e[2]!=='glass')return;
+          coneCells.add(t.id);});});}
     var byCell={};(S.contacts||[]).forEach(function(c){(byCell[c.cell]=byCell[c.cell]||[]).push(c);});
     var me=S.view.you.cell,html='';
     for(var y=4;y>=0;y--){
@@ -313,9 +340,15 @@ python -m http.server 8000
         var toks=(byCell[c.id]||[]).map(function(t,i){
           return '<div class="token" style="top:'+(4+i*13)+'px" title="'+esc(t.name+' / '+t.role)+'">'+esc(t.id)+
             '<span class="r">'+esc(t.role)+'</span></div>';}).join('');
+        var ovHtml='';
+        if(OV.light&&lm[c.id]!=null&&lm[c.id]>(S.map.ambient||0)+0.3)
+          ovHtml+='<div class="ov-light" style="opacity:'+Math.min(0.9,((lm[c.id]-(S.map.ambient||0))/8)).toFixed(2)+'" title="light '+Number(lm[c.id]).toFixed(1)+'"></div>';
+        if(OV.los&&coneCells.has(c.id))ovHtml+='<div class="ov-los" title="sight line"></div>';
+        if(OV.cam&&camCells.has(c.id))ovHtml+='<div class="ov-cam" title="camera visible"></div>';
+        if(OV.sound&&soundCells.has(c.id))ovHtml+='<div class="ov-sound" title="audible sound"></div>';
         html+='<div class="cell'+dim+(you?' you':'')+'" data-cell="'+esc(c.id)+'">'+
           '<div class="edge e-top '+et.cls+'" title="'+esc(et.title)+'"></div>'+
-          '<div class="edge e-right '+er.cls+'" title="'+esc(er.title)+'"></div>'+
+          '<div class="edge e-right '+er.cls+'" title="'+esc(er.title)+'"></div>'+ovHtml+
           '<div class="coord">'+esc(short(c.id))+'</div>'+
           '<div class="room">'+esc(c.n||'')+'</div>'+
           '<div class="mat">'+esc(c.m||'')+'</div>'+
@@ -338,6 +371,11 @@ python -m http.server 8000
     document.getElementById('tabbody').innerHTML=fn?fn():'';
     if(currentTab==='SHOP')bindShop();
   }
+
+  document.getElementById('overlays').onclick=function(e){
+    var b=e.target.closest('button[data-ov]');if(!b)return;
+    var k=b.dataset.ov;OV[k]=!OV[k];b.classList.toggle('on',OV[k]);renderMap();
+  };
 
   function tabOperator(){
     var v=S.view,y=v.you;
