@@ -41,10 +41,10 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 32.5,
+    "clock": 45.5,
     "deadline": 240,
     "player": {
-      "cell": "L0-C3",
+      "cell": "L0-D3",
       "facing": "N",
       "posture": "crouch",
       "hp": 100,
@@ -79,7 +79,7 @@
       ],
       "sway": 0.14,
       "darkness": 0.85,
-      "movedAt": 30.5,
+      "movedAt": 39.5,
       "maskOn": "gasmask",
       "filterUntil": 77
     },
@@ -185,11 +185,11 @@
         "facing": "W"
       },
       "T-03": {
-        "cell": "L0-D3",
+        "cell": "L0-C3",
         "mode": "hold",
-        "target": "L0-D3",
-        "movedAt": 0,
-        "facing": "S"
+        "target": "L0-C3",
+        "movedAt": 39.5,
+        "facing": "W"
       },
       "T-04": {
         "cell": "L0-D2",
@@ -350,6 +350,38 @@
         "time": 32.5,
         "type": "action",
         "desc": "tranquilizer gas released"
+      },
+      {
+        "id": "DOOR",
+        "cell": "L0-C3",
+        "db": 30,
+        "time": 36.5,
+        "type": "action",
+        "desc": "door opened"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-D3",
+        "db": 33,
+        "time": 39.5,
+        "type": "action",
+        "desc": "moving through Parcel Office"
+      },
+      {
+        "id": "STEP-T-03-39.5",
+        "cell": "L0-C3",
+        "db": 37,
+        "time": 39.5,
+        "type": "footstep",
+        "desc": "Courier Dell footsteps on carpet"
+      },
+      {
+        "id": "COPY",
+        "cell": "L0-D3",
+        "db": 34,
+        "time": 45.5,
+        "type": "action",
+        "desc": "data transfer"
       }
     ],
     "evidence": [
@@ -486,6 +518,21 @@
         "cell": "L0-C3",
         "what": "Ticket Clerk spotted you",
         "t": 32.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Ticket Clerk spotted you",
+        "t": 36.5
+      },
+      {
+        "cell": "L0-D3",
+        "what": "you entered Parcel Office",
+        "t": 39.5
+      },
+      {
+        "cell": "L0-D3",
+        "what": "Courier Dell spotted you",
+        "t": 39.5
       }
     ],
     "movementLog": [
@@ -496,7 +543,9 @@
       "10 | T-04 L0-E1 -> L0-D1 50dB",
       "15 | T-02 door L0-F2|L0-F3 closed",
       "15 | T-02 L0-F2 -> L0-F3 45dB",
-      "15 | T-04 L0-D1 -> L0-D2 50dB"
+      "15 | T-04 L0-D1 -> L0-D2 50dB",
+      "39.5 | T-03 door L0-C3|L0-D3 left open",
+      "39.5 | T-03 L0-D3 -> L0-C3 37dB"
     ],
     "objectives": [
       {
@@ -504,7 +553,7 @@
         "type": "copy",
         "target": "D3",
         "desc": "Copy the manifest from the courier's sealed case in the Parcel Office.",
-        "done": false
+        "done": true
       },
       {
         "id": "obj_extract",
@@ -567,7 +616,7 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 29,
+      "global": 34,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
@@ -575,14 +624,13 @@
         "L0-E1": 0,
         "L0-D1": 0,
         "L0-D2": 0,
-        "L0-C2": 10,
+        "L0-C2": 7,
         "L0-F3": 0,
-        "L0-C3": 1,
-        "L0-D3": 1
+        "L0-C3": 2,
+        "L0-D3": 2
       },
       "fired": [
-        "GLOBAL||CHECKIN|12",
-        "CELL|L0-C2|CHECKIN|12"
+        "GLOBAL||CHECKIN|12"
       ],
       "pending": []
     },
@@ -607,16 +655,6 @@
       "hint": "Copy the case at D3. Killing the courier is unnecessary and burns the contract."
     },
     "gasClouds": [
-      {
-        "cell": "L0-C2",
-        "from": 19.5,
-        "until": 39.5
-      },
-      {
-        "cell": "L0-C3",
-        "from": 25.5,
-        "until": 45.5
-      },
       {
         "cell": "L0-D3",
         "from": 30.5,
@@ -814,37 +852,17 @@
       "T-03": {
         "id": "T-03",
         "role": "courier",
-        "cell": "L0-D3",
+        "cell": "L0-C3",
         "seesPlayer": null,
         "heard": [
-          {
-            "soundId": "STEP-T-04-3",
-            "type": "footstep",
-            "desc": "Bodyguard Rusk footsteps on marble",
-            "at": 3,
-            "believedCell": "L0-E2",
-            "level": 34.94850021680094,
-            "margin": 6.948500216800937,
-            "gunshot": false
-          },
-          {
-            "soundId": "MOVE",
-            "type": "action",
-            "desc": "moving through Staff Corridor",
-            "at": 6,
-            "believedCell": "L0-B2",
-            "level": 28.969100130080566,
-            "margin": 0.969100130080566,
-            "gunshot": false
-          },
           {
             "soundId": "STEP-T-04-10",
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
             "believedCell": "L0-C1",
-            "level": 31.93820026016113,
-            "margin": 3.9382002601611283,
+            "level": 30.969100130080566,
+            "margin": 2.969100130080566,
             "gunshot": false
           },
           {
@@ -853,8 +871,8 @@
             "desc": "moving through Ticket Hall",
             "at": 15,
             "believedCell": "L0-B2",
-            "level": 32.94850021680094,
-            "margin": 4.948500216800937,
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
             "gunshot": false
           },
           {
@@ -863,8 +881,18 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 15,
             "believedCell": "L0-D3",
-            "level": 37.95880017344075,
-            "margin": 9.95880017344075,
+            "level": 34.94850021680094,
+            "margin": 6.948500216800937,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-39.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on carpet",
+            "at": 39.5,
+            "believedCell": "L0-C3",
+            "level": 32,
+            "margin": 4,
             "gunshot": false
           }
         ],
@@ -1022,10 +1050,7 @@
         "id": "T-05",
         "role": "technician",
         "cell": "L0-C2",
-        "seesPlayer": {
-          "cell": "L0-C3",
-          "at": 32.5
-        },
+        "seesPlayer": null,
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -1214,7 +1239,7 @@
     "L0-B3|L0-B4": "closed",
     "L0-B4|L0-C4": "closed",
     "L0-C2|L0-C3": "open",
-    "L0-C3|L0-D3": "locked",
+    "L0-C3|L0-D3": "open",
     "L0-C4|L0-C5": "closed",
     "L0-D5|L0-E5": "closed",
     "L0-E5|L0-F5": "open",
