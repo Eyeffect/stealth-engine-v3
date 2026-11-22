@@ -41,6 +41,7 @@ const ACTION_HELP = {
   search:     { label: 'SEARCH',     hint: 'id = downed npc id, in the same cell.',                    template: { type: 'search', id: 'T-01' } },
   drag:       { label: 'DRAG',       hint: 'id = downed npc id; to = destination cell.',              template: { type: 'drag', id: 'T-01', to: 'A1' } },
   radio:      { label: 'RADIO',      hint: 'text = transmission; optional channel.',                  template: { type: 'radio', text: 'All clear.' } },
+  threaten:   { label: 'THREATEN',   hint: 'target = npc id in your cell; weapon = knife.',           template: { type: 'threaten', target: 'T-05', weapon: 'knife', text: '' } },
   don:        { label: 'DON MASK',   hint: 'Put on the respirator mask (60 s filter).',               template: { type: 'don', mask: 'gasmask' } },
   gas:        { label: 'GAS',        hint: 'Release a tranquilizer gas cloud in a cell.',             template: { type: 'gas', cell: 'D3' } },
   wait:       { label: 'WAIT',       hint: 'seconds = time to let the world run.',                     template: { type: 'wait', seconds: 6 } }

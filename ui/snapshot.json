@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T18:58:27.194Z",
+  "generatedAt": "2026-11-22T19:02:59.736Z",
   "exporterVersion": 2,
   "missionId": "m1_manifest",
   "campaign": {
@@ -741,7 +741,7 @@
       "L0-E5|L0-F5": "open",
       "L0-E1|L0-E2": "closed",
       "L0-E2|L0-F2": "open",
-      "L0-F2|L0-F3": "open",
+      "L0-F2|L0-F3": "closed",
       "L0-F3|L0-F4": "open",
       "L0-E4|L0-F4": "open",
       "L0-E2|L0-E3": "closed",
@@ -788,11 +788,11 @@
     ]
   },
   "view": {
-    "clock": 12,
+    "clock": 17,
     "mission": "OBJECTIVE",
     "you": {
-      "cell": "L0-B2",
-      "room": "Staff Corridor",
+      "cell": "L0-C2",
+      "room": "Ticket Hall",
       "posture": "crouch",
       "hp": 100,
       "wounds": [],
@@ -828,9 +828,9 @@
       ]
     },
     "visible": [
-      "L0-B2",
-      "L0-A2",
       "L0-C2",
+      "L0-A2",
+      "L0-B2",
       "L0-D2"
     ],
     "contacts": [
@@ -843,31 +843,19 @@
     ],
     "heard": [
       {
-        "desc": "moving through Staff Corridor",
-        "at": 6,
-        "cell": "L0-B2",
+        "desc": "moving through Ticket Hall",
+        "at": 15,
+        "cell": "L0-C2",
         "db": 43
       },
       {
         "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 6,
-        "cell": "L0-E1",
-        "db": 50
-      },
-      {
-        "desc": "door opened",
-        "at": 10,
-        "cell": "L0-B2",
-        "db": 30
-      },
-      {
-        "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 10,
+        "at": 15,
         "cell": "L0-D2",
         "db": 50
       }
     ],
-    "heat": 9,
+    "heat": 25,
     "observations": [
       {
         "cell": "L0-A2",
@@ -878,6 +866,31 @@
         "cell": "L0-B2",
         "what": "you entered Staff Corridor",
         "t": 6
+      },
+      {
+        "cell": "L0-C2",
+        "what": "you entered Ticket Hall",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Concourse Guard spotted you",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Bodyguard Rusk spotted you",
+        "t": 17
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 17
       }
     ],
     "objectives": [
@@ -890,7 +903,7 @@
         "done": false
       }
     ],
-    "light": 0.4791666666666667,
+    "light": 0.55,
     "material": "tile",
     "exposure": "OK"
   },
@@ -929,22 +942,6 @@
     },
     "sounds": [
       {
-        "cell": "L0-A2",
-        "db": 41,
-        "type": "action",
-        "desc": "moving through Service Tunnel",
-        "at": 3,
-        "heard": true
-      },
-      {
-        "cell": "L0-E2",
-        "db": 50,
-        "type": "footstep",
-        "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 3,
-        "heard": true
-      },
-      {
         "cell": "L0-B2",
         "db": 43,
         "type": "action",
@@ -966,7 +963,7 @@
         "type": "action",
         "desc": "door opened",
         "at": 10,
-        "heard": true
+        "heard": false
       },
       {
         "cell": "L0-D1",
@@ -983,6 +980,30 @@
         "desc": "tranquilizer gas released",
         "at": 12,
         "heard": false
+      },
+      {
+        "cell": "L0-C2",
+        "db": 43,
+        "type": "action",
+        "desc": "moving through Ticket Hall",
+        "at": 15,
+        "heard": true
+      },
+      {
+        "cell": "L0-F3",
+        "db": 45,
+        "type": "footstep",
+        "desc": "Platform Guard footsteps on concrete",
+        "at": 15,
+        "heard": false
+      },
+      {
+        "cell": "L0-D2",
+        "db": 50,
+        "type": "footstep",
+        "desc": "Bodyguard Rusk footsteps on marble",
+        "at": 15,
+        "heard": true
       }
     ],
     "cameras": [],
@@ -995,24 +1016,29 @@
       }
     ],
     "visible": [
-      "L0-B2",
-      "L0-A2",
       "L0-C2",
+      "L0-A2",
+      "L0-B2",
       "L0-D2"
     ]
   },
   "diagnostics": {
     "heat": {
-      "global": 9,
+      "global": 25,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
-        "L0-B2": 1,
+        "L0-B2": 0,
         "L0-E1": 0,
-        "L0-D1": 1,
-        "L0-D2": 1
+        "L0-D1": 0,
+        "L0-D2": 1,
+        "L0-C2": 12,
+        "L0-F3": 1
       },
-      "fired": []
+      "fired": [
+        "GLOBAL||CHECKIN|12",
+        "CELL|L0-C2|CHECKIN|12"
+      ]
     },
     "beliefs": {
       "T-01": {
@@ -1070,6 +1096,26 @@
             "level": 38,
             "margin": 10,
             "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
+            "level": 58,
+            "margin": 30,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1077,17 +1123,47 @@
             "id": "GAS-BODY-T-01",
             "desc": "incapacitated by gas",
             "at": 12
+          },
+          {
+            "id": "GAS-BODY-T-04",
+            "desc": "incapacitated by gas",
+            "at": 17
           }
         ],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-02": {
         "id": "T-02",
         "role": "guard",
-        "cell": "L0-F2",
+        "cell": "L0-F3",
         "seesPlayer": null,
         "heard": [
           {
@@ -1095,17 +1171,7 @@
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 3,
-            "believedCell": "L0-E2",
-            "level": 45.95880017344075,
-            "margin": 17.95880017344075,
-            "gunshot": false
-          },
-          {
-            "soundId": "STEP-T-04-6",
-            "type": "footstep",
-            "desc": "Bodyguard Rusk footsteps on marble",
-            "at": 6,
-            "believedCell": "L0-E1",
+            "believedCell": "L0-E3",
             "level": 34.94850021680094,
             "margin": 6.948500216800937,
             "gunshot": false
@@ -1116,16 +1182,51 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
             "believedCell": "L0-C1",
-            "level": 30.969100130080566,
-            "margin": 2.969100130080566,
+            "level": 28.927900303521316,
+            "margin": 0.9279003035213158,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-02-15",
+            "type": "footstep",
+            "desc": "Platform Guard footsteps on concrete",
+            "at": 15,
+            "believedCell": "L0-F3",
+            "level": 48,
+            "margin": 20,
             "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-03": {
         "id": "T-03",
@@ -1152,19 +1253,57 @@
             "level": 31.93820026016113,
             "margin": 3.9382002601611283,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D3",
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-04": {
         "id": "T-04",
         "role": "bodyguard",
-        "cell": "L0-D1",
-        "seesPlayer": null,
+        "cell": "L0-D2",
+        "seesPlayer": {
+          "cell": "L0-C2",
+          "at": 17
+        },
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -1172,8 +1311,18 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 3,
             "believedCell": "L0-D2",
-            "level": 34.94850021680094,
-            "margin": 6.948500216800937,
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 6,
+            "believedCell": "L0-A2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
             "gunshot": false
           },
           {
@@ -1182,8 +1331,8 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 6,
             "believedCell": "L0-E1",
-            "level": 45.95880017344075,
-            "margin": 17.95880017344075,
+            "level": 34.94850021680094,
+            "margin": 6.948500216800937,
             "gunshot": false
           },
           {
@@ -1192,22 +1341,91 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
             "believedCell": "L0-D1",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 12,
+            "believedCell": "L0-D2",
+            "level": 38,
+            "margin": 10,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
             "level": 58,
             "margin": 30,
             "gunshot": false
           }
         ],
-        "evidence": [],
-        "told": [],
+        "evidence": [
+          {
+            "id": "GAS-BODY-T-01",
+            "desc": "incapacitated by gas",
+            "at": 12
+          },
+          {
+            "id": "GAS-BODY-T-04",
+            "desc": "incapacitated by gas",
+            "at": 17
+          }
+        ],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-05": {
         "id": "T-05",
         "role": "technician",
         "cell": "L0-C2",
-        "seesPlayer": null,
+        "seesPlayer": {
+          "cell": "L0-C2",
+          "at": 17
+        },
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -1248,34 +1466,115 @@
             "level": 42.94850021680094,
             "margin": 14.948500216800937,
             "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-06": {
         "id": "T-06",
         "role": "guard",
         "cell": "L0-E4",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-02-15",
+            "type": "footstep",
+            "desc": "Platform Guard footsteps on concrete",
+            "at": 15,
+            "believedCell": "L0-F3",
+            "level": 32.94850021680094,
+            "margin": 4.948500216800937,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       }
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: down → —",
-      "T-02 (guard) @ Platform 2: search → 10",
+      "T-02 (guard) @ Platform 3: search → 17",
       "T-03 (courier) @ Parcel Office: hold → Parcel Office",
-      "T-04 (bodyguard) @ Main Concourse: shield → Service Tunnel",
-      "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
-      "T-06 (guard) @ Signal Control: patrol → —"
+      "T-04 (bodyguard) @ Main Concourse: down → —",
+      "T-05 (technician) @ Ticket Hall: lockdown → Ticket Hall",
+      "T-06 (guard) @ Signal Control: search → 17"
     ],
     "positions": {
       "T-01": {
@@ -1283,10 +1582,10 @@
         "mode": "down"
       },
       "T-02": {
-        "cell": "L0-F2",
+        "cell": "L0-F3",
         "mode": "search",
-        "target": "10",
-        "movedAt": 0,
+        "target": "17",
+        "movedAt": 15,
         "facing": "W"
       },
       "T-03": {
@@ -1297,55 +1596,55 @@
         "facing": "S"
       },
       "T-04": {
-        "cell": "L0-D1",
-        "mode": "shield",
-        "target": "L0-A1",
-        "movedAt": 10,
-        "facing": "W"
+        "cell": "L0-D2",
+        "mode": "down"
       },
       "T-05": {
         "cell": "L0-C2",
-        "mode": "station",
+        "mode": "lockdown",
         "target": "L0-C2",
         "movedAt": 0,
         "facing": "S"
       },
       "T-06": {
         "cell": "L0-E4",
-        "mode": "patrol",
-        "target": null,
+        "mode": "search",
+        "target": "17",
         "movedAt": 0,
-        "facing": "N"
+        "facing": "W"
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T18:51:17.842Z\",\"label\":\"T-01:noise:curiosity\",\"target\":55,\"roll\":75,\"margin\":-20,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:51:17.843Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":17,\"margin\":38,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:51:17.843Z\",\"label\":\"T-02:noise:nerve\",\"target\":60,\"roll\":12,\"margin\":48,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:51:17.843Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":2,\"margin\":43,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:51:17.844Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":84,\"margin\":-34,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:51:17.844Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":10,\"margin\":50,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:52:47.238Z\",\"label\":\"open B2-C2 quietly\",\"target\":78,\"roll\":68,\"margin\":10,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.300Z\",\"label\":\"open door L0-B2|L0-C2\",\"target\":78,\"roll\":88,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.304Z\",\"label\":\"sight T-05 -> player\",\"target\":31,\"roll\":72,\"margin\":-41,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.305Z\",\"label\":\"T-01:noise:curiosity\",\"target\":55,\"roll\":79,\"margin\":-24,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.306Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":15,\"margin\":40,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.306Z\",\"label\":\"T-02:noise:nerve\",\"target\":60,\"roll\":41,\"margin\":19,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.306Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":86,\"margin\":-41,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:53:09.307Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":1,\"margin\":49,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.187Z\",\"label\":\"T-01 gas resist\",\"target\":35,\"roll\":3,\"margin\":32,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.191Z\",\"label\":\"sight T-05 -> player\",\"target\":16,\"roll\":62,\"margin\":-46,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.192Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":34,\"margin\":21,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:58:27.192Z\",\"label\":\"T-02:noise:nerve\",\"target\":60,\"roll\":44,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:58:27.193Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":60,\"margin\":-15,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.193Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":65,\"margin\":-15,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
+      "{\"ts\":\"2026-11-22T18:58:27.193Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":65,\"margin\":-15,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.878Z\",\"label\":\"sight T-01 -> player\",\"target\":36,\"roll\":36,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.880Z\",\"label\":\"sight T-04 -> player\",\"target\":35,\"roll\":55,\"margin\":-20,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.880Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":74,\"margin\":21,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.882Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":64,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.882Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":53,\"margin\":-8,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.883Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":41,\"margin\":14,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:19.883Z\",\"label\":\"T-02 close door behind\",\"target\":60,\"roll\":53,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.726Z\",\"label\":\"threaten T-05\",\"target\":30,\"roll\":87,\"margin\":-57,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.728Z\",\"label\":\"T-04 gas resist\",\"target\":35,\"roll\":22,\"margin\":13,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.730Z\",\"label\":\"sight T-01 -> player\",\"target\":36,\"roll\":68,\"margin\":-32,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.731Z\",\"label\":\"sight T-04 -> player\",\"target\":36,\"roll\":20,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.732Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":24,\"margin\":71,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.733Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":45,\"margin\":15,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":52,\"margin\":-7,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":26,\"margin\":29,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":69,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:02:59.735Z\",\"label\":\"T-05 fires at player\",\"target\":45,\"roll\":58,\"margin\":-13,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
     ],
     "movement": [
       "3 | T-04 door L0-E2|L0-E3 closed",
       "3 | T-04 L0-E3 -> L0-E2 50dB",
       "6 | T-04 door L0-E1|L0-E2 closed",
       "6 | T-04 L0-E2 -> L0-E1 50dB",
-      "10 | T-04 L0-E1 -> L0-D1 50dB"
+      "10 | T-04 L0-E1 -> L0-D1 50dB",
+      "15 | T-02 door L0-F2|L0-F3 closed",
+      "15 | T-02 L0-F2 -> L0-F3 45dB",
+      "15 | T-04 L0-D1 -> L0-D2 50dB"
     ],
     "trigger": {
       "armed": null,

@@ -41,10 +41,10 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 12,
+    "clock": 17,
     "deadline": 240,
     "player": {
-      "cell": "L0-B2",
+      "cell": "L0-C2",
       "facing": "N",
       "posture": "crouch",
       "hp": 100,
@@ -82,7 +82,7 @@
       ],
       "sway": 0.14,
       "darkness": 0.85,
-      "movedAt": 6
+      "movedAt": 15
     },
     "npcs": [
       {
@@ -144,7 +144,7 @@
         "facing": "W",
         "range": 8,
         "weapon": "smg",
-        "alive": true,
+        "alive": false,
         "carried": []
       },
       {
@@ -176,10 +176,10 @@
         "mode": "down"
       },
       "T-02": {
-        "cell": "L0-F2",
+        "cell": "L0-F3",
         "mode": "search",
-        "target": "10",
-        "movedAt": 0,
+        "target": "17",
+        "movedAt": 15,
         "facing": "W"
       },
       "T-03": {
@@ -190,25 +190,22 @@
         "facing": "S"
       },
       "T-04": {
-        "cell": "L0-D1",
-        "mode": "shield",
-        "target": "L0-A1",
-        "movedAt": 10,
-        "facing": "W"
+        "cell": "L0-D2",
+        "mode": "down"
       },
       "T-05": {
         "cell": "L0-C2",
-        "mode": "station",
+        "mode": "lockdown",
         "target": "L0-C2",
         "movedAt": 0,
         "facing": "S"
       },
       "T-06": {
         "cell": "L0-E4",
-        "mode": "patrol",
-        "target": null,
+        "mode": "search",
+        "target": "17",
         "movedAt": 0,
-        "facing": "N"
+        "facing": "W"
       }
     },
     "doors": {
@@ -290,6 +287,30 @@
         "time": 12,
         "type": "action",
         "desc": "tranquilizer gas released"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-C2",
+        "db": 43,
+        "time": 15,
+        "type": "action",
+        "desc": "moving through Ticket Hall"
+      },
+      {
+        "id": "STEP-T-02-15",
+        "cell": "L0-F3",
+        "db": 45,
+        "time": 15,
+        "type": "footstep",
+        "desc": "Platform Guard footsteps on concrete"
+      },
+      {
+        "id": "STEP-T-04-15",
+        "cell": "L0-D2",
+        "db": 50,
+        "time": 15,
+        "type": "footstep",
+        "desc": "Bodyguard Rusk footsteps on marble"
       }
     ],
     "evidence": [
@@ -299,9 +320,43 @@
         "cell": "L0-D2",
         "time": 12,
         "desc": "incapacitated by gas"
+      },
+      {
+        "id": "GAS-BODY-T-04",
+        "type": "body",
+        "cell": "L0-D2",
+        "time": 17,
+        "desc": "incapacitated by gas"
       }
     ],
-    "messages": [],
+    "messages": [
+      {
+        "from": "T-05",
+        "to": "all",
+        "text": "Help! Threatened at knife point!",
+        "content": {
+          "playerCell": "L0-C2"
+        },
+        "time": 17,
+        "confidence": 0.9
+      },
+      {
+        "from": "SYSTEM",
+        "to": "all",
+        "text": "CHECKIN — heat 12",
+        "content": {},
+        "time": 17,
+        "confidence": 1
+      },
+      {
+        "from": "SYSTEM",
+        "to": "all",
+        "text": "CHECKIN — heat 13",
+        "content": {},
+        "time": 17,
+        "confidence": 1
+      }
+    ],
     "observations": [
       {
         "cell": "L0-A2",
@@ -312,6 +367,31 @@
         "cell": "L0-B2",
         "what": "you entered Staff Corridor",
         "t": 6
+      },
+      {
+        "cell": "L0-C2",
+        "what": "you entered Ticket Hall",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Concourse Guard spotted you",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 15
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Bodyguard Rusk spotted you",
+        "t": 17
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 17
       }
     ],
     "movementLog": [
@@ -319,7 +399,10 @@
       "3 | T-04 L0-E3 -> L0-E2 50dB",
       "6 | T-04 door L0-E1|L0-E2 closed",
       "6 | T-04 L0-E2 -> L0-E1 50dB",
-      "10 | T-04 L0-E1 -> L0-D1 50dB"
+      "10 | T-04 L0-E1 -> L0-D1 50dB",
+      "15 | T-02 door L0-F2|L0-F3 closed",
+      "15 | T-02 L0-F2 -> L0-F3 45dB",
+      "15 | T-04 L0-D1 -> L0-D2 50dB"
     ],
     "objectives": [
       {
@@ -353,7 +436,7 @@
     "compromised": false,
     "objectivesDone": false,
     "resolver": [],
-    "kills": 1,
+    "kills": 2,
     "missionDef": {},
     "missionState": {
       "def": {},
@@ -390,21 +473,34 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 9,
+      "global": 25,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
-        "L0-B2": 1,
+        "L0-B2": 0,
         "L0-E1": 0,
-        "L0-D1": 1,
-        "L0-D2": 1
+        "L0-D1": 0,
+        "L0-D2": 1,
+        "L0-C2": 12,
+        "L0-F3": 1
       },
-      "fired": [],
+      "fired": [
+        "GLOBAL||CHECKIN|12",
+        "CELL|L0-C2|CHECKIN|12"
+      ],
       "pending": []
     },
     "resolvedEvents": {
-      "ids": [],
-      "resolved": {}
+      "ids": [
+        "heat-CHECKIN-17"
+      ],
+      "resolved": {
+        "heat-CHECKIN-17": {
+          "event": "CHECKIN",
+          "level": 12,
+          "reason": "Platform Guard movement"
+        }
+      }
     },
     "briefing": "A courier is carrying the Quiet Ledger manifest through Meridian Transit Hub in a sealed data case. Lift a copy in the Parcel Office and leave the way you came. The courier is not the target — the case is.",
     "intel": {
@@ -477,6 +573,26 @@
             "level": 38,
             "margin": 10,
             "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
+            "level": 58,
+            "margin": 30,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -484,17 +600,47 @@
             "id": "GAS-BODY-T-01",
             "desc": "incapacitated by gas",
             "at": 12
+          },
+          {
+            "id": "GAS-BODY-T-04",
+            "desc": "incapacitated by gas",
+            "at": 17
           }
         ],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-02": {
         "id": "T-02",
         "role": "guard",
-        "cell": "L0-F2",
+        "cell": "L0-F3",
         "seesPlayer": null,
         "heard": [
           {
@@ -502,17 +648,7 @@
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 3,
-            "believedCell": "L0-E2",
-            "level": 45.95880017344075,
-            "margin": 17.95880017344075,
-            "gunshot": false
-          },
-          {
-            "soundId": "STEP-T-04-6",
-            "type": "footstep",
-            "desc": "Bodyguard Rusk footsteps on marble",
-            "at": 6,
-            "believedCell": "L0-E1",
+            "believedCell": "L0-E3",
             "level": 34.94850021680094,
             "margin": 6.948500216800937,
             "gunshot": false
@@ -523,16 +659,51 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
             "believedCell": "L0-C1",
-            "level": 30.969100130080566,
-            "margin": 2.969100130080566,
+            "level": 28.927900303521316,
+            "margin": 0.9279003035213158,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-02-15",
+            "type": "footstep",
+            "desc": "Platform Guard footsteps on concrete",
+            "at": 15,
+            "believedCell": "L0-F3",
+            "level": 48,
+            "margin": 20,
             "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-03": {
         "id": "T-03",
@@ -559,19 +730,57 @@
             "level": 31.93820026016113,
             "margin": 3.9382002601611283,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D3",
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-04": {
         "id": "T-04",
         "role": "bodyguard",
-        "cell": "L0-D1",
-        "seesPlayer": null,
+        "cell": "L0-D2",
+        "seesPlayer": {
+          "cell": "L0-C2",
+          "at": 17
+        },
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -579,8 +788,18 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 3,
             "believedCell": "L0-D2",
-            "level": 34.94850021680094,
-            "margin": 6.948500216800937,
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 6,
+            "believedCell": "L0-A2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
             "gunshot": false
           },
           {
@@ -589,8 +808,8 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 6,
             "believedCell": "L0-E1",
-            "level": 45.95880017344075,
-            "margin": 17.95880017344075,
+            "level": 34.94850021680094,
+            "margin": 6.948500216800937,
             "gunshot": false
           },
           {
@@ -599,22 +818,91 @@
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
             "believedCell": "L0-D1",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 12,
+            "believedCell": "L0-D2",
+            "level": 38,
+            "margin": 10,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
             "level": 58,
             "margin": 30,
             "gunshot": false
           }
         ],
-        "evidence": [],
-        "told": [],
+        "evidence": [
+          {
+            "id": "GAS-BODY-T-01",
+            "desc": "incapacitated by gas",
+            "at": 12
+          },
+          {
+            "id": "GAS-BODY-T-04",
+            "desc": "incapacitated by gas",
+            "at": 17
+          }
+        ],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-05": {
         "id": "T-05",
         "role": "technician",
         "cell": "L0-C2",
-        "seesPlayer": null,
+        "seesPlayer": {
+          "cell": "L0-C2",
+          "at": 17
+        },
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -655,34 +943,115 @@
             "level": 42.94850021680094,
             "margin": 14.948500216800937,
             "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-15",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 15,
+            "believedCell": "L0-D2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       },
       "T-06": {
         "id": "T-06",
         "role": "guard",
         "cell": "L0-E4",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-02-15",
+            "type": "footstep",
+            "desc": "Platform Guard footsteps on concrete",
+            "at": 15,
+            "believedCell": "L0-F3",
+            "level": 32.94850021680094,
+            "margin": 4.948500216800937,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
-        "told": [],
+        "told": [
+          {
+            "from": "T-05",
+            "text": "Help! Threatened at knife point!",
+            "content": {
+              "playerCell": "L0-C2"
+            },
+            "at": 17,
+            "confidence": 0.9
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 12",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "CHECKIN — heat 13",
+            "content": {},
+            "at": 17,
+            "confidence": 1
+          }
+        ],
         "suspicion": 0,
         "noiseRead": null,
-        "gunshotHeard": false
+        "gunshotHeard": false,
+        "reportedPlayer": "L0-C2"
       }
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: down → —",
-      "T-02 (guard) @ Platform 2: search → 10",
+      "T-02 (guard) @ Platform 3: search → 17",
       "T-03 (courier) @ Parcel Office: hold → Parcel Office",
-      "T-04 (bodyguard) @ Main Concourse: shield → Service Tunnel",
-      "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
-      "T-06 (guard) @ Signal Control: patrol → —"
+      "T-04 (bodyguard) @ Main Concourse: down → —",
+      "T-05 (technician) @ Ticket Hall: lockdown → Ticket Hall",
+      "T-06 (guard) @ Signal Control: search → 17"
     ]
   },
   "mapDoors": {
@@ -702,7 +1071,7 @@
     "L0-E5|L0-F5": "open",
     "L0-E1|L0-E2": "closed",
     "L0-E2|L0-F2": "open",
-    "L0-F2|L0-F3": "open",
+    "L0-F2|L0-F3": "closed",
     "L0-F3|L0-F4": "open",
     "L0-E4|L0-F4": "open",
     "L0-E2|L0-E3": "closed",

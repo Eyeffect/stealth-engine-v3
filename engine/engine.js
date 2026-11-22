@@ -310,6 +310,31 @@ function makeEngine(cfg){
       applyCost({id:'DON',timeCost:2.5,noise:0,desc:'donning '+which});
       return{ok:true,msg:which+' on, filter 60s'};
     },
+    threaten(a){
+      const id=a.target||a.id;
+      const n=npc(id);
+      if(!n||n.alive===false)return{ok:false,msg:'No such person'};
+      const cell=norm(posOf(id).cell||n.cell);
+      if(cell!==norm(player().cell))return{ok:false,msg:'Target not in your cell'};
+      const weapon=a.weapon||'knife';
+      if(!(player().gear||[]).includes(weapon)&&weapon!=='knife')return{ok:false,msg:'No '+weapon};
+      const nerve=(n.traits||{}).nerve||(n.role==='guard'?65:n.role==='technician'?30:45);
+      const r=d100('threaten '+id,nerve);
+      applyCost({id:'THREAT',cell:cell,timeCost:2,noise:0,desc:'threatening '+id});
+      if(r.success){
+        world.compliance=world.compliance||{};world.compliance[id]={at:world.clock,until:world.clock+40};
+        const b=BELIEFS&&BELIEFS[id];
+        if(b){b.intimidated=true;b.suspicion=0}
+        world.messages.push({from:'PLAYER',to:id,text:'Threat: '+String(a.text||'').slice(0,60),
+          content:{threat:true},time:world.clock,confidence:0.9});
+        return{ok:true,grade:r.grade,msg:id+' complies — backs off, stays quiet'};
+      }
+      // failed: they panic / reach for a radio if they have one
+      if(weapon==='knife'&&n.weapon==='none')world.messages.push({from:id,to:'all',text:'Help! Threatened at knife point!',
+        content:{playerCell:cell},time:world.clock,confidence:0.9});
+      heat.add(cell,12,'panic');
+      return{ok:true,grade:r.grade,msg:id+' panics'+(n.weapon!=='none'?' and reaches for a weapon':' and shouts')};
+    },
     gas(a){
       if(!(player().gear||[]).includes('gas'))return{ok:false,msg:'No gas grenade'};
       const idx=player().gear.indexOf('gas');player().gear.splice(idx,1);
