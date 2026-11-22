@@ -368,7 +368,7 @@ function decideAll(world, beliefs, positions, map, rng, heat) {
     const p = positions[npc.id];
     const cell = cur(npc, ctx);
     let d;
-    if (npc.alive === false || (p && p.mode === 'down')) {
+    if (npc.alive === false || npc.incapacitated || (p && p.mode === 'down')) {
       d = dec('down', null, npc.facing, 'KIA / down', -1, 0, null);
     } else {
       switch (npc.role) {

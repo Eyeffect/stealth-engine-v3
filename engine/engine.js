@@ -43,6 +43,7 @@ function makeEngine(cfg){
   function player(){return world.player}
   function npc(id){return world.npcs.find(n=>n.id===id)}
   function alive(id){const n=npc(id);return !!n&&n.alive!==false}
+  function active(n){return !!n&&n.alive!==false&&!n.incapacitated}
   function openDoors(){const s=new Set();for(const k in map.doors)if(map.doors[k]==='open')s.add(k);return s}
   function posOf(id){return (world.positions&&world.positions[id])||{}}
 
@@ -132,7 +133,7 @@ function makeEngine(cfg){
     const newPos={};
     for(const n of world.npcs){
       const d=decisions[n.id]||{};
-      if(n.alive===false){newPos[n.id]={cell:norm(posOf(n.id).cell||n.cell),mode:'down'};continue}
+      if(!active(n)){newPos[n.id]={cell:norm(posOf(n.id).cell||n.cell),mode:'down'};continue}
       const cur=norm(posOf(n.id).cell||n.cell);
       let cell=cur;
       const target=d.target?norm(d.target):null;
@@ -389,11 +390,15 @@ function makeEngine(cfg){
     world.gasClouds=(world.gasClouds||[]).filter(g=>g.until>world.clock);
     for(const g of world.gasClouds){
       for(const n of world.npcs){
-        if(n.alive===false)continue;
+        if(!active(n))continue;
         if(norm(posOf(n.id).cell||n.cell)!==g.cell)continue;
         const r=d100(n.id+' gas resist',35);
-        if(r.success){n.alive=false;world.kills=(world.kills||0)+1;
-          world.evidence.push({id:'GAS-BODY-'+n.id,type:'body',cell:g.cell,time:world.clock,desc:'incapacitated by gas'});}
+        if(r.success){
+          n.incapacitated=true;                       // non-lethal: alive, but out cold
+          if(posOf(n.id))world.positions[n.id].mode='down';
+          world.evidence.push({id:'GAS-BODY-'+n.id,type:'body',cell:g.cell,time:world.clock,
+            desc:'incapacitated by gas (non-lethal)'});
+        }
       }
       if(norm(player().cell)===g.cell){
         const protectedNow=player().maskOn&&(player().filterUntil||0)>world.clock;
@@ -415,7 +420,7 @@ function makeEngine(cfg){
     // hostile fire: an alert guard with sight of the player shoots
     const pNow=player();
     for(const n of world.npcs){
-      if(n.alive===false||!B[n.id])continue;
+      if(!active(n)||!B[n.id])continue;
       if(!n.weapon||n.weapon==='none')continue;   // unarmed NPCs cannot shoot
       const d=B[n.id];
       const sees=d.seesPlayer;
@@ -465,7 +470,7 @@ function makeEngine(cfg){
     }
     const heard=world.sounds.filter(s=>world.clock-s.time<=6).filter(s=>audibility(cell,s).heard)
       .map(s=>({desc:s.desc,at:s.time,cell:P.localize('PLAYER',s,audibility(cell,s),map),db:s.level||s.db}));
-    const contacts=world.npcs.filter(n=>n.alive!==false&&visible.has(norm(posOf(n.id).cell||n.cell)))
+    const contacts=world.npcs.filter(n=>active(n)&&visible.has(norm(posOf(n.id).cell||n.cell)))
       .map(n=>({id:n.id,name:n.name,role:n.role,cell:norm(posOf(n.id).cell||n.cell)}));
     return{clock:world.clock,mission:mission.state,you:{cell:cell,room:room(cell),posture:p.posture,hp:p.hp,
       wounds:p.wounds||[],ammo:p.ammo,gear:p.gear||[]},
@@ -488,7 +493,7 @@ function makeEngine(cfg){
     const cams=(mission.cameras||[]).map(c=>({
       id:c.id,cell:'L0-'+String(c.cell).replace('L0-',''),facing:c.facing,fov:c.fov,range:c.range,ir:!!c.ir,
       visible:seen.has('L0-'+String(c.cell).replace('L0-',''))}));
-    const cones=world.npcs.filter(n=>n.alive!==false&&seen.has(norm(posOf(n.id).cell||n.cell)))
+    const cones=world.npcs.filter(n=>active(n)&&seen.has(norm(posOf(n.id).cell||n.cell)))
       .map(n=>({id:n.id,cell:norm(posOf(n.id).cell||n.cell),facing:(world.positions[n.id]||{}).facing||n.facing,
         range:n.range||20}));
     return{lightmap:lm,sounds:sounds,cameras:cams,guardCones:cones,visible:[...seen]};

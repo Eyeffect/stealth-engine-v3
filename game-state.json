@@ -41,10 +41,10 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 27.5,
+    "clock": 32.5,
     "deadline": 240,
     "player": {
-      "cell": "L0-C2",
+      "cell": "L0-C3",
       "facing": "N",
       "posture": "crouch",
       "hp": 100,
@@ -68,7 +68,6 @@
         "gas",
         "gas",
         "gas",
-        "gas",
         "flashbang",
         "flashbang",
         "flashbang",
@@ -80,7 +79,7 @@
       ],
       "sway": 0.14,
       "darkness": 0.85,
-      "movedAt": 15,
+      "movedAt": 30.5,
       "maskOn": "gasmask",
       "filterUntil": 77
     },
@@ -99,8 +98,9 @@
           "D2",
           "C2"
         ],
-        "alive": false,
-        "carried": []
+        "alive": true,
+        "carried": [],
+        "incapacitated": true
       },
       {
         "id": "T-02",
@@ -144,8 +144,9 @@
         "facing": "W",
         "range": 8,
         "weapon": "smg",
-        "alive": false,
-        "carried": []
+        "alive": true,
+        "carried": [],
+        "incapacitated": true
       },
       {
         "id": "T-05",
@@ -155,8 +156,9 @@
         "facing": "S",
         "range": 0,
         "weapon": "none",
-        "alive": false,
-        "carried": []
+        "alive": true,
+        "carried": [],
+        "incapacitated": true
       },
       {
         "id": "T-06",
@@ -332,6 +334,22 @@
         "time": 27.5,
         "type": "action",
         "desc": "tranquilizer gas released"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-C3",
+        "db": 33,
+        "time": 30.5,
+        "type": "action",
+        "desc": "moving through Parcel Office"
+      },
+      {
+        "id": "GAS",
+        "cell": "L0-D3",
+        "db": 30,
+        "time": 32.5,
+        "type": "action",
+        "desc": "tranquilizer gas released"
       }
     ],
     "evidence": [
@@ -458,6 +476,16 @@
         "cell": "L0-C2",
         "what": "Ticket Clerk spotted you",
         "t": 27.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "you entered Parcel Office",
+        "t": 30.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Ticket Clerk spotted you",
+        "t": 32.5
       }
     ],
     "movementLog": [
@@ -502,7 +530,7 @@
     "compromised": false,
     "objectivesDone": false,
     "resolver": [],
-    "kills": 3,
+    "kills": 0,
     "missionDef": {},
     "missionState": {
       "def": {},
@@ -539,7 +567,7 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 27,
+      "global": 29,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
@@ -547,9 +575,10 @@
         "L0-E1": 0,
         "L0-D1": 0,
         "L0-D2": 0,
-        "L0-C2": 12,
+        "L0-C2": 10,
         "L0-F3": 0,
-        "L0-C3": 1
+        "L0-C3": 1,
+        "L0-D3": 1
       },
       "fired": [
         "GLOBAL||CHECKIN|12",
@@ -579,11 +608,6 @@
     },
     "gasClouds": [
       {
-        "cell": "L0-D2",
-        "from": 10,
-        "until": 30
-      },
-      {
         "cell": "L0-C2",
         "from": 19.5,
         "until": 39.5
@@ -592,6 +616,11 @@
         "cell": "L0-C3",
         "from": 25.5,
         "until": 45.5
+      },
+      {
+        "cell": "L0-D3",
+        "from": 30.5,
+        "until": 50.5
       }
     ],
     "beliefs": {
@@ -599,10 +628,7 @@
         "id": "T-01",
         "role": "guard",
         "cell": "L0-D2",
-        "seesPlayer": {
-          "cell": "L0-C2",
-          "at": 27.5
-        },
+        "seesPlayer": null,
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -997,8 +1023,8 @@
         "role": "technician",
         "cell": "L0-C2",
         "seesPlayer": {
-          "cell": "L0-C2",
-          "at": 27.5
+          "cell": "L0-C3",
+          "at": 32.5
         },
         "heard": [
           {
