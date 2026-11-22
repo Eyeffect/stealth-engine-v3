@@ -1,0 +1,1758 @@
+{
+  "generatedAt": "2026-11-22T01:34:29.613Z",
+  "exporterVersion": 1,
+  "missionId": "m1_manifest",
+  "campaign": {
+    "title": "THE QUIET LEDGER",
+    "story": "The Quiet Ledger was never a bank. It was a private intelligence brokerage that sold protection to the highest bidder, and for eleven years its officers moved dossiers, bought silence, and buried a single manifest: a ledger of every bribe, every black operation, every name that had been paid to look away. That manifest surfaced at Meridian Transit Hub in the hands of a courier with a one-way ticket out of the city. You were hired to lift it before it left the platform.\n\nThen the Ledger's auditor, Mara Vance, began reconciling the books at Halcyon Archive. She found the name of the man who had hired you at the top of the payor list. The contract changed overnight: silence the auditor before she could copy the backup. You took the job. But inside the vault you read her notes and learned the truth — she was not embezzling. She was building a case against the entire network, and Director Halden, your own handler, was its architect. You lowered the blade. You staged her death, and the Ledger believed her dead.\n\nNow Halden knows a witness still breathes. Mara — the \"asset\" — is hidden in a coastal glasshouse while a cleanup team closes the net. Your new contract is to extract her before they do. The twist is that the asset is the woman you were paid to kill, and the manifest's true author is the handler who hired you. Deliver her to Halden and the Ledger survives; deliver her anywhere else and it burns. This time the destination is yours to choose."
+  },
+  "mission": {
+    "id": "m1_manifest",
+    "name": "THE MANIFEST",
+    "brief": "A courier is carrying the Quiet Ledger manifest through Meridian Transit Hub in a sealed data case. Lift a copy in the Parcel Office and leave the way you came. The courier is not the target — the case is.",
+    "mapId": "transit",
+    "deadline": 240,
+    "exit": {
+      "cell": "A1"
+    },
+    "rewards": {
+      "credits": 4500,
+      "reputation": 8
+    },
+    "enemies": [
+      {
+        "id": "T-01",
+        "name": "Concourse Guard",
+        "role": "guard",
+        "cell": "D2",
+        "facing": "E",
+        "range": 7,
+        "weapon": "pistol",
+        "patrol": [
+          "D2",
+          "E2",
+          "D2",
+          "C2"
+        ]
+      },
+      {
+        "id": "T-02",
+        "name": "Platform Guard",
+        "role": "guard",
+        "cell": "F2",
+        "facing": "N",
+        "range": 7,
+        "weapon": "pistol",
+        "patrol": [
+          "F2",
+          "F3",
+          "F4",
+          "F3"
+        ]
+      },
+      {
+        "id": "T-03",
+        "name": "Courier Dell",
+        "role": "courier",
+        "cell": "D3",
+        "facing": "S",
+        "range": 0,
+        "weapon": "none",
+        "traits": {
+          "alertness": 45,
+          "curiosity": 20,
+          "nerve": 40,
+          "discipline": 40
+        }
+      },
+      {
+        "id": "T-04",
+        "name": "Bodyguard Rusk",
+        "role": "bodyguard",
+        "cell": "E3",
+        "facing": "W",
+        "range": 8,
+        "weapon": "smg"
+      },
+      {
+        "id": "T-05",
+        "name": "Ticket Clerk",
+        "role": "technician",
+        "cell": "C2",
+        "facing": "S",
+        "range": 0,
+        "weapon": "none"
+      },
+      {
+        "id": "T-06",
+        "name": "Transit Officer",
+        "role": "guard",
+        "cell": "E4",
+        "facing": "N",
+        "range": 7,
+        "weapon": "pistol"
+      }
+    ],
+    "cameras": [
+      {
+        "id": "T-CAM-1",
+        "name": "Concourse Cam",
+        "cell": "D1",
+        "facing": "S",
+        "fov": 90,
+        "range": 8,
+        "ir": false,
+        "monitor": "Security Desk",
+        "monitorPost": "E4",
+        "attention": 55
+      },
+      {
+        "id": "T-CAM-2",
+        "name": "Parcel Cam",
+        "cell": "D3",
+        "facing": "W",
+        "fov": 75,
+        "range": 6,
+        "ir": true,
+        "monitor": "Security Desk",
+        "monitorPost": "E4",
+        "attention": 65
+      },
+      {
+        "id": "T-CAM-3",
+        "name": "Platform Cam",
+        "cell": "F3",
+        "facing": "S",
+        "fov": 100,
+        "range": 9,
+        "ir": false,
+        "monitor": "Platform Booth",
+        "monitorPost": "F4",
+        "attention": 45,
+        "pan": true
+      }
+    ],
+    "intel": {
+      "summary": "Courier Dell carries the manifest in a sealed case inside the Parcel Office at D3.",
+      "patrolWindow": "The platform guard loops F2-F4 roughly every 40 seconds.",
+      "cameraBlind": "The glass partition at B3 is unwatched; the parcel cam covers only D3.",
+      "hazard": "The parcel office door C3-D3 is locked; the main archway C1-D1 stands open.",
+      "hint": "Copy the case at D3. Killing the courier is unnecessary and burns the contract."
+    },
+    "objectives": [
+      {
+        "id": "obj_copy",
+        "type": "copy",
+        "target": "D3",
+        "desc": "Copy the manifest from the courier's sealed case in the Parcel Office."
+      },
+      {
+        "id": "obj_extract",
+        "type": "extract",
+        "target": "A1",
+        "desc": "Leave the hub through the service tunnel."
+      }
+    ]
+  },
+  "mapEdges": [
+    [
+      "L0-A1",
+      "L0-B1",
+      "open",
+      4
+    ],
+    [
+      "L0-B1",
+      "L0-C1",
+      "open",
+      4
+    ],
+    [
+      "L0-C1",
+      "L0-D1",
+      "door",
+      1.8
+    ],
+    [
+      "L0-D1",
+      "L0-E1",
+      "open",
+      4
+    ],
+    [
+      "L0-E1",
+      "L0-F1",
+      "open",
+      4
+    ],
+    [
+      "L0-F1",
+      "L0-F2",
+      "open",
+      4
+    ],
+    [
+      "L0-F2",
+      "L0-E2",
+      "door",
+      1.8
+    ],
+    [
+      "L0-E2",
+      "L0-D2",
+      "open",
+      4
+    ],
+    [
+      "L0-D2",
+      "L0-C2",
+      "open",
+      4
+    ],
+    [
+      "L0-C2",
+      "L0-B2",
+      "open",
+      4
+    ],
+    [
+      "L0-B2",
+      "L0-A2",
+      "open",
+      4
+    ],
+    [
+      "L0-A2",
+      "L0-A3",
+      "open",
+      4
+    ],
+    [
+      "L0-A3",
+      "L0-B3",
+      "open",
+      4
+    ],
+    [
+      "L0-B3",
+      "L0-C3",
+      "open",
+      4
+    ],
+    [
+      "L0-C3",
+      "L0-D3",
+      "door",
+      0.9
+    ],
+    [
+      "L0-D3",
+      "L0-E3",
+      "open",
+      4
+    ],
+    [
+      "L0-E3",
+      "L0-F3",
+      "open",
+      4
+    ],
+    [
+      "L0-F3",
+      "L0-F4",
+      "open",
+      4
+    ],
+    [
+      "L0-F4",
+      "L0-E4",
+      "open",
+      4
+    ],
+    [
+      "L0-E4",
+      "L0-D4",
+      "door",
+      3
+    ],
+    [
+      "L0-D4",
+      "L0-C4",
+      "open",
+      4
+    ],
+    [
+      "L0-C4",
+      "L0-B4",
+      "open",
+      4
+    ],
+    [
+      "L0-B4",
+      "L0-A4",
+      "open",
+      4
+    ],
+    [
+      "L0-A4",
+      "L0-A5",
+      "open",
+      4
+    ],
+    [
+      "L0-A5",
+      "L0-B5",
+      "open",
+      4
+    ],
+    [
+      "L0-B5",
+      "L0-C5",
+      "open",
+      4
+    ],
+    [
+      "L0-C5",
+      "L0-D5",
+      "open",
+      4
+    ],
+    [
+      "L0-D5",
+      "L0-E5",
+      "open",
+      4
+    ],
+    [
+      "L0-E5",
+      "L0-F5",
+      "open",
+      4
+    ],
+    [
+      "L0-A1",
+      "L0-A2",
+      "open",
+      4
+    ],
+    [
+      "L0-B1",
+      "L0-B2",
+      "door",
+      0.9
+    ],
+    [
+      "L0-C1",
+      "L0-C2",
+      "open",
+      4
+    ],
+    [
+      "L0-D1",
+      "L0-D2",
+      "open",
+      4
+    ],
+    [
+      "L0-E1",
+      "L0-E2",
+      "open",
+      4
+    ],
+    [
+      "L0-B2",
+      "L0-B3",
+      "glass",
+      0.1
+    ],
+    [
+      "L0-C2",
+      "L0-C3",
+      "door",
+      0.9
+    ],
+    [
+      "L0-D2",
+      "L0-D3",
+      "open",
+      4
+    ],
+    [
+      "L0-E2",
+      "L0-E3",
+      "open",
+      4
+    ],
+    [
+      "L0-F2",
+      "L0-F3",
+      "glass",
+      0.1
+    ],
+    [
+      "L0-A3",
+      "L0-A4",
+      "open",
+      4
+    ],
+    [
+      "L0-B3",
+      "L0-B4",
+      "open",
+      4
+    ],
+    [
+      "L0-C3",
+      "L0-C4",
+      "open",
+      4
+    ],
+    [
+      "L0-D3",
+      "L0-D4",
+      "door",
+      0.9
+    ],
+    [
+      "L0-E3",
+      "L0-E4",
+      "open",
+      4
+    ],
+    [
+      "L0-B4",
+      "L0-B5",
+      "open",
+      4
+    ],
+    [
+      "L0-C4",
+      "L0-C5",
+      "open",
+      4
+    ],
+    [
+      "L0-D4",
+      "L0-D5",
+      "open",
+      4
+    ],
+    [
+      "L0-E4",
+      "L0-E5",
+      "glass",
+      0.1
+    ],
+    [
+      "L0-F4",
+      "L0-F5",
+      "open",
+      4
+    ]
+  ],
+  "map": {
+    "name": "MERIDIAN TRANSIT HUB",
+    "level": "L0",
+    "ambient": 0.3,
+    "cells": {
+      "L0-A1": {
+        "m": "concrete",
+        "n": "Service Tunnel",
+        "level": "L0",
+        "x": 0,
+        "y": 0
+      },
+      "L0-B1": {
+        "m": "concrete",
+        "n": "Loading Bay",
+        "level": "L0",
+        "x": 1,
+        "y": 0
+      },
+      "L0-C1": {
+        "m": "tile",
+        "n": "Baggage Claim",
+        "level": "L0",
+        "x": 2,
+        "y": 0
+      },
+      "L0-D1": {
+        "m": "marble",
+        "n": "Main Concourse",
+        "level": "L0",
+        "x": 3,
+        "y": 0
+      },
+      "L0-E1": {
+        "m": "marble",
+        "n": "Main Concourse",
+        "level": "L0",
+        "x": 4,
+        "y": 0
+      },
+      "L0-F1": {
+        "m": "concrete",
+        "n": "East Platform",
+        "level": "L0",
+        "x": 5,
+        "y": 0
+      },
+      "L0-A2": {
+        "m": "concrete",
+        "n": "Service Tunnel",
+        "level": "L0",
+        "x": 0,
+        "y": 1
+      },
+      "L0-B2": {
+        "m": "tile",
+        "n": "Staff Corridor",
+        "level": "L0",
+        "x": 1,
+        "y": 1
+      },
+      "L0-C2": {
+        "m": "tile",
+        "n": "Ticket Hall",
+        "level": "L0",
+        "x": 2,
+        "y": 1
+      },
+      "L0-D2": {
+        "m": "marble",
+        "n": "Main Concourse",
+        "level": "L0",
+        "x": 3,
+        "y": 1
+      },
+      "L0-E2": {
+        "m": "marble",
+        "n": "East Concourse",
+        "level": "L0",
+        "x": 4,
+        "y": 1
+      },
+      "L0-F2": {
+        "m": "concrete",
+        "n": "Platform 2",
+        "level": "L0",
+        "x": 5,
+        "y": 1
+      },
+      "L0-A3": {
+        "m": "concrete",
+        "n": "Utility Room",
+        "level": "L0",
+        "x": 0,
+        "y": 2
+      },
+      "L0-B3": {
+        "m": "tile",
+        "n": "Restrooms",
+        "level": "L0",
+        "x": 1,
+        "y": 2
+      },
+      "L0-C3": {
+        "m": "carpet",
+        "n": "Parcel Office",
+        "level": "L0",
+        "x": 2,
+        "y": 2
+      },
+      "L0-D3": {
+        "m": "carpet",
+        "n": "Parcel Office",
+        "level": "L0",
+        "x": 3,
+        "y": 2
+      },
+      "L0-E3": {
+        "m": "tile",
+        "n": "Information Desk",
+        "level": "L0",
+        "x": 4,
+        "y": 2
+      },
+      "L0-F3": {
+        "m": "concrete",
+        "n": "Platform 3",
+        "level": "L0",
+        "x": 5,
+        "y": 2
+      },
+      "L0-A4": {
+        "m": "concrete",
+        "n": "Service Lift",
+        "level": "L0",
+        "x": 0,
+        "y": 3
+      },
+      "L0-B4": {
+        "m": "wood",
+        "n": "Storage",
+        "level": "L0",
+        "x": 1,
+        "y": 3
+      },
+      "L0-C4": {
+        "m": "concrete",
+        "n": "Service Bay",
+        "level": "L0",
+        "x": 2,
+        "y": 3
+      },
+      "L0-D4": {
+        "m": "concrete",
+        "n": "Service Bay",
+        "level": "L0",
+        "x": 3,
+        "y": 3
+      },
+      "L0-E4": {
+        "m": "tile",
+        "n": "Signal Control",
+        "level": "L0",
+        "x": 4,
+        "y": 3
+      },
+      "L0-F4": {
+        "m": "concrete",
+        "n": "East Walkway",
+        "level": "L0",
+        "x": 5,
+        "y": 3
+      },
+      "L0-A5": {
+        "m": "concrete",
+        "n": "Vent Shaft",
+        "level": "L0",
+        "x": 0,
+        "y": 4
+      },
+      "L0-B5": {
+        "m": "concrete",
+        "n": "Roof Access",
+        "level": "L0",
+        "x": 1,
+        "y": 4
+      },
+      "L0-C5": {
+        "m": "concrete",
+        "n": "Cable Run",
+        "level": "L0",
+        "x": 2,
+        "y": 4
+      },
+      "L0-D5": {
+        "m": "concrete",
+        "n": "Cable Run",
+        "level": "L0",
+        "x": 3,
+        "y": 4
+      },
+      "L0-E5": {
+        "m": "tile",
+        "n": "Signal Room",
+        "level": "L0",
+        "x": 4,
+        "y": 4
+      },
+      "L0-F5": {
+        "m": "gravel",
+        "n": "North Overlook",
+        "level": "L0",
+        "x": 5,
+        "y": 4
+      }
+    },
+    "edges": [
+      [
+        "L0-A1",
+        "L0-B1",
+        "open",
+        4
+      ],
+      [
+        "L0-B1",
+        "L0-C1",
+        "open",
+        4
+      ],
+      [
+        "L0-C1",
+        "L0-D1",
+        "door",
+        1.8
+      ],
+      [
+        "L0-D1",
+        "L0-E1",
+        "open",
+        4
+      ],
+      [
+        "L0-E1",
+        "L0-F1",
+        "open",
+        4
+      ],
+      [
+        "L0-F1",
+        "L0-F2",
+        "open",
+        4
+      ],
+      [
+        "L0-F2",
+        "L0-E2",
+        "door",
+        1.8
+      ],
+      [
+        "L0-E2",
+        "L0-D2",
+        "open",
+        4
+      ],
+      [
+        "L0-D2",
+        "L0-C2",
+        "open",
+        4
+      ],
+      [
+        "L0-C2",
+        "L0-B2",
+        "open",
+        4
+      ],
+      [
+        "L0-B2",
+        "L0-A2",
+        "open",
+        4
+      ],
+      [
+        "L0-A2",
+        "L0-A3",
+        "open",
+        4
+      ],
+      [
+        "L0-A3",
+        "L0-B3",
+        "open",
+        4
+      ],
+      [
+        "L0-B3",
+        "L0-C3",
+        "open",
+        4
+      ],
+      [
+        "L0-C3",
+        "L0-D3",
+        "door",
+        0.9
+      ],
+      [
+        "L0-D3",
+        "L0-E3",
+        "open",
+        4
+      ],
+      [
+        "L0-E3",
+        "L0-F3",
+        "open",
+        4
+      ],
+      [
+        "L0-F3",
+        "L0-F4",
+        "open",
+        4
+      ],
+      [
+        "L0-F4",
+        "L0-E4",
+        "open",
+        4
+      ],
+      [
+        "L0-E4",
+        "L0-D4",
+        "door",
+        3
+      ],
+      [
+        "L0-D4",
+        "L0-C4",
+        "open",
+        4
+      ],
+      [
+        "L0-C4",
+        "L0-B4",
+        "open",
+        4
+      ],
+      [
+        "L0-B4",
+        "L0-A4",
+        "open",
+        4
+      ],
+      [
+        "L0-A4",
+        "L0-A5",
+        "open",
+        4
+      ],
+      [
+        "L0-A5",
+        "L0-B5",
+        "open",
+        4
+      ],
+      [
+        "L0-B5",
+        "L0-C5",
+        "open",
+        4
+      ],
+      [
+        "L0-C5",
+        "L0-D5",
+        "open",
+        4
+      ],
+      [
+        "L0-D5",
+        "L0-E5",
+        "open",
+        4
+      ],
+      [
+        "L0-E5",
+        "L0-F5",
+        "open",
+        4
+      ],
+      [
+        "L0-A1",
+        "L0-A2",
+        "open",
+        4
+      ],
+      [
+        "L0-B1",
+        "L0-B2",
+        "door",
+        0.9
+      ],
+      [
+        "L0-C1",
+        "L0-C2",
+        "open",
+        4
+      ],
+      [
+        "L0-D1",
+        "L0-D2",
+        "open",
+        4
+      ],
+      [
+        "L0-E1",
+        "L0-E2",
+        "open",
+        4
+      ],
+      [
+        "L0-B2",
+        "L0-B3",
+        "glass",
+        0.1
+      ],
+      [
+        "L0-C2",
+        "L0-C3",
+        "door",
+        0.9
+      ],
+      [
+        "L0-D2",
+        "L0-D3",
+        "open",
+        4
+      ],
+      [
+        "L0-E2",
+        "L0-E3",
+        "open",
+        4
+      ],
+      [
+        "L0-F2",
+        "L0-F3",
+        "glass",
+        0.1
+      ],
+      [
+        "L0-A3",
+        "L0-A4",
+        "open",
+        4
+      ],
+      [
+        "L0-B3",
+        "L0-B4",
+        "open",
+        4
+      ],
+      [
+        "L0-C3",
+        "L0-C4",
+        "open",
+        4
+      ],
+      [
+        "L0-D3",
+        "L0-D4",
+        "door",
+        0.9
+      ],
+      [
+        "L0-E3",
+        "L0-E4",
+        "open",
+        4
+      ],
+      [
+        "L0-B4",
+        "L0-B5",
+        "open",
+        4
+      ],
+      [
+        "L0-C4",
+        "L0-C5",
+        "open",
+        4
+      ],
+      [
+        "L0-D4",
+        "L0-D5",
+        "open",
+        4
+      ],
+      [
+        "L0-E4",
+        "L0-E5",
+        "glass",
+        0.1
+      ],
+      [
+        "L0-F4",
+        "L0-F5",
+        "open",
+        4
+      ]
+    ],
+    "doors": {
+      "L0-C1|L0-D1": "open",
+      "L0-E2|L0-F2": "closed",
+      "L0-C3|L0-D3": "locked",
+      "L0-D4|L0-E4": "open",
+      "L0-B1|L0-B2": "closed",
+      "L0-C2|L0-C3": "closed",
+      "L0-D3|L0-D4": "closed"
+    },
+    "lights": [
+      {
+        "id": "T-L1",
+        "cell": "L0-C2",
+        "radius": 3,
+        "intensity": 1,
+        "on": true,
+        "facing": "S"
+      },
+      {
+        "id": "T-L2",
+        "cell": "L0-D3",
+        "radius": 2,
+        "intensity": 0.8,
+        "on": true
+      },
+      {
+        "id": "T-L3",
+        "cell": "L0-B4",
+        "radius": 3,
+        "intensity": 0.6,
+        "on": true,
+        "facing": "N"
+      },
+      {
+        "id": "T-L4",
+        "cell": "L0-F2",
+        "radius": 2,
+        "intensity": 0.5,
+        "on": false
+      },
+      {
+        "id": "T-L5",
+        "cell": "L0-E4",
+        "radius": 3,
+        "intensity": 1.1,
+        "on": true
+      }
+    ]
+  },
+  "view": {
+    "clock": 6,
+    "mission": "INFILTRATION",
+    "you": {
+      "cell": "L0-A1",
+      "room": "Service Tunnel",
+      "posture": "crouch",
+      "hp": 100,
+      "wounds": [],
+      "ammo": 8,
+      "gear": [
+        "knife",
+        "lockpick"
+      ]
+    },
+    "visible": [
+      "L0-A1"
+    ],
+    "contacts": [],
+    "heard": [
+      {
+        "desc": "Bodyguard Rusk footsteps on marble",
+        "at": 6,
+        "cell": "L0-D2",
+        "db": 50
+      }
+    ],
+    "heat": 2,
+    "observations": [],
+    "objectives": [
+      {
+        "desc": "Copy the manifest from the courier's sealed case in the Parcel Office.",
+        "done": false
+      },
+      {
+        "desc": "Leave the hub through the service tunnel.",
+        "done": false
+      }
+    ],
+    "light": 0.55464400750007,
+    "material": "concrete",
+    "exposure": "OK"
+  },
+  "diagnostics": {
+    "heat": {
+      "global": 2,
+      "cells": {
+        "L0-E2": 2
+      },
+      "fired": []
+    },
+    "beliefs": {
+      "T-01": {
+        "id": "T-01",
+        "role": "guard",
+        "cell": "L0-D2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-02": {
+        "id": "T-02",
+        "role": "guard",
+        "cell": "L0-F2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-03": {
+        "id": "T-03",
+        "role": "courier",
+        "cell": "L0-D3",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-04": {
+        "id": "T-04",
+        "role": "bodyguard",
+        "cell": "L0-E3",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-05": {
+        "id": "T-05",
+        "role": "technician",
+        "cell": "L0-C2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-06": {
+        "id": "T-06",
+        "role": "guard",
+        "cell": "L0-E4",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      }
+    },
+    "brainTrace": [
+      "T-01 (guard) @ Main Concourse: patrol → East Concourse",
+      "T-02 (guard) @ Platform 2: patrol → Platform 3",
+      "T-03 (courier) @ Parcel Office: hold → Parcel Office",
+      "T-04 (bodyguard) @ Information Desk: shield → Service Tunnel",
+      "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
+      "T-06 (guard) @ Signal Control: patrol → —"
+    ],
+    "positions": {
+      "T-01": {
+        "cell": "L0-D2",
+        "mode": "patrol",
+        "target": "L0-E2",
+        "movedAt": 0,
+        "facing": "E"
+      },
+      "T-02": {
+        "cell": "L0-F2",
+        "mode": "patrol",
+        "target": "L0-F3",
+        "movedAt": 0,
+        "facing": "N"
+      },
+      "T-03": {
+        "cell": "L0-D3",
+        "mode": "hold",
+        "target": "L0-D3",
+        "movedAt": 0,
+        "facing": "S"
+      },
+      "T-04": {
+        "cell": "L0-E2",
+        "mode": "shield",
+        "target": "L0-A1",
+        "movedAt": 6,
+        "facing": "W"
+      },
+      "T-05": {
+        "cell": "L0-C2",
+        "mode": "station",
+        "target": "L0-C2",
+        "movedAt": 0,
+        "facing": "S"
+      },
+      "T-06": {
+        "cell": "L0-E4",
+        "mode": "patrol",
+        "target": null,
+        "movedAt": 0,
+        "facing": "N"
+      }
+    },
+    "audit": [
+      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":52,\"margin\":-12,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":9,\"margin\":71,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":12,\"margin\":68,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":30,\"margin\":20,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":92,\"margin\":-47,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"sight S-01 -> player\",\"target\":3,\"roll\":59,\"margin\":-56,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"sight S-02 -> player\",\"target\":3,\"roll\":62,\"margin\":-59,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"S-01:noise:curiosity\",\"target\":55,\"roll\":65,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-02:noise:curiosity\",\"target\":55,\"roll\":4,\"margin\":51,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-02:noise:nerve\",\"target\":60,\"roll\":7,\"margin\":53,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-03:noise:curiosity\",\"target\":55,\"roll\":71,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":94,\"margin\":-54,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":73,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":79,\"margin\":1,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":26,\"margin\":24,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":55,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:33:29.625Z\",\"label\":\"sight A-07 -> player\",\"target\":6,\"roll\":73,\"margin\":-67,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:33:29.627Z\",\"label\":\"A-05 close door behind\",\"target\":60,\"roll\":79,\"margin\":-19,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:33:33.980Z\",\"label\":\"sight S-01 -> player\",\"target\":1,\"roll\":73,\"margin\":-72,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T01:33:33.982Z\",\"label\":\"S-05 close door behind\",\"target\":60,\"roll\":69,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
+    ],
+    "movement": [
+      "6 | T-04 L0-E3 -> L0-E2 50dB"
+    ],
+    "trigger": {
+      "armed": null,
+      "fired": false,
+      "disarmed": false
+    }
+  },
+  "contacts": [],
+  "account": {
+    "credits": 25000,
+    "reputation": 50,
+    "gear": [
+      "knife",
+      "lockpick"
+    ],
+    "missions": [],
+    "kills": 0
+  },
+  "items": {
+    "pistol": {
+      "id": "pistol",
+      "name": "Suppressed 9mm Pistol",
+      "cost": 4200,
+      "category": "firearms",
+      "specs": [
+        "9mm subsonic",
+        "15+1 rounds",
+        "threaded / suppressed"
+      ],
+      "timeCost": 1.2,
+      "noise": 74,
+      "weight": 0.9
+    },
+    "revolver": {
+      "id": "revolver",
+      "name": "Caseless Revolver",
+      "cost": 1800,
+      "category": "firearms",
+      "specs": [
+        ".22 LR",
+        "6-round cylinder",
+        "retains casings"
+      ],
+      "timeCost": 1,
+      "noise": 92,
+      "weight": 0.7
+    },
+    "smg": {
+      "id": "smg",
+      "name": "Compact SMG",
+      "cost": 5600,
+      "category": "firearms",
+      "specs": [
+        "9mm",
+        "30-round magazine",
+        "select fire"
+      ],
+      "timeCost": 1.5,
+      "noise": 98,
+      "weight": 2.6
+    },
+    "rifle": {
+      "id": "rifle",
+      "name": "Bolt-Action Rifle",
+      "cost": 7800,
+      "category": "firearms",
+      "specs": [
+        "5.56mm",
+        "20-round magazine",
+        "long range precision"
+      ],
+      "timeCost": 2,
+      "noise": 106,
+      "weight": 3.4
+    },
+    "knife": {
+      "id": "knife",
+      "name": "Fixed-Blade Knife",
+      "cost": 120,
+      "category": "melee",
+      "specs": [
+        "12 cm blade",
+        "full tang",
+        "near-silent"
+      ],
+      "timeCost": 0.8,
+      "noise": 24,
+      "weight": 0.2
+    },
+    "garrote": {
+      "id": "garrote",
+      "name": "Cable Garrote",
+      "cost": 60,
+      "category": "melee",
+      "specs": [
+        "1.2 m braided cable",
+        "wooden grips",
+        "concealable"
+      ],
+      "timeCost": 2.5,
+      "noise": 14,
+      "weight": 0.05
+    },
+    "baton": {
+      "id": "baton",
+      "name": "Telescopic Baton",
+      "cost": 180,
+      "category": "melee",
+      "specs": [
+        "61 cm extended",
+        "steel shaft",
+        "impact weapon"
+      ],
+      "timeCost": 0.9,
+      "noise": 46,
+      "weight": 0.5
+    },
+    "lockpick": {
+      "id": "lockpick",
+      "name": "Lockpick Set",
+      "cost": 240,
+      "category": "tools",
+      "specs": [
+        "tension wrench + picks",
+        "medium security",
+        "reusable"
+      ],
+      "timeCost": 6,
+      "noise": 18,
+      "weight": 0.1
+    },
+    "bypass": {
+      "id": "bypass",
+      "name": "Electronic Bypass",
+      "cost": 900,
+      "category": "tools",
+      "specs": [
+        "defeats standard locks",
+        "3 charges",
+        "reusable device"
+      ],
+      "timeCost": 3,
+      "noise": 30,
+      "weight": 0.25
+    },
+    "cutters": {
+      "id": "cutters",
+      "name": "Bolt Cutters",
+      "cost": 160,
+      "category": "tools",
+      "specs": [
+        "12 mm bar capacity",
+        "manual leverage",
+        "heavy"
+      ],
+      "timeCost": 8,
+      "noise": 64,
+      "weight": 1.8
+    },
+    "climb_rig": {
+      "id": "climb_rig",
+      "name": "Climb Rig",
+      "cost": 650,
+      "category": "tools",
+      "specs": [
+        "15 m rope + harness",
+        "anchored descent",
+        "load rated"
+      ],
+      "timeCost": 12,
+      "noise": 20,
+      "weight": 2.2
+    },
+    "door_wedge": {
+      "id": "door_wedge",
+      "name": "Door Wedge",
+      "cost": 45,
+      "category": "tools",
+      "specs": [
+        "rubber wedge",
+        "holds one door ajar",
+        "silent"
+      ],
+      "timeCost": 0.6,
+      "noise": 8,
+      "weight": 0.08
+    },
+    "crowbar": {
+      "id": "crowbar",
+      "name": "Pry Bar",
+      "cost": 70,
+      "category": "tools",
+      "specs": [
+        "60 cm forged bar",
+        "forced entry",
+        "loud"
+      ],
+      "timeCost": 3,
+      "noise": 78,
+      "weight": 1.2
+    },
+    "jammer": {
+      "id": "jammer",
+      "name": "RF Jammer",
+      "cost": 1400,
+      "category": "electronics",
+      "specs": [
+        "20 m radius",
+        "45 s charge",
+        "cuts local comms"
+      ],
+      "timeCost": 1,
+      "noise": 12,
+      "weight": 0.4
+    },
+    "decoder": {
+      "id": "decoder",
+      "name": "Signal Decoder",
+      "cost": 1100,
+      "category": "electronics",
+      "specs": [
+        "cracks encrypted comms",
+        "instant readout",
+        "rechargeable"
+      ],
+      "timeCost": 2,
+      "noise": 10,
+      "weight": 0.3
+    },
+    "fibercam": {
+      "id": "fibercam",
+      "name": "Fiber-Optic Camera",
+      "cost": 780,
+      "category": "electronics",
+      "specs": [
+        "3 m flexible probe",
+        "visual feed",
+        "silent"
+      ],
+      "timeCost": 3,
+      "noise": 5,
+      "weight": 0.35
+    },
+    "radio": {
+      "id": "radio",
+      "name": "Encrypted Radio",
+      "cost": 680,
+      "category": "electronics",
+      "specs": [
+        "secure channel",
+        "long range",
+        "rechargeable"
+      ],
+      "timeCost": 1,
+      "noise": 35,
+      "weight": 0.5
+    },
+    "decoy": {
+      "id": "decoy",
+      "name": "Throwable Decoy",
+      "cost": 220,
+      "category": "consumables",
+      "specs": [
+        "8 m noise radius",
+        "single use",
+        "disposable"
+      ],
+      "timeCost": 0.5,
+      "noise": 86,
+      "weight": 0.12
+    },
+    "gas": {
+      "id": "gas",
+      "name": "Tranquilizer Gas",
+      "cost": 480,
+      "category": "consumables",
+      "specs": [
+        "4 m cloud",
+        "incapacitates",
+        "single use"
+      ],
+      "timeCost": 2,
+      "noise": 30,
+      "weight": 0.3
+    },
+    "flashbang": {
+      "id": "flashbang",
+      "name": "Flashbang",
+      "cost": 350,
+      "category": "consumables",
+      "specs": [
+        "6 m radius",
+        "blinds + deafens",
+        "single use"
+      ],
+      "timeCost": 0.4,
+      "noise": 122,
+      "weight": 0.25
+    },
+    "thermite": {
+      "id": "thermite",
+      "name": "Thermite Charge",
+      "cost": 620,
+      "category": "consumables",
+      "specs": [
+        "cuts steel",
+        "single use",
+        "intense heat"
+      ],
+      "timeCost": 5,
+      "noise": 88,
+      "weight": 0.6
+    },
+    "smoke": {
+      "id": "smoke",
+      "name": "Smoke Grenade",
+      "cost": 190,
+      "category": "consumables",
+      "specs": [
+        "6 m smoke screen",
+        "blocks sight",
+        "single use"
+      ],
+      "timeCost": 0.5,
+      "noise": 60,
+      "weight": 0.3
+    },
+    "medkit": {
+      "id": "medkit",
+      "name": "Trauma Medkit",
+      "cost": 300,
+      "category": "consumables",
+      "specs": [
+        "stabilizes wounds",
+        "single use",
+        "compact"
+      ],
+      "timeCost": 4,
+      "noise": 12,
+      "weight": 0.5
+    },
+    "bodybag": {
+      "id": "bodybag",
+      "name": "Body Disposal Bag",
+      "cost": 90,
+      "category": "support",
+      "specs": [
+        "fits one adult",
+        "folds flat",
+        "sealed"
+      ],
+      "timeCost": 8,
+      "noise": 15,
+      "weight": 0.7
+    },
+    "ghillie": {
+      "id": "ghillie",
+      "name": "Ghillie Suit",
+      "cost": 540,
+      "category": "support",
+      "specs": [
+        "outdoor camouflage",
+        "bulky",
+        "breaks silhouette"
+      ],
+      "timeCost": 15,
+      "noise": 5,
+      "weight": 1.6
+    },
+    "gloves": {
+      "id": "gloves",
+      "name": "Friction Gloves",
+      "cost": 60,
+      "category": "support",
+      "specs": [
+        "no fingerprints",
+        "improved grip",
+        "disposable"
+      ],
+      "timeCost": 0.5,
+      "noise": 0,
+      "weight": 0.05
+    },
+    "booties": {
+      "id": "booties",
+      "name": "Quiet Overshoes",
+      "cost": 45,
+      "category": "support",
+      "specs": [
+        "soft soles",
+        "muffles steps",
+        "disposable"
+      ],
+      "timeCost": 0.5,
+      "noise": 0,
+      "weight": 0.03
+    },
+    "tracekit": {
+      "id": "tracekit",
+      "name": "Forensic Trace Kit",
+      "cost": 950,
+      "category": "support",
+      "specs": [
+        "collects trace evidence",
+        "reusable case",
+        "sealed vials"
+      ],
+      "timeCost": 6,
+      "noise": 8,
+      "weight": 0.8
+    },
+    "zip_ties": {
+      "id": "zip_ties",
+      "name": "Zip Ties",
+      "cost": 35,
+      "category": "support",
+      "specs": [
+        "5 heavy-duty ties",
+        "restrains captive",
+        "lightweight"
+      ],
+      "timeCost": 1,
+      "noise": 6,
+      "weight": 0.1
+    }
+  },
+  "actions": [
+    {
+      "type": "move",
+      "label": "MOVE",
+      "hint": "Move to a cell; short id (B1) or full id (L0-B1).",
+      "template": {
+        "type": "move",
+        "cell": "B1"
+      }
+    },
+    {
+      "type": "crouch",
+      "label": "CROUCH",
+      "hint": "Drop to crouched posture (lower sight score).",
+      "template": {
+        "type": "crouch"
+      }
+    },
+    {
+      "type": "stand",
+      "label": "STAND",
+      "hint": "Return to standing posture.",
+      "template": {
+        "type": "stand"
+      }
+    },
+    {
+      "type": "openDoor",
+      "label": "OPEN DOOR",
+      "hint": "key = sorted full ids \"L0-A1|L0-B1\", or an adjacent cell.",
+      "template": {
+        "type": "openDoor",
+        "key": "L0-A1|L0-B1"
+      }
+    },
+    {
+      "type": "closeDoor",
+      "label": "CLOSE DOOR",
+      "hint": "Close a door using the same key format.",
+      "template": {
+        "type": "closeDoor",
+        "key": "L0-A1|L0-B1"
+      }
+    },
+    {
+      "type": "wedge",
+      "label": "WEDGE",
+      "hint": "Jam a door open with a wedge.",
+      "template": {
+        "type": "wedge",
+        "key": "L0-A1|L0-B1"
+      }
+    },
+    {
+      "type": "shoot",
+      "label": "SHOOT",
+      "hint": "target = npc id; aim = center | head | leg.",
+      "template": {
+        "type": "shoot",
+        "target": "T-01",
+        "aim": "center"
+      }
+    },
+    {
+      "type": "copy",
+      "label": "COPY",
+      "hint": "Copy data in your current cell.",
+      "template": {
+        "type": "copy"
+      }
+    },
+    {
+      "type": "deactivate",
+      "label": "DEACTIVATE",
+      "hint": "Disable an alarm/relay in your current cell.",
+      "template": {
+        "type": "deactivate"
+      }
+    },
+    {
+      "type": "search",
+      "label": "SEARCH",
+      "hint": "id = downed npc id, in the same cell.",
+      "template": {
+        "type": "search",
+        "id": "T-01"
+      }
+    },
+    {
+      "type": "drag",
+      "label": "DRAG",
+      "hint": "id = downed npc id; to = destination cell.",
+      "template": {
+        "type": "drag",
+        "id": "T-01",
+        "to": "A1"
+      }
+    },
+    {
+      "type": "radio",
+      "label": "RADIO",
+      "hint": "text = transmission; optional channel.",
+      "template": {
+        "type": "radio",
+        "text": "All clear."
+      }
+    },
+    {
+      "type": "wait",
+      "label": "WAIT",
+      "hint": "seconds = time to let the world run.",
+      "template": {
+        "type": "wait",
+        "seconds": 6
+      }
+    }
+  ]
+}

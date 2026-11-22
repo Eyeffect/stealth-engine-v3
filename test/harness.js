@@ -32,7 +32,7 @@ console.log('\n== MISSION STATE ==');
 {
   const e=boot('m1');
   e.turn({type:'wait',seconds:1});
-  check('BRIEFING -> INFILTRATION on first turn',e.mission.state==='INFILTRATION',e.mission.state);
+  check('BRIEFING -> OBJECTIVE on first turn',e.mission.state==='OBJECTIVE',e.mission.state);
 }
 
 // ---------- no event re-fire ----------

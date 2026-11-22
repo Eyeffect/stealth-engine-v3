@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE QUIET LEDGER // V3 TACTICAL CLIENT</title>
+<style>
+  :root{
+    --bg:#080b0e; --panel:#0e141a; --panel2:#121a21; --line:#21303b;
+    --ink:#c8d3da; --dim:#7d909d; --faint:#4d5f6b;
+    --amber:#f0a500; --cyan:#39c5d9; --green:#4ade80; --red:#f87171;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      linear-gradient(rgba(57,197,217,.025) 1px,transparent 1px) 0 0/28px 28px,
+      linear-gradient(90deg,rgba(57,197,217,.025) 1px,transparent 1px) 0 0/28px 28px,
+      var(--bg);
+    color:var(--ink);
+    font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  }
+  .hidden{display:none !important}
+  button,input,textarea{font:inherit;color:inherit}
+  button{cursor:pointer}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:.08em}
+  .fatal{max-width:760px;margin:8vh auto;padding:28px;border:1px solid var(--amber);
+    background:var(--panel);box-shadow:0 0 40px rgba(240,165,0,.08)}
+  .fatal h1{color:var(--amber);font-size:16px;margin-bottom:14px}
+  .fatal pre{background:#05080a;border:1px solid var(--line);padding:14px;overflow:auto;
+    color:var(--cyan);white-space:pre-wrap}
+  .fatal p{color:var(--dim)}
+
+  #app{max-width:1400px;margin:0 auto;padding:14px 16px 30px}
+  header.top{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;
+    padding:10px 14px;border:1px solid var(--line);background:var(--panel);
+    border-left:3px solid var(--amber);
+  }
+  header.top .brand{font-size:16px;font-weight:700;letter-spacing:.16em;color:var(--amber)}
+  header.top .sep{color:var(--faint)}
+  header.top .mission{font-size:14px;color:#e6edf1}
+  header.top .pill{padding:2px 9px;border:1px solid var(--line);background:var(--panel2);
+    letter-spacing:.12em;font-size:11px}
+  .state-ok{color:var(--green);border-color:rgba(74,222,128,.4) !important}
+  .state-warn{color:var(--amber);border-color:rgba(240,165,0,.4) !important}
+  .state-bad{color:var(--red);border-color:rgba(248,113,113,.4) !important}
+  header.top .spacer{flex:1}
+  header.top .kv{color:var(--dim)}
+  header.top .kv b{color:var(--ink);font-weight:600}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:14px;margin-top:14px}
+  @media (max-width:980px){.layout{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);background:var(--panel)}
+  .panel-hd{padding:7px 10px;border-bottom:1px solid var(--line);color:var(--dim);
+    letter-spacing:.14em;font-size:10px;text-transform:uppercase;display:flex;justify-content:space-between}
+
+  /* ---------- map ---------- */
+  .map-wrap{padding:12px}
+  #grid{
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,82px);
+    border:2px solid #61707b;background:#0a1014;
+  }
+  .cell{position:relative;min-width:0;padding:6px;overflow:hidden;background:#0d1419}
+  .cell:nth-child(odd){background:#0f171d}
+  .cell.dim{opacity:.48}
+  .cell.you{box-shadow:inset 0 0 0 2px rgba(74,222,128,.45);background:#101d17}
+  .cell.void{background:#05080a}
+  .coord{position:absolute;top:3px;left:5px;font-size:10px;color:var(--dim);letter-spacing:.06em}
+  .room{position:absolute;top:18px;left:5px;right:5px;font-size:10px;color:#dbe6ec;
+    line-height:1.25;word-break:break-word}
+  .mat{position:absolute;bottom:3px;left:5px;font-size:9px;color:var(--faint)}
+  .tag{position:absolute;bottom:3px;right:4px;font-size:9px;padding:1px 5px;letter-spacing:.1em}
+  .you-tag{background:rgba(74,222,128,.16);color:var(--green);border:1px solid rgba(74,222,128,.5)}
+  .token{position:absolute;right:4px;font-size:9px;padding:0 3px;border:1px solid rgba(248,113,113,.5);
+    background:rgba(248,113,113,.12);color:#ffc9c9;white-space:nowrap}
+  .token .r{color:var(--dim);margin-left:3px}
+  .edge{position:absolute;pointer-events:none;z-index:2}
+  .e-top{top:-2px;left:0;right:0;height:3px}
+  .e-right{top:0;right:-2px;bottom:0;width:3px}
+  .e-wall{background:#61707b}
+  .e-open{background:transparent}
+  .e-glass{background:repeating-linear-gradient(to bottom,#39c5d9 0 1px,transparent 1px 4px)}
+  .e-top.e-glass{background:repeating-linear-gradient(to right,#39c5d9 0 1px,transparent 1px 4px)}
+  .e-door{background:repeating-linear-gradient(to bottom,#f0a500 0 6px,transparent 6px 10px)}
+  .e-top.e-door{background:repeating-linear-gradient(to right,#f0a500 0 6px,transparent 6px 10px)}
+  .e-door-open{background:repeating-linear-gradient(to bottom,rgba(240,165,0,.4) 0 3px,transparent 3px 9px)}
+  .e-top.e-door-open{background:repeating-linear-gradient(to right,rgba(240,165,0,.4) 0 3px,transparent 3px 9px)}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;padding:8px 12px;border-top:1px solid var(--line);
+    color:var(--dim);font-size:10px}
+  .legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px}
+  .lw{background:#61707b}.ld{background:repeating-linear-gradient(90deg,#f0a500 0 6px,transparent 6px 10px)}
+  .lg{background:repeating-linear-gradient(90deg,#39c5d9 0 1px,transparent 1px 4px)}
+  .lo{background:transparent;border-top:1px dashed #42525d}
+
+  /* ---------- tabs ---------- */
+  .tabs{margin-top:14px}
+  .tabbar{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);background:var(--panel2)}
+  .tabbar button{background:none;border:0;border-right:1px solid var(--line);padding:8px 15px;
+    color:var(--dim);letter-spacing:.12em;font-size:11px}
+  .tabbar button.active{color:var(--amber);background:var(--panel);box-shadow:inset 0 -2px 0 var(--amber)}
+  .tabbody{padding:14px;min-height:230px;background:var(--panel)}
+  .tabbody h3{color:var(--cyan);font-size:10px;margin:16px 0 7px;border-bottom:1px solid var(--line);
+    padding-bottom:4px}
+  .tabbody h3:first-child{margin-top:0}
+  .statrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px}
+  .stat{border:1px solid var(--line);background:var(--panel2);padding:7px 9px}
+  .stat label{display:block;color:var(--dim);font-size:9px;letter-spacing:.12em}
+  .stat b{font-size:14px;font-weight:600}
+  .good{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}
+  .chip{display:inline-block;border:1px solid var(--line);background:var(--panel2);
+    padding:1px 7px;margin:2px 4px 2px 0;font-size:10px;color:#d8e2e8}
+  .muted{color:var(--dim)}
+  .list{margin:0;padding:0;list-style:none}
+  .list li{border-bottom:1px dotted var(--line);padding:4px 2px;color:var(--dim)}
+  .list li b{color:var(--ink);font-weight:600}
+  .kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px 14px;margin:8px 0}
+  .kv div{color:var(--dim)}
+  .kv b{color:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th,td{text-align:left;padding:4px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:10px;letter-spacing:.08em}
+  td.done{color:var(--green)}
+  pre.block{white-space:pre-wrap;word-break:break-word;background:#05080a;border:1px solid var(--line);
+    padding:10px;margin:0;max-height:280px;overflow:auto;color:#a8bcc8;font-size:10.5px}
+  .bar{height:5px;background:#1b2831;display:inline-block;width:90px;vertical-align:middle;margin:0 6px}
+  .bar>i{display:block;height:100%;background:var(--amber)}
+  .qty{width:52px;background:#070b0e;border:1px solid var(--line);padding:2px 4px;text-align:right}
+  .totals{margin-top:10px;padding:8px 10px;border:1px solid var(--line);background:var(--panel2);
+    display:flex;flex-wrap:wrap;gap:18px}
+  .totals b{font-size:14px}
+
+  /* ---------- composer ---------- */
+  .side{position:sticky;top:14px;align-self:start}
+  .composer{padding:12px}
+  .presets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+  .presets button{background:#17222a;border:1px solid var(--line);color:var(--amber);
+    padding:4px 9px;font-size:10px;letter-spacing:.08em}
+  .presets button:hover{border-color:var(--amber);background:#1d2b34}
+  #actionJson{width:100%;min-height:180px;resize:vertical;background:#05080a;border:1px solid var(--line);
+    padding:9px;color:#bfe9ef;font-size:11px;line-height:1.45}
+  .row{display:flex;gap:8px;align-items:center;margin-top:9px}
+  #copyBtn{flex:1;background:var(--amber);border:0;color:#141414;font-weight:700;
+    padding:9px;letter-spacing:.14em}
+  #copyBtn:hover{filter:brightness(1.12)}
+  #valStatus{font-size:10px;color:var(--dim);min-width:62px;text-align:right}
+  .hint{margin-top:9px;color:var(--dim);font-size:10px;line-height:1.5}
+  .meta{margin-top:12px;padding:10px;border-top:1px solid var(--line);color:var(--faint);font-size:10px}
+  footer{margin-top:14px;color:var(--faint);font-size:10px;text-align:center}
+</style>
+</head>
+<body>
+
+<div id="fatal" class="fatal hidden">
+  <h1>SNAPSHOT UNAVAILABLE</h1>
+  <p id="fatalWhy"></p>
+  <p>The GUI is a read-only client. It cannot call the Node engine in-browser. Generate a snapshot first:</p>
+  <pre>cd C:\Users\Eyeffect\Fun\game\v3
+node ui/export.js m1_manifest
+
+# other missions:
+node ui/export.js m2_auditor
+node ui/export.js m3_glasshouse</pre>
+  <p>Then serve this folder over HTTP (browsers block <code>fetch</code> on <code>file://</code>):</p>
+  <pre>cd C:\Users\Eyeffect\Fun\game\v3\ui
+python -m http.server 8000
+# open http://localhost:8000/index.html</pre>
+  <p>Append <code>?gm</code> to the URL to enable the GM diagnostics tab.</p>
+</div>
+
+<div id="app" class="hidden">
+  <header class="top">
+    <span class="brand" id="campaignTitle">THE QUIET LEDGER</span>
+    <span class="sep">//</span>
+    <span class="mission" id="missionName">—</span>
+    <span class="pill" id="statePill">STATE</span>
+    <span class="spacer"></span>
+    <span class="kv">CLOCK <b id="clock">00:00:00</b></span>
+    <span class="kv">HEAT <b id="heatVal">0</b> <span id="heatTag" class="pill">—</span></span>
+  </header>
+
+  <div class="layout">
+    <div>
+      <section class="panel">
+        <div class="panel-hd"><span id="mapTitle">TACTICAL MAP</span><span id="mapSub"></span></div>
+        <div class="map-wrap"><div id="grid"></div></div>
+        <div class="legend">
+          <span><i class="lw"></i>WALL</span>
+          <span><i class="ld"></i>DOOR / OPEN DOOR</span>
+          <span><i class="lg"></i>GLASS</span>
+          <span><i class="lo"></i>OPEN</span>
+          <span style="color:var(--green)">■ YOU</span>
+          <span style="color:#ffc9c9">■ CONTACT</span>
+        </div>
+      </section>
+
+      <section class="panel tabs">
+        <div class="tabbar" id="tabbar"></div>
+        <div class="tabbody" id="tabbody"></div>
+      </section>
+    </div>
+
+    <aside class="side">
+      <section class="panel composer">
+        <div class="panel-hd"><span>ACTION COMPOSER</span><span id="composerCell"></span></div>
+        <div class="presets" id="presets"></div>
+        <textarea id="actionJson" spellcheck="false" aria-label="Action JSON"></textarea>
+        <div class="row">
+          <button id="copyBtn">COPY ACTION</button>
+          <span id="valStatus">—</span>
+        </div>
+        <div class="hint">Compose an action, copy the JSON, and paste it to the operator in chat to run it against the live engine. Presets pre-fill from the current snapshot; edit fields as needed.</div>
+        <div class="meta" id="meta"></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer>QUIET LEDGER // V3 READ-ONLY CLIENT — no engine code runs in this page. Reload after re-running the exporter.</footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var S=null, currentTab='OPERATOR';
+  var GM=/[?&]gm\b/.test(location.search);
+  var TABS=GM?['OPERATOR','TARGET','INTEL','SHOP','GM']:['OPERATOR','TARGET','INTEL','SHOP'];
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function fmtClock(s){s=Math.max(0,Math.floor(Number(s)||0));
+    return [Math.floor(s/3600),Math.floor(s/60)%60,s%60].map(function(n){return String(n).padStart(2,'0');}).join(':');}
+  function num(n){return (typeof n==='number'&&isFinite(n))?String(n):'—';}
+  function short(id){return String(id||'').indexOf('-')>=0?String(id).split('-').pop():String(id||'');}
+  function chipList(arr){if(!arr||!arr.length)return '<span class="muted">none</span>';
+    return arr.map(function(x){return '<span class="chip">'+esc(typeof x==='string'?x:JSON.stringify(x))+'</span>';}).join('');}
+  function listHtml(arr,fn){if(!arr||!arr.length)return '<div class="muted">none recorded</div>';
+    return '<ul class="list">'+arr.map(function(x,i){return '<li>'+fn(x,i)+'</li>';}).join('')+'</ul>';}
+  function kvHtml(pairs){return '<div class="kv">'+pairs.map(function(p){
+    return '<div>'+esc(p[0])+': <b>'+esc(p[1])+'</b></div>';}).join('')+'</div>';}
+
+  function fatal(why){
+    document.getElementById('fatalWhy').textContent=why;
+    document.getElementById('fatal').classList.remove('hidden');
+    document.getElementById('app').classList.add('hidden');
+  }
+
+  // ---------------- boot ----------------
+  if(location.protocol==='file:'){
+    fatal('Opened with file:// — fetch() cannot read local files in most browsers.');
+    return;
+  }
+  fetch('snapshot.json',{cache:'no-store'}).then(function(r){
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(init).catch(function(e){
+    fatal('Could not load snapshot.json: '+e.message);
+  });
+
+  // ---------------- header ----------------
+  function init(data){
+    S=data;
+    document.getElementById('app').classList.remove('hidden');
+    var v=S.view,m=S.mission;
+    document.getElementById('campaignTitle').textContent=S.campaign.title;
+    document.getElementById('missionName').textContent=m.name;
+    document.getElementById('statePill').textContent='STATE: '+v.mission;
+    var stateCls=v.mission==='COMPROMISED'?'state-bad':
+      (v.mission==='COMPLETE'?'state-ok':'state-warn');
+    document.getElementById('statePill').className='pill '+stateCls;
+    document.getElementById('clock').textContent=fmtClock(v.clock)+' / '+fmtClock(m.deadline);
+    var h=Math.round(Number(v.heat)||0);
+    document.getElementById('heatVal').textContent=h;
+    var hl=h>=75?['LOCKDOWN','state-bad']:h>=40?['SWEEP','state-bad']:h>=12?['CHECKIN','state-warn']:['LOW','state-ok'];
+    var ht=document.getElementById('heatTag');ht.textContent=hl[0];ht.className='pill '+hl[1];
+    document.getElementById('mapTitle').textContent=S.map.name;
+    document.getElementById('mapSub').textContent='LEVEL '+S.map.level+' // '+Object.keys(S.map.cells).length+' CELLS';
+    document.getElementById('composerCell').textContent=short(v.you.cell);
+    document.getElementById('meta').textContent='SNAPSHOT '+String(S.generatedAt||'').replace('T',' ').replace(/\.\d+Z$/,'Z')+
+      '  //  MISSION '+S.missionId+'  //  '+(S.actions||[]).length+' ACTIONS';
+    renderMap();renderTabs();renderPresets();setAction({type:'wait',seconds:6});
+  }
+
+  // ---------------- map ----------------
+  function renderMap(){
+    var cells=S.map.cells||{},edges=S.mapEdges||S.map.edges||[],doors=S.map.doors||{};
+    var byKey={};edges.forEach(function(e){byKey[[e[0],e[1]].sort().join('|')]=e;});
+    var level=S.map.level||'L0';
+    var arr=Object.keys(cells).map(function(k){return Object.assign({id:k},cells[k]);});
+    function at(x,y){for(var i=0;i<arr.length;i++){var c=arr[i];if(c.x===x&&c.y===y&&c.level===level)return c;}return null;}
+    function edge(a,b){
+      if(!b)return {cls:'e-wall',title:'BOUNDARY'};
+      var k=[a,b].sort().join('|'),e=byKey[k],t=e?e.type:'wall',st=doors[k];
+      if(t==='door')return {cls:st==='open'?'e-door-open':'e-door',title:'DOOR'+(st?' ('+st+')':'')};
+      if(t==='glass')return {cls:'e-glass',title:'GLASS'};
+      if(t==='open')return {cls:'e-open',title:'OPEN'};
+      return {cls:'e-wall',title:'WALL'};
+    }
+    var vis=new Set(S.view.visible||[]);
+    var byCell={};(S.contacts||[]).forEach(function(c){(byCell[c.cell]=byCell[c.cell]||[]).push(c);});
+    var me=S.view.you.cell,html='';
+    for(var y=4;y>=0;y--){
+      for(var x=0;x<6;x++){
+        var c=at(x,y);
+        if(!c){html+='<div class="cell void"></div>';continue;}
+        var east=at(x+1,y),north=at(x,y+1);
+        var er=edge(c.id,east&&east.id),et=edge(c.id,north&&north.id);
+        var dim=vis.size&&!vis.has(c.id)?' dim':'';
+        var you=c.id===me;
+        var toks=(byCell[c.id]||[]).map(function(t,i){
+          return '<div class="token" style="top:'+(4+i*13)+'px" title="'+esc(t.name+' / '+t.role)+'">'+esc(t.id)+
+            '<span class="r">'+esc(t.role)+'</span></div>';}).join('');
+        html+='<div class="cell'+dim+(you?' you':'')+'" data-cell="'+esc(c.id)+'">'+
+          '<div class="edge e-top '+et.cls+'" title="'+esc(et.title)+'"></div>'+
+          '<div class="edge e-right '+er.cls+'" title="'+esc(er.title)+'"></div>'+
+          '<div class="coord">'+esc(short(c.id))+'</div>'+
+          '<div class="room">'+esc(c.n||'')+'</div>'+
+          '<div class="mat">'+esc(c.m||'')+'</div>'+
+          (you?'<div class="tag you-tag">YOU</div>':'')+toks+'</div>';
+      }
+    }
+    document.getElementById('grid').innerHTML=html;
+  }
+
+  // ---------------- tabs ----------------
+  function renderTabs(){
+    document.getElementById('tabbar').innerHTML=TABS.map(function(t){
+      return '<button data-tab="'+t+'" class="'+(t===currentTab?'active':'')+'">'+t+'</button>';
+    }).join('');
+    document.getElementById('tabbar').onclick=function(e){
+      var b=e.target.closest('button[data-tab]');if(!b)return;
+      currentTab=b.dataset.tab;renderTabs();
+    };
+    var fn={OPERATOR:tabOperator,TARGET:tabTarget,INTEL:tabIntel,SHOP:tabShop,GM:tabGM}[currentTab];
+    document.getElementById('tabbody').innerHTML=fn?fn():'';
+    if(currentTab==='SHOP')bindShop();
+  }
+
+  function tabOperator(){
+    var v=S.view,y=v.you;
+    return '<div class="statrow">'+
+      stat('HP',y.hp)+stat('AMMO',y.ammo)+stat('POSTURE',y.posture)+
+      stat('EXPOSURE',y.exposure,y.exposure==='OK'?'good':'bad')+
+      stat('LIGHT',num(v.light))+stat('SURFACE',v.material)+
+      stat('CELL',short(y.cell))+stat('ROOM',y.room)+'</div>'+
+      '<h3>WOUNDS</h3>'+chipList(y.wounds)+
+      '<h3>GEAR</h3>'+chipList(y.gear)+
+      '<h3>OBSERVATIONS</h3>'+listHtml(v.observations,function(o){
+        return '<b>'+fmtClock(o.t)+'</b> '+esc(short(o.cell))+' — '+esc(o.what);});
+  }
+  function stat(k,val,cls){return '<div class="stat"><label>'+esc(k)+'</label><b class="'+(cls||'')+'">'+esc(val)+'</b></div>';}
+
+  function tabTarget(){
+    var m=S.mission,v=S.view;
+    var done=v.objectives||[];
+    var obj=(m.objectives||[]).map(function(o,i){
+      var d=done[i]&&done[i].done;
+      return '<li class="'+(d?'done':'')+'">'+(d?'[x] ':'[ ] ')+'<b>'+esc(o.type.toUpperCase())+'</b> — '+esc(o.desc)+'</li>';}).join('');
+    var intel=Object.keys(m.intel||{}).map(function(k){
+      return '<li><b>'+esc(k.replace(/([A-Z])/g,' $1'))+'</b>: '+esc(m.intel[k])+'</li>';}).join('');
+    var enemies=(m.enemies||[]).map(function(e){
+      return '<tr><td>'+esc(e.id)+'</td><td>'+esc(e.name)+'</td><td>'+esc(e.role)+'</td><td>'+esc(short(e.cell))+'</td><td>'+esc(e.weapon)+'</td></tr>';}).join('');
+    var cams=(m.cameras||[]).map(function(c){
+      return '<tr><td>'+esc(c.id)+'</td><td>'+esc(c.name)+'</td><td>'+esc(short(c.cell))+'</td><td>'+esc(c.facing)+'</td><td>'+(c.ir?'IR':'—')+'</td></tr>';}).join('');
+    return '<h2 style="color:var(--amber);font-size:14px">'+esc(m.name)+'</h2>'+
+      '<p class="muted">'+esc(m.brief)+'</p>'+
+      kvHtml([['MAP',S.map.name],['MISSION ID',m.id],['DEADLINE',fmtClock(m.deadline)],
+        ['EXIT',short(m.exit&&m.exit.cell)],['CREDITS',m.rewards&&m.rewards.credits],
+        ['REPUTATION',m.rewards&&m.rewards.reputation]])+
+      '<h3>OBJECTIVES</h3><ul class="list">'+obj+'</ul>'+
+      '<h3>INTELLIGENCE</h3><ul class="list">'+intel+'</ul>'+
+      '<h3>ROSTER</h3><table><tr><th>ID</th><th>NAME</th><th>ROLE</th><th>CELL</th><th>WEAPON</th></tr>'+enemies+'</table>'+
+      '<h3>SURVEILLANCE</h3><table><tr><th>ID</th><th>NAME</th><th>CELL</th><th>FACING</th><th>IR</th></tr>'+cams+'</table>';
+  }
+
+  function tabIntel(){
+    var v=S.view,d=S.diagnostics||{},heat=d.heat||{};
+    var cells=heat.cells||{},keys=Object.keys(cells).sort(function(a,b){return cells[b]-cells[a];}).slice(0,10);
+    var heatRows=keys.map(function(k){var val=cells[k];
+      return '<li>'+esc(short(k))+' <span class="bar"><i style="width:'+Math.min(100,Math.round(val*1.4))+'%"></i></span> '+esc(num(val))+'</li>';}).join('');
+    return '<h3>CONTACTS</h3>'+listHtml(v.contacts,function(c){
+        return '<b>'+esc(c.id)+'</b> '+esc(c.name)+' <span class="muted">/ '+esc(c.role)+' @ '+esc(short(c.cell))+'</span>';})+
+      '<h3>HEAT</h3>'+kvHtml([['GLOBAL',num(heat.global)],['FIRED',(heat.fired||[]).join(', ')||'none']])+
+      (heatRows?'<ul class="list">'+heatRows+'</ul>':'')+
+      '<h3>SOUND (LAST 6s)</h3>'+listHtml(v.heard,function(s){
+        return '<b>'+fmtClock(s.at)+'</b> '+esc(num(s.db))+'dB @ '+esc(short(s.cell))+' — '+esc(s.desc);})+
+      '<h3>MOVEMENT TRACE</h3>'+listHtml(d.movement,function(s){return esc(s);});
+  }
+
+  function tabShop(){
+    var a=S.account||{},items=S.items||{},credits=Number(a.credits)||0;
+    var cats={};Object.keys(items).forEach(function(id){var it=items[id];(cats[it.category]=cats[it.category]||[]).push(it);});
+    var owned=new Set(a.gear||[]);
+    var html='<p class="muted">Set quantities to build an order. Budget is your current operator credit balance.</p>'+
+      kvHtml([['CREDITS',credits],['REPUTATION',a.reputation],['MISSIONS',(a.missions||[]).length],['KILLS',a.kills]])+'<h3>CATALOG</h3>';
+    Object.keys(cats).forEach(function(cat){
+      html+='<table><tr><th>ITEM</th><th>SPECS</th><th>TIME</th><th>dB</th><th>KG</th><th>COST</th><th>QTY</th></tr>';
+      cats[cat].forEach(function(it){
+        html+='<tr><td>'+esc(it.name)+(owned.has(it.id)?' <span class="good">[owned]</span>':'')+'</td>'+
+          '<td class="muted">'+esc((it.specs||[]).join(' · '))+'</td><td>'+esc(num(it.timeCost))+'</td>'+
+          '<td>'+esc(it.noise)+'</td><td>'+esc(it.weight)+'</td><td>'+esc(it.cost)+'</td>'+
+          '<td><input class="qty" type="number" min="0" max="99" step="1" value="0" data-id="'+esc(it.id)+'" data-cost="'+Number(it.cost)+'"></td></tr>';
+      });
+      html+='</table><div class="muted" style="margin:6px 0 12px;font-size:10px">'+esc(cat.toUpperCase())+'</div>';
+    });
+    html+='<div class="totals"><span>TOTAL <b id="shopTotal">0</b></span><span>REMAINING <b id="shopRemain">'+esc(credits)+'</b></span><span id="shopStatus" class="good">WITHIN BUDGET</span></div>';
+    return html;
+  }
+  function bindShop(){
+    var body=document.getElementById('tabbody');
+    function recalc(){
+      var total=0,q=body.querySelectorAll('.qty');
+      for(var i=0;i<q.length;i++){total+=(Number(q[i].value)||0)*(Number(q[i].dataset.cost)||0);}
+      var remain=(Number((S.account||{}).credits)||0)-total;
+      document.getElementById('shopTotal').textContent=total;
+      var r=document.getElementById('shopRemain');r.textContent=remain;
+      r.className=remain<0?'bad':'good';
+      var st=document.getElementById('shopStatus');st.textContent=remain<0?'OVER BUDGET':'WITHIN BUDGET';
+      st.className=remain<0?'bad':'good';
+    }
+    body.addEventListener('input',recalc);
+  }
+
+  function tabGM(){
+    var d=S.diagnostics||{};
+    return '<h3>BELIEFS</h3><pre class="block">'+esc(JSON.stringify(d.beliefs||{},null,2))+'</pre>'+
+      '<h3>BRAIN TRACE</h3><pre class="block">'+esc(typeof d.brainTrace==='string'?d.brainTrace:JSON.stringify(d.brainTrace,null,2))+'</pre>'+
+      '<h3>AUDIT ROLLS</h3><pre class="block">'+esc((d.audit||[]).join('\n')||'none')+'</pre>'+
+      '<h3>HEAT INTERNALS</h3><pre class="block">'+esc(JSON.stringify(d.heat||{},null,2))+'</pre>'+
+      '<h3>TRIGGER STATUS</h3><pre class="block">'+esc(JSON.stringify(d.trigger||{},null,2))+'</pre>'+
+      '<h3>POSITIONS</h3><pre class="block">'+esc(JSON.stringify(d.positions||{},null,2))+'</pre>';
+  }
+
+  // ---------------- composer ----------------
+  function neighborCell(){
+    var me=S.view.you.cell,edges=S.mapEdges||S.map.edges||[],doors=S.map.doors||{};
+    function pick(wantOpen){for(var i=0;i<edges.length;i++){var e=edges[i];
+      if(e[0]!==me&&e[1]!==me)continue;
+      var other=e[0]===me?e[1]:e[0],k=[e[0],e[1]].sort().join('|');
+      if(e[2]===wantOpen&&(e[2]!=='door'||doors[k]!=='locked'))return other;
+    }return null;}
+    return short(pick('open')||pick('door')||me);
+  }
+  function doorKey(){
+    var me=S.view.you.cell,edges=S.mapEdges||S.map.edges||[],doors=S.map.doors||{},fallback=null;
+    for(var i=0;i<edges.length;i++){var e=edges[i];if(e[2]!=='door')continue;
+      var k=[e[0],e[1]].sort().join('|');
+      if(!fallback)fallback=k;
+      if((e[0]===me||e[1]===me)&&doors[k]!=='open')return k;}
+    return fallback||'L0-C3|L0-D3';
+  }
+  function shootTarget(){var c=S.contacts||[];if(c.length)return c[0].id;
+    var e=(S.mission&&S.mission.enemies)||[];return e.length?e[0].id:'T-01';}
+
+  function renderPresets(){
+    var presets=[
+      ['MOVE',function(){return {type:'move',cell:neighborCell()};}],
+      ['CROUCH',function(){return {type:'crouch'};}],
+      ['OPEN DOOR',function(){return {type:'openDoor',key:doorKey()};}],
+      ['SHOOT',function(){return {type:'shoot',target:shootTarget(),aim:'center'};}],
+      ['WAIT',function(){return {type:'wait',seconds:6};}]
+    ];
+    var el=document.getElementById('presets');
+    el.innerHTML=presets.map(function(p,i){return '<button data-p="'+i+'">'+p[0]+'</button>';}).join('');
+    el.onclick=function(e){var b=e.target.closest('button[data-p]');if(!b)return;
+      setAction(presets[Number(b.dataset.p)][1]());};
+  }
+  function setAction(obj){
+    var ta=document.getElementById('actionJson');
+    ta.value=JSON.stringify(obj,null,2);validate();
+  }
+  function validate(){
+    var ta=document.getElementById('actionJson'),st=document.getElementById('valStatus');
+    try{var o=JSON.parse(ta.value);
+      if(!o||typeof o!=='object'||!o.type)throw new Error('no type');
+      st.textContent='VALID';st.className='good';}
+    catch(e){st.textContent='INVALID';st.className='bad';}
+  }
+  function copyText(t){
+    if(navigator.clipboard&&window.isSecureContext){
+      return navigator.clipboard.writeText(t).then(function(){return true;}).catch(function(){return legacy();});
+    }
+    return Promise.resolve(legacy());
+    function legacy(){var ta=document.createElement('textarea');ta.value=t;
+      ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+      var ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();return ok;}
+  }
+  document.getElementById('actionJson').addEventListener('input',validate);
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var t=document.getElementById('actionJson').value,st=document.getElementById('valStatus');
+    copyText(t).then(function(ok){st.textContent=ok?'COPIED':'FAILED';
+      st.className=ok?'good':'bad';});
+  });
+})();
+</script>
+</body>
+</html>

@@ -182,9 +182,12 @@ function makeEngine(cfg){
       player().cell=to;
       player().movedAt=world.clock;
       observe(to,'you entered '+room(to));
-      if(to===norm(world.exit&&world.exit.cell)&&mission.isActive()){
-        if(world.objectivesDone)mission.advance('COMPLETE');
+      for(const o of world.objectives||[]){
+        if(o.type==='extract'&&to===norm(o.target))o.done=true;
       }
+      checkObjectives(mission,world);
+      const exitCells=[world.exit&&world.exit.cell,...world.objectives.filter(o=>o.type==='extract').map(o=>o.target)].filter(Boolean).map(norm);
+      if(exitCells.includes(to)&&mission.state==='EXTRACTION')mission.advance('COMPLETE');
       return{ok:true,msg:'Moved to '+room(to)};
     },
     crouch(){player().posture='crouched';applyCost({id:'CROUCH',timeCost:1});return{ok:true}},
@@ -304,8 +307,9 @@ function makeEngine(cfg){
   };
 
   function checkObjectives(m,o){
+    const ms=m||mission;
     if(!world.objectives.every(x=>x.done))return;
-    if(o.state!=='EXTRACTION'&&o.state!=='COMPLETE')o.advance('OBJECTIVE_DONE');
+    if(ms.state!=='EXTRACTION'&&ms.state!=='COMPLETE')ms.advance('OBJECTIVE_DONE');
     world.objectivesDone=true;
   }
 
@@ -318,6 +322,7 @@ function makeEngine(cfg){
     world.observations=world.observations||[];
     pendingGunshot=false;
     if(mission.state==='BRIEFING')mission.advance('START');
+    if(mission.state==='INFILTRATION')mission.advance('ENTER');
     const res=action&&actions[action.type]?actions[action.type](action):{ok:false,msg:'No action'};
     // heat decay & threshold events
     const heatEvents=heat.tick();
