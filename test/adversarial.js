@@ -69,19 +69,23 @@ console.log('\n== ACCOUNT PERSISTENCE ACROSS CAMPAIGN ==');
 }
 console.log('\n== AIM SWAY AFFECTS SHOT ==');
 {
-  const {e,world}=boot('m2_auditor');
-  const t=world.npcs.find(n=>n.role==='target');
-  world.player.sway=0.45;
-  world.player.ammo=200;
-  let hits=0,shots=0;
-  for(let i=0;i<30;i++){
-    world.player.cell=world.positions[t.id].cell;
-    const r=e.turn({type:'shoot',target:t.id});
-    shots++;
-    if(r.action&&r.action.hit)hits++;
-    if(t.alive===false)break;
+  function trial(sway){
+    const {e,world}=boot('m2_auditor');
+    const t=world.npcs.find(n=>n.role==='target');
+    world.player.sway=sway;
+    world.player.ammo=200;
+    let hits=0,shots=0;
+    for(let i=0;i<40;i++){
+      world.player.cell=world.positions[t.id].cell;
+      const r=e.turn({type:'shoot',target:t.id});
+      shots++;
+      if(r.action&&r.action.hit)hits++;
+      t.alive=true; // keep target alive to gather statistics
+    }
+    return hits/shots;
   }
-  check('high sway reduces accuracy',hits<shots,String(hits)+'/'+shots);
+  const low=trial(0.05),high=trial(0.45);
+  check('high sway reduces accuracy',high<low,'low '+low.toFixed(2)+' vs high '+high.toFixed(2));
 }
 console.log('\n==== '+pass+' passed, '+fail+' failed ====');
 process.exit(fail?1:0);

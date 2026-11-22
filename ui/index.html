@@ -76,9 +76,9 @@
     background:rgba(248,113,113,.12);color:#ffc9c9;white-space:nowrap}
   .token .r{color:var(--dim);margin-left:3px}
   .edge{position:absolute;pointer-events:none;z-index:2}
-  .e-top{top:-2px;left:0;right:0;height:3px}
-  .e-right{top:0;right:-2px;bottom:0;width:3px}
-  .e-wall{background:#61707b}
+  .e-top{top:0;left:0;right:0;height:4px}
+  .e-right{top:0;right:0;bottom:0;width:4px}
+  .e-wall{background:#9fb0bd;box-shadow:0 0 4px rgba(159,176,189,.5)}
   .e-open{background:transparent}
   .e-glass{background:repeating-linear-gradient(to bottom,#39c5d9 0 1px,transparent 1px 4px)}
   .e-top.e-glass{background:repeating-linear-gradient(to right,#39c5d9 0 1px,transparent 1px 4px)}
@@ -249,12 +249,16 @@ python -m http.server 8000
     fatal('Opened with file:// — fetch() cannot read local files in most browsers.');
     return;
   }
-  fetch('snapshot.json',{cache:'no-store'}).then(function(r){
-    if(!r.ok)throw new Error('HTTP '+r.status);
-    return r.json();
-  }).then(init).catch(function(e){
-    fatal('Could not load snapshot.json: '+e.message);
-  });
+  function loadSnapshot(){
+    fetch('snapshot.json?_='+Date.now(),{cache:'no-store'}).then(function(r){
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(init).catch(function(e){
+      fatal('Could not load snapshot.json: '+e.message);
+    });
+  }
+  loadSnapshot();
+  setInterval(loadSnapshot,2000);
 
   // ---------------- header ----------------
   function init(data){

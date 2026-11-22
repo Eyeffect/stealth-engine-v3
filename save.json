@@ -11,21 +11,21 @@
       {
         "id": "m1_manifest",
         "result": "COMPLETE",
-        "time": "2026-11-22T08:41:55.776Z",
+        "time": "2026-11-22T08:55:29.349Z",
         "kills": 0,
         "creditsEarned": 4500
       },
       {
         "id": "m2_auditor",
         "result": "COMPLETE",
-        "time": "2026-11-22T08:41:55.811Z",
+        "time": "2026-11-22T08:55:29.394Z",
         "kills": 1,
         "creditsEarned": 6500
       },
       {
         "id": "m3_glasshouse",
         "result": "COMPLETE",
-        "time": "2026-11-22T08:41:55.850Z",
+        "time": "2026-11-22T08:55:29.439Z",
         "kills": 0,
         "creditsEarned": 9000
       }

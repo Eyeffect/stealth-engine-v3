@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T01:34:29.613Z",
+  "generatedAt": "2026-11-22T08:55:03.026Z",
   "exporterVersion": 1,
   "missionId": "m1_manifest",
   "campaign": {
@@ -157,297 +157,177 @@
   "mapEdges": [
     [
       "L0-A1",
-      "L0-B1",
+      "L0-A2",
       "open",
       4
     ],
     [
-      "L0-B1",
-      "L0-C1",
+      "L0-D1",
+      "L0-E1",
+      "open",
+      4
+    ],
+    [
+      "L0-D1",
+      "L0-D2",
       "open",
       4
     ],
     [
       "L0-C1",
       "L0-D1",
+      "open",
+      4
+    ],
+    [
+      "L0-C4",
+      "L0-D4",
+      "open",
+      4
+    ],
+    [
+      "L0-C5",
+      "L0-D5",
+      "open",
+      4
+    ],
+    [
+      "L0-A2",
+      "L0-B2",
       "door",
       1.8
     ],
     [
-      "L0-D1",
-      "L0-E1",
-      "open",
-      4
+      "L0-B2",
+      "L0-C2",
+      "door",
+      0.9
     ],
     [
-      "L0-E1",
-      "L0-F1",
-      "open",
-      4
-    ],
-    [
-      "L0-F1",
-      "L0-F2",
-      "open",
-      4
-    ],
-    [
-      "L0-F2",
-      "L0-E2",
+      "L0-C2",
+      "L0-D2",
       "door",
       1.8
     ],
     [
-      "L0-E2",
-      "L0-D2",
-      "open",
-      4
-    ],
-    [
-      "L0-D2",
-      "L0-C2",
-      "open",
-      4
-    ],
-    [
-      "L0-C2",
-      "L0-B2",
-      "open",
-      4
-    ],
-    [
-      "L0-B2",
-      "L0-A2",
-      "open",
-      4
-    ],
-    [
-      "L0-A2",
-      "L0-A3",
-      "open",
-      4
-    ],
-    [
-      "L0-A3",
-      "L0-B3",
-      "open",
-      4
-    ],
-    [
-      "L0-B3",
-      "L0-C3",
-      "open",
-      4
-    ],
-    [
-      "L0-C3",
-      "L0-D3",
+      "L0-C1",
+      "L0-B1",
       "door",
       0.9
     ],
     [
-      "L0-D3",
-      "L0-E3",
-      "open",
-      4
-    ],
-    [
-      "L0-E3",
-      "L0-F3",
-      "open",
-      4
-    ],
-    [
-      "L0-F3",
-      "L0-F4",
-      "open",
-      4
-    ],
-    [
-      "L0-F4",
-      "L0-E4",
-      "open",
-      4
-    ],
-    [
-      "L0-E4",
-      "L0-D4",
+      "L0-B2",
+      "L0-B3",
       "door",
-      3
+      0.9
     ],
     [
-      "L0-D4",
-      "L0-C4",
-      "open",
-      4
+      "L0-A2",
+      "L0-A3",
+      "door",
+      0.9
     ],
     [
-      "L0-C4",
-      "L0-B4",
-      "open",
-      4
-    ],
-    [
-      "L0-B4",
+      "L0-A3",
       "L0-A4",
-      "open",
-      4
+      "door",
+      0.9
     ],
     [
-      "L0-A4",
-      "L0-A5",
-      "open",
-      4
+      "L0-B3",
+      "L0-B4",
+      "door",
+      0.9
     ],
     [
-      "L0-A5",
-      "L0-B5",
-      "open",
-      4
+      "L0-B4",
+      "L0-C4",
+      "door",
+      0.9
     ],
     [
-      "L0-B5",
+      "L0-C2",
+      "L0-C3",
+      "door",
+      0.9
+    ],
+    [
+      "L0-C3",
+      "L0-D3",
+      "door",
+      1.8
+    ],
+    [
+      "L0-C4",
       "L0-C5",
-      "open",
-      4
-    ],
-    [
-      "L0-C5",
-      "L0-D5",
-      "open",
-      4
+      "door",
+      0.9
     ],
     [
       "L0-D5",
       "L0-E5",
-      "open",
-      4
+      "door",
+      0.9
     ],
     [
       "L0-E5",
       "L0-F5",
-      "open",
-      4
-    ],
-    [
-      "L0-A1",
-      "L0-A2",
-      "open",
-      4
-    ],
-    [
-      "L0-B1",
-      "L0-B2",
       "door",
       0.9
-    ],
-    [
-      "L0-C1",
-      "L0-C2",
-      "open",
-      4
-    ],
-    [
-      "L0-D1",
-      "L0-D2",
-      "open",
-      4
     ],
     [
       "L0-E1",
       "L0-E2",
-      "open",
-      4
-    ],
-    [
-      "L0-B2",
-      "L0-B3",
-      "glass",
-      0.1
-    ],
-    [
-      "L0-C2",
-      "L0-C3",
       "door",
       0.9
     ],
     [
-      "L0-D2",
-      "L0-D3",
-      "open",
-      4
-    ],
-    [
       "L0-E2",
-      "L0-E3",
-      "open",
-      4
+      "L0-F2",
+      "door",
+      0.9
     ],
     [
       "L0-F2",
       "L0-F3",
-      "glass",
-      0.1
-    ],
-    [
-      "L0-A3",
-      "L0-A4",
-      "open",
-      4
-    ],
-    [
-      "L0-B3",
-      "L0-B4",
-      "open",
-      4
-    ],
-    [
-      "L0-C3",
-      "L0-C4",
-      "open",
-      4
-    ],
-    [
-      "L0-D3",
-      "L0-D4",
       "door",
       0.9
     ],
     [
+      "L0-F3",
+      "L0-F4",
+      "door",
+      0.9
+    ],
+    [
+      "L0-E4",
+      "L0-F4",
+      "door",
+      0.9
+    ],
+    [
+      "L0-E2",
       "L0-E3",
-      "L0-E4",
-      "open",
-      4
+      "door",
+      0.9
     ],
     [
-      "L0-B4",
-      "L0-B5",
-      "open",
-      4
+      "L0-E1",
+      "L0-F1",
+      "door",
+      0.9
     ],
     [
-      "L0-C4",
-      "L0-C5",
-      "open",
-      4
-    ],
-    [
-      "L0-D4",
-      "L0-D5",
-      "open",
-      4
-    ],
-    [
-      "L0-E4",
-      "L0-E5",
+      "L0-B3",
+      "L0-C3",
       "glass",
       0.1
     ],
     [
-      "L0-F4",
-      "L0-F5",
-      "open",
-      4
+      "L0-E3",
+      "L0-F3",
+      "glass",
+      0.1
     ]
   ],
   "map": {
@@ -669,307 +549,201 @@
     "edges": [
       [
         "L0-A1",
-        "L0-B1",
+        "L0-A2",
         "open",
         4
       ],
       [
-        "L0-B1",
-        "L0-C1",
+        "L0-D1",
+        "L0-E1",
+        "open",
+        4
+      ],
+      [
+        "L0-D1",
+        "L0-D2",
         "open",
         4
       ],
       [
         "L0-C1",
         "L0-D1",
+        "open",
+        4
+      ],
+      [
+        "L0-C4",
+        "L0-D4",
+        "open",
+        4
+      ],
+      [
+        "L0-C5",
+        "L0-D5",
+        "open",
+        4
+      ],
+      [
+        "L0-A2",
+        "L0-B2",
         "door",
         1.8
       ],
       [
-        "L0-D1",
-        "L0-E1",
-        "open",
-        4
+        "L0-B2",
+        "L0-C2",
+        "door",
+        0.9
       ],
       [
-        "L0-E1",
-        "L0-F1",
-        "open",
-        4
-      ],
-      [
-        "L0-F1",
-        "L0-F2",
-        "open",
-        4
-      ],
-      [
-        "L0-F2",
-        "L0-E2",
+        "L0-C2",
+        "L0-D2",
         "door",
         1.8
       ],
       [
-        "L0-E2",
-        "L0-D2",
-        "open",
-        4
-      ],
-      [
-        "L0-D2",
-        "L0-C2",
-        "open",
-        4
-      ],
-      [
-        "L0-C2",
-        "L0-B2",
-        "open",
-        4
-      ],
-      [
-        "L0-B2",
-        "L0-A2",
-        "open",
-        4
-      ],
-      [
-        "L0-A2",
-        "L0-A3",
-        "open",
-        4
-      ],
-      [
-        "L0-A3",
-        "L0-B3",
-        "open",
-        4
-      ],
-      [
-        "L0-B3",
-        "L0-C3",
-        "open",
-        4
-      ],
-      [
-        "L0-C3",
-        "L0-D3",
+        "L0-C1",
+        "L0-B1",
         "door",
         0.9
       ],
       [
-        "L0-D3",
-        "L0-E3",
-        "open",
-        4
-      ],
-      [
-        "L0-E3",
-        "L0-F3",
-        "open",
-        4
-      ],
-      [
-        "L0-F3",
-        "L0-F4",
-        "open",
-        4
-      ],
-      [
-        "L0-F4",
-        "L0-E4",
-        "open",
-        4
-      ],
-      [
-        "L0-E4",
-        "L0-D4",
+        "L0-B2",
+        "L0-B3",
         "door",
-        3
+        0.9
       ],
       [
-        "L0-D4",
-        "L0-C4",
-        "open",
-        4
+        "L0-A2",
+        "L0-A3",
+        "door",
+        0.9
       ],
       [
-        "L0-C4",
-        "L0-B4",
-        "open",
-        4
-      ],
-      [
-        "L0-B4",
+        "L0-A3",
         "L0-A4",
-        "open",
-        4
+        "door",
+        0.9
       ],
       [
-        "L0-A4",
-        "L0-A5",
-        "open",
-        4
+        "L0-B3",
+        "L0-B4",
+        "door",
+        0.9
       ],
       [
-        "L0-A5",
-        "L0-B5",
-        "open",
-        4
+        "L0-B4",
+        "L0-C4",
+        "door",
+        0.9
       ],
       [
-        "L0-B5",
+        "L0-C2",
+        "L0-C3",
+        "door",
+        0.9
+      ],
+      [
+        "L0-C3",
+        "L0-D3",
+        "door",
+        1.8
+      ],
+      [
+        "L0-C4",
         "L0-C5",
-        "open",
-        4
-      ],
-      [
-        "L0-C5",
-        "L0-D5",
-        "open",
-        4
+        "door",
+        0.9
       ],
       [
         "L0-D5",
         "L0-E5",
-        "open",
-        4
+        "door",
+        0.9
       ],
       [
         "L0-E5",
         "L0-F5",
-        "open",
-        4
-      ],
-      [
-        "L0-A1",
-        "L0-A2",
-        "open",
-        4
-      ],
-      [
-        "L0-B1",
-        "L0-B2",
         "door",
         0.9
-      ],
-      [
-        "L0-C1",
-        "L0-C2",
-        "open",
-        4
-      ],
-      [
-        "L0-D1",
-        "L0-D2",
-        "open",
-        4
       ],
       [
         "L0-E1",
         "L0-E2",
-        "open",
-        4
-      ],
-      [
-        "L0-B2",
-        "L0-B3",
-        "glass",
-        0.1
-      ],
-      [
-        "L0-C2",
-        "L0-C3",
         "door",
         0.9
       ],
       [
-        "L0-D2",
-        "L0-D3",
-        "open",
-        4
-      ],
-      [
         "L0-E2",
-        "L0-E3",
-        "open",
-        4
+        "L0-F2",
+        "door",
+        0.9
       ],
       [
         "L0-F2",
         "L0-F3",
-        "glass",
-        0.1
-      ],
-      [
-        "L0-A3",
-        "L0-A4",
-        "open",
-        4
-      ],
-      [
-        "L0-B3",
-        "L0-B4",
-        "open",
-        4
-      ],
-      [
-        "L0-C3",
-        "L0-C4",
-        "open",
-        4
-      ],
-      [
-        "L0-D3",
-        "L0-D4",
         "door",
         0.9
       ],
       [
+        "L0-F3",
+        "L0-F4",
+        "door",
+        0.9
+      ],
+      [
+        "L0-E4",
+        "L0-F4",
+        "door",
+        0.9
+      ],
+      [
+        "L0-E2",
         "L0-E3",
-        "L0-E4",
-        "open",
-        4
+        "door",
+        0.9
       ],
       [
-        "L0-B4",
-        "L0-B5",
-        "open",
-        4
+        "L0-E1",
+        "L0-F1",
+        "door",
+        0.9
       ],
       [
-        "L0-C4",
-        "L0-C5",
-        "open",
-        4
-      ],
-      [
-        "L0-D4",
-        "L0-D5",
-        "open",
-        4
-      ],
-      [
-        "L0-E4",
-        "L0-E5",
+        "L0-B3",
+        "L0-C3",
         "glass",
         0.1
       ],
       [
-        "L0-F4",
-        "L0-F5",
-        "open",
-        4
+        "L0-E3",
+        "L0-F3",
+        "glass",
+        0.1
       ]
     ],
     "doors": {
-      "L0-C1|L0-D1": "open",
-      "L0-E2|L0-F2": "closed",
-      "L0-C3|L0-D3": "locked",
-      "L0-D4|L0-E4": "open",
-      "L0-B1|L0-B2": "closed",
+      "L0-A2|L0-B2": "open",
+      "L0-B2|L0-C2": "closed",
+      "L0-C2|L0-D2": "open",
+      "L0-B1|L0-C1": "closed",
+      "L0-B2|L0-B3": "closed",
+      "L0-A2|L0-A3": "closed",
+      "L0-A3|L0-A4": "closed",
+      "L0-B3|L0-B4": "closed",
+      "L0-B4|L0-C4": "closed",
       "L0-C2|L0-C3": "closed",
-      "L0-D3|L0-D4": "closed"
+      "L0-C3|L0-D3": "locked",
+      "L0-C4|L0-C5": "closed",
+      "L0-D5|L0-E5": "closed",
+      "L0-E5|L0-F5": "open",
+      "L0-E1|L0-E2": "open",
+      "L0-E2|L0-F2": "open",
+      "L0-F2|L0-F3": "open",
+      "L0-F3|L0-F4": "open",
+      "L0-E4|L0-F4": "open",
+      "L0-E2|L0-E3": "closed",
+      "L0-E1|L0-F1": "open"
     },
     "lights": [
       {
@@ -1013,7 +787,7 @@
   },
   "view": {
     "clock": 6,
-    "mission": "INFILTRATION",
+    "mission": "OBJECTIVE",
     "you": {
       "cell": "L0-A1",
       "room": "Service Tunnel",
@@ -1030,14 +804,7 @@
       "L0-A1"
     ],
     "contacts": [],
-    "heard": [
-      {
-        "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 6,
-        "cell": "L0-D2",
-        "db": 50
-      }
-    ],
+    "heard": [],
     "heat": 2,
     "observations": [],
     "objectives": [
@@ -1189,28 +956,29 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":52,\"margin\":-12,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":9,\"margin\":71,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":12,\"margin\":68,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":30,\"margin\":20,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.223Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":92,\"margin\":-47,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"sight S-01 -> player\",\"target\":3,\"roll\":59,\"margin\":-56,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"sight S-02 -> player\",\"target\":3,\"roll\":62,\"margin\":-59,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.224Z\",\"label\":\"S-01:noise:curiosity\",\"target\":55,\"roll\":65,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-02:noise:curiosity\",\"target\":55,\"roll\":4,\"margin\":51,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-02:noise:nerve\",\"target\":60,\"roll\":7,\"margin\":53,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-03:noise:curiosity\",\"target\":55,\"roll\":71,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":94,\"margin\":-54,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.225Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":73,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":79,\"margin\":1,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":26,\"margin\":24,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T01:30:38.226Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":55,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:33:29.625Z\",\"label\":\"sight A-07 -> player\",\"target\":6,\"roll\":73,\"margin\":-67,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:33:29.627Z\",\"label\":\"A-05 close door behind\",\"target\":60,\"roll\":79,\"margin\":-19,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:33:33.980Z\",\"label\":\"sight S-01 -> player\",\"target\":1,\"roll\":73,\"margin\":-72,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T01:33:33.982Z\",\"label\":\"S-05 close door behind\",\"target\":60,\"roll\":69,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
+      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":3,\"margin\":57,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-04:panic:nerve\",\"target\":35,\"roll\":84,\"margin\":-49,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":21,\"margin\":59,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":1,\"margin\":79,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.846Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":56,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.847Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":35,\"margin\":10,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.847Z\",\"label\":\"sight S-03 -> player\",\"target\":19,\"roll\":74,\"margin\":-55,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-04 -> player\",\"target\":19,\"roll\":14,\"margin\":5,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-05 -> player\",\"target\":19,\"roll\":80,\"margin\":-61,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-06 -> player\",\"target\":19,\"roll\":99,\"margin\":-80,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.848Z\",\"label\":\"sight S-08 -> player\",\"target\":19,\"roll\":30,\"margin\":-11,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":65,\"margin\":-5,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":76,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":8,\"margin\":52,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-04:panic:nerve\",\"target\":35,\"roll\":42,\"margin\":-7,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.849Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":81,\"margin\":-1,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":90,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":66,\"margin\":-16,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T08:41:55.850Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":44,\"margin\":1,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T08:55:03.017Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":23,\"margin\":37,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
+      "6 | T-04 door L0-E2|L0-E3 closed",
       "6 | T-04 L0-E3 -> L0-E2 50dB"
     ],
     "trigger": {
@@ -1743,6 +1511,14 @@
       "template": {
         "type": "radio",
         "text": "All clear."
+      }
+    },
+    {
+      "type": "extract",
+      "label": "EXTRACT",
+      "hint": "",
+      "template": {
+        "type": "extract"
       }
     },
     {
