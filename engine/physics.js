@@ -64,7 +64,16 @@ function lightAt(map, cell, lights, env) {
     const dx = cp.x - lp.x, dy = cp.y - lp.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
     if (distance > radius) return;
+    // Light obeys geometry: solid walls block it, doorways dim it, glass passes it.
+    let blocked = false, throughDoor = false;
+    if (map && typeof map.los === 'function' && C !== light.cell) {
+      const tr = map.los(light.cell, C, { openDoors: env.openDoors || null });
+      if (tr.walls > 0) blocked = true;
+      if (tr.doors > 0) throughDoor = true;
+    }
+    if (blocked) return;
     let add = (Number(light.intensity) || 0) * falloff(distance, radius);
+    if (throughDoor) add *= 0.25;
     if (light.facing != null) {
       const key = String(light.facing).trim().toUpperCase();
       const fvec = DIRVEC[key] || light.facing;

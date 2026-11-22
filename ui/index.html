@@ -85,8 +85,8 @@
     background:rgba(248,113,113,.12);color:#ffc9c9;white-space:nowrap}
   .token .r{color:var(--dim);margin-left:3px}
   .edge{position:absolute;pointer-events:none;z-index:2}
-  .e-top{top:0;left:0;right:0;height:4px}
-  .e-right{top:0;right:0;bottom:0;width:4px}
+  .e-top,.s-top{top:0;left:0;right:0;height:4px}
+  .e-right,.s-right{top:0;right:0;bottom:0;width:4px}
   .e-wall{background:#9fb0bd;box-shadow:0 0 4px rgba(159,176,189,.5)}
   .e-open{background:transparent}
   .e-glass{background:repeating-linear-gradient(to bottom,#39c5d9 0 1px,transparent 1px 4px)}
@@ -307,13 +307,21 @@ python -m http.server 8000
     var level=S.map.level||'L0';
     var arr=Object.keys(cells).map(function(k){return Object.assign({id:k},cells[k]);});
     function at(x,y){for(var i=0;i<arr.length;i++){var c=arr[i];if(c.x===x&&c.y===y&&c.level===level)return c;}return null;}
-    function edge(a,b){
-      if(!b)return {cls:'e-wall',title:'BOUNDARY'};
+    function edge(a,b,solid){
+      if(!b)return {html:'<div class="edge e-wall '+(solid?'s-top':'s-right')+'"></div>',title:'BOUNDARY'};
       var k=[a,b].sort().join('|'),e=byKey[k],t=e?e[2]:'wall',st=doors[k];
-      if(t==='door')return {cls:st==='open'?'e-door-open':'e-door',title:'DOOR'+(st?' ('+st+')':'')};
-      if(t==='glass')return {cls:'e-glass',title:'GLASS'};
-      if(t==='open')return {cls:'e-open',title:'OPEN'};
-      return {cls:'e-wall',title:'WALL'};
+      var dir=solid?'s-top':'s-right';
+      if(t==='door'){
+        var w=Number(e[3])||0.9, pct=Math.max(5,Math.min(90,(w/4)*100)), side=(100-pct)/2;
+        var col=st==='open'?'rgba(240,165,0,.45)':'#f0a500';
+        var grad=st==='open'
+          ? 'linear-gradient('+(solid?'90deg':'180deg')+','+col+' 0 '+side+'%,transparent '+side+'% '+(100-side)+'%,'+col+' '+(100-side)+'% 100%)'
+          : 'linear-gradient('+(solid?'90deg':'180deg')+','+col+' 0 '+side+'%,transparent '+side+'% '+(100-side)+'%,'+col+' '+(100-side)+'% 100%)';
+        return {html:'<div class="edge '+dir+'" style="background:'+grad+'"></div>',title:'DOOR '+w.toFixed(1)+'m ('+(st||'closed')+')'};
+      }
+      if(t==='glass')return {html:'<div class="edge e-glass '+dir+'"></div>',title:'GLASS'};
+      if(t==='open')return {html:'',title:'OPEN'};
+      return {html:'<div class="edge e-wall '+dir+'"></div>',title:'WALL'};
     }
     var vis=new Set(S.view.visible||[]);
     var ov=S.overlays||{},lm=ov.lightmap||{},snd=ov.sounds||[],cams=ov.cameras||[],cones=ov.guardCones||[];
@@ -334,7 +342,7 @@ python -m http.server 8000
         var c=at(x,y);
         if(!c){html+='<div class="cell void"></div>';continue;}
         var east=at(x+1,y),north=at(x,y+1);
-        var er=edge(c.id,east&&east.id),et=edge(c.id,north&&north.id);
+        var er=edge(c.id,east&&east.id,false),et=edge(c.id,north&&north.id,true);
         var dim=vis.size&&!vis.has(c.id)?' dim':'';
         var you=c.id===me;
         var toks=(byCell[c.id]||[]).map(function(t,i){
@@ -347,8 +355,8 @@ python -m http.server 8000
         if(OV.cam&&camCells.has(c.id))ovHtml+='<div class="ov-cam" title="camera visible"></div>';
         if(OV.sound&&soundCells.has(c.id))ovHtml+='<div class="ov-sound" title="audible sound"></div>';
         html+='<div class="cell'+dim+(you?' you':'')+'" data-cell="'+esc(c.id)+'">'+
-          '<div class="edge e-top '+et.cls+'" title="'+esc(et.title)+'"></div>'+
-          '<div class="edge e-right '+er.cls+'" title="'+esc(er.title)+'"></div>'+ovHtml+
+          et.html.replace('class="edge','title="'+esc(et.title)+'" class="edge')+
+          er.html.replace('class="edge','title="'+esc(er.title)+'" class="edge')+ovHtml+
           '<div class="coord">'+esc(short(c.id))+'</div>'+
           '<div class="room">'+esc(c.n||'')+'</div>'+
           '<div class="mat">'+esc(c.m||'')+'</div>'+

@@ -35,6 +35,7 @@ function makeEngine(cfg){
     ambientLight:cfg.mapDef.ambient||1
   };
   const lights=cfg.mapDef.lights||[];
+  function currentOpenDoors(){const s=new Set();for(const k in map.doors)if(map.doors[k]==='open')s.add(k);return s}
 
   // ---------- helpers ----------
   function norm(c){return map.normalize?map.normalize(c):(String(c).indexOf('-')>=0?c:(world.level||'L0')+'-'+c)}
@@ -72,7 +73,7 @@ function makeEngine(cfg){
     const nl=nc.slice(0,2),pl=pc.slice(0,2);
     if(nl!==pl)return{seen:false};
     const dcells=map.dist(nc,pc);
-    const light=P.lightAt(map,pc,lights,env);
+    const light=P.lightAt(map,pc,lights,Object.assign({},env,{openDoors:currentOpenDoors()}));
     if(dcells===0){
       const r=d100('same-cell '+n.id,light>=0.4?95:75);
       return{seen:r.success,entry:r,grade:grade(r)};
@@ -393,7 +394,7 @@ function makeEngine(cfg){
     for(const id in map.cells){
       const f=map.level(id)===(cell.slice(0,2))?cell.slice(0,2)+'-'+id:id;
       if(map.level(id)!==cell.slice(0,2))continue;
-      if(map.dist(cell,f)<=8&&map.los(cell,f,{openDoors:openDoors()}).clear&&P.lightAt(map,f,lights,env)>=0.8)visible.add(f);
+      if(map.dist(cell,f)<=8&&map.los(cell,f,{openDoors:openDoors()}).clear&&P.lightAt(map,f,lights,Object.assign({},env,{openDoors:currentOpenDoors()}))>=0.8)visible.add(f);
     }
     const heard=world.sounds.filter(s=>world.clock-s.time<=6).filter(s=>audibility(cell,s).heard)
       .map(s=>({desc:s.desc,at:s.time,cell:P.localize('PLAYER',s,audibility(cell,s),map),db:s.level||s.db}));
@@ -403,14 +404,14 @@ function makeEngine(cfg){
       wounds:p.wounds||[],ammo:p.ammo,gear:p.gear||[]},
       visible:[...visible],contacts,heard,heat:heat.global(),
       observations:world.observations.slice(-20),objectives:world.objectives.map(o=>({desc:o.desc,done:!!o.done})),
-      light:P.lightAt(map,cell,lights,env),material:map.material(cell),
+      light:P.lightAt(map,cell,lights,Object.assign({},env,{openDoors:currentOpenDoors()})),material:map.material(cell),
       exposure:(p.wounds||[]).length>0?'WOUNDED':'OK'};
   }
 
   // overlay data for the GUI — derived from world, filtered to player perception
   function overlays(){
     const lm={};
-    for(const f in map.cells){lm[f]=P.lightAt(map,f,lights,env)}
+    for(const f in map.cells){lm[f]=P.lightAt(map,f,lights,Object.assign({},env,{openDoors:currentOpenDoors()}))}
     const sounds=(world.sounds||[]).filter(s=>world.clock-s.time<=12).map(s=>({
       cell:s.cell,db:s.db,type:s.type,desc:s.desc,at:s.time,
       heard:!!audibility(player().cell,s).heard}));
