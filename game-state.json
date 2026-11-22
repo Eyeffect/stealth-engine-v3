@@ -41,16 +41,14 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 21.5,
+    "clock": 27.5,
     "deadline": 240,
     "player": {
       "cell": "L0-C2",
       "facing": "N",
       "posture": "crouch",
-      "hp": 88,
-      "wounds": [
-        "Ticket Clerk gunshot (12 hp)"
-      ],
+      "hp": 100,
+      "wounds": [],
       "gun": null,
       "ammo": 0,
       "gear": [
@@ -59,7 +57,6 @@
         "crowbar",
         "jammer",
         "radio",
-        "gas",
         "gas",
         "gas",
         "gas",
@@ -81,7 +78,7 @@
         "gloves",
         "zip_ties"
       ],
-      "sway": 0.23,
+      "sway": 0.14,
       "darkness": 0.85,
       "movedAt": 15,
       "maskOn": "gasmask",
@@ -158,7 +155,7 @@
         "facing": "S",
         "range": 0,
         "weapon": "none",
-        "alive": true,
+        "alive": false,
         "carried": []
       },
       {
@@ -198,10 +195,7 @@
       },
       "T-05": {
         "cell": "L0-C2",
-        "mode": "lockdown",
-        "target": "L0-C2",
-        "movedAt": 0,
-        "facing": "S"
+        "mode": "down"
       },
       "T-06": {
         "cell": "L0-E4",
@@ -322,6 +316,22 @@
         "time": 21.5,
         "type": "action",
         "desc": "tranquilizer gas released"
+      },
+      {
+        "id": "DOOR",
+        "cell": "L0-C2",
+        "db": 30,
+        "time": 25.5,
+        "type": "action",
+        "desc": "door opened"
+      },
+      {
+        "id": "GAS",
+        "cell": "L0-C3",
+        "db": 30,
+        "time": 27.5,
+        "type": "action",
+        "desc": "tranquilizer gas released"
       }
     ],
     "evidence": [
@@ -337,6 +347,13 @@
         "type": "body",
         "cell": "L0-D2",
         "time": 17,
+        "desc": "incapacitated by gas"
+      },
+      {
+        "id": "GAS-BODY-T-05",
+        "type": "body",
+        "cell": "L0-C2",
+        "time": 27.5,
         "desc": "incapacitated by gas"
       }
     ],
@@ -426,6 +443,21 @@
         "cell": "L0-C2",
         "what": "Ticket Clerk spotted you",
         "t": 21.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 25.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Concourse Guard spotted you",
+        "t": 27.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 27.5
       }
     ],
     "movementLog": [
@@ -470,7 +502,7 @@
     "compromised": false,
     "objectivesDone": false,
     "resolver": [],
-    "kills": 2,
+    "kills": 3,
     "missionDef": {},
     "missionState": {
       "def": {},
@@ -507,7 +539,7 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 25,
+      "global": 27,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
@@ -516,7 +548,8 @@
         "L0-D1": 0,
         "L0-D2": 0,
         "L0-C2": 12,
-        "L0-F3": 0
+        "L0-F3": 0,
+        "L0-C3": 1
       },
       "fired": [
         "GLOBAL||CHECKIN|12",
@@ -554,6 +587,11 @@
         "cell": "L0-C2",
         "from": 19.5,
         "until": 39.5
+      },
+      {
+        "cell": "L0-C3",
+        "from": 25.5,
+        "until": 45.5
       }
     ],
     "beliefs": {
@@ -561,7 +599,10 @@
         "id": "T-01",
         "role": "guard",
         "cell": "L0-D2",
-        "seesPlayer": null,
+        "seesPlayer": {
+          "cell": "L0-C2",
+          "at": 27.5
+        },
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -761,6 +802,16 @@
             "gunshot": false
           },
           {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 6,
+            "believedCell": "L0-B2",
+            "level": 28.969100130080566,
+            "margin": 0.969100130080566,
+            "gunshot": false
+          },
+          {
             "soundId": "STEP-T-04-10",
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
@@ -768,6 +819,16 @@
             "believedCell": "L0-C1",
             "level": 31.93820026016113,
             "margin": 3.9382002601611283,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 15,
+            "believedCell": "L0-B2",
+            "level": 32.94850021680094,
+            "margin": 4.948500216800937,
             "gunshot": false
           },
           {
@@ -937,7 +998,7 @@
         "cell": "L0-C2",
         "seesPlayer": {
           "cell": "L0-C2",
-          "at": 21.5
+          "at": 27.5
         },
         "heard": [
           {
@@ -1009,9 +1070,25 @@
             "level": 35,
             "margin": 7,
             "gunshot": false
+          },
+          {
+            "soundId": "DOOR",
+            "type": "action",
+            "desc": "door opened",
+            "at": 25.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
+            "gunshot": false
           }
         ],
-        "evidence": [],
+        "evidence": [
+          {
+            "id": "GAS-BODY-T-05",
+            "desc": "incapacitated by gas",
+            "at": 27.5
+          }
+        ],
         "told": [
           {
             "from": "T-05",
@@ -1096,7 +1173,7 @@
       "T-02 (guard) @ Platform 3: search → 17",
       "T-03 (courier) @ Parcel Office: hold → Parcel Office",
       "T-04 (bodyguard) @ Main Concourse: down → —",
-      "T-05 (technician) @ Ticket Hall: lockdown → Ticket Hall",
+      "T-05 (technician) @ Ticket Hall: down → —",
       "T-06 (guard) @ Signal Control: search → 17"
     ]
   },
@@ -1110,7 +1187,7 @@
     "L0-A3|L0-A4": "closed",
     "L0-B3|L0-B4": "closed",
     "L0-B4|L0-C4": "closed",
-    "L0-C2|L0-C3": "closed",
+    "L0-C2|L0-C3": "open",
     "L0-C3|L0-D3": "locked",
     "L0-C4|L0-C5": "closed",
     "L0-D5|L0-E5": "closed",
