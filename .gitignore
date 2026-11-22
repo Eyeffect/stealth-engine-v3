@@ -1,0 +1,12 @@
+node_modules/
+*.log
+audit.log
+movement.log
+brain_trace.log
+state.js
+gm_state.js
+beliefs.js
+positions.js
+dynamic.js
+saves/
+.DS_Store
