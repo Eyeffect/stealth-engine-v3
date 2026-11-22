@@ -47,7 +47,10 @@ for(const m of CAMPAIGN.missions){
           done=!!(o.done);
         }
       } else if(o.type==='extract'){
-        if(walkTo(eng,world,o.target)){done=true}
+        if(walkTo(eng,world,o.target)){
+          const r=eng.turn({type:'extract',cell:'L0-'+String(o.target).replace('L0-','')});
+          done=!!o.done;
+        }
       } else if(o.type==='survive'){
         eng.turn({type:'wait',seconds:12});done=true;
       }

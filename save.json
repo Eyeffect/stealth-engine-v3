@@ -1,0 +1,45 @@
+{
+  "account": {
+    "credits": 45000,
+    "reputation": 90,
+    "gear": [
+      "knife",
+      "lockpick",
+      "decoder"
+    ],
+    "missions": [
+      {
+        "id": "m1_manifest",
+        "result": "COMPLETE",
+        "time": "2026-11-22T08:40:46.276Z",
+        "kills": 0,
+        "creditsEarned": 4500
+      },
+      {
+        "id": "m2_auditor",
+        "result": "COMPLETE",
+        "time": "2026-11-22T08:40:46.320Z",
+        "kills": 1,
+        "creditsEarned": 6500
+      },
+      {
+        "id": "m3_glasshouse",
+        "result": "COMPLETE",
+        "time": "2026-11-22T08:40:46.358Z",
+        "kills": 0,
+        "creditsEarned": 9000
+      }
+    ],
+    "kills": 1
+  },
+  "completed": [
+    "m1_manifest",
+    "m2_auditor",
+    "m3_glasshouse"
+  ],
+  "unlocked": [
+    "m1_manifest",
+    "m2_auditor",
+    "m3_glasshouse"
+  ]
+}

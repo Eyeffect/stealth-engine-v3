@@ -182,9 +182,6 @@ function makeEngine(cfg){
       player().cell=to;
       player().movedAt=world.clock;
       observe(to,'you entered '+room(to));
-      for(const o of world.objectives||[]){
-        if(o.type==='extract'&&to===norm(o.target))o.done=true;
-      }
       checkObjectives(mission,world);
       const exitCells=[world.exit&&world.exit.cell,...world.objectives.filter(o=>o.type==='extract').map(o=>o.target)].filter(Boolean).map(norm);
       if(exitCells.includes(to)&&mission.state==='EXTRACTION')mission.advance('COMPLETE');
@@ -302,6 +299,16 @@ function makeEngine(cfg){
       world.messages.push({from:'PLAYER',to:'all',channel:channel||world.radioChannel||'SEC',
         text:text,content:{},time:world.clock,confidence:0.8});
       return{ok:true,msg:'Transmitted'};
+    },
+    extract(a){
+      const cell=norm(a.cell||player().cell);
+      if(cell!==norm(player().cell))return{ok:false,msg:'Not at extraction point'};
+      for(const o of world.objectives||[])if(o.type==='extract'&&cell===norm(o.target))o.done=true;
+      applyCost({id:'EXTRACT',cell:cell,timeCost:2,desc:'extracting'});
+      checkObjectives(mission,world);
+      const exits=[world.exit&&world.exit.cell,...world.objectives.filter(o=>o.type==='extract').map(o=>o.target)].filter(Boolean).map(norm);
+      if(exits.includes(cell)&&mission.state==='EXTRACTION')mission.advance('COMPLETE');
+      return{ok:true,msg:'Extracted'};
     },
     wait(a){const s=Number(a&&a.seconds)||6;applyCost({id:'WAIT',timeCost:s,noise:a&&a.noise,desc:a&&a.desc||'waiting'});return{ok:true}}
   };
