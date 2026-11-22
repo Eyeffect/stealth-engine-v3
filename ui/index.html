@@ -293,7 +293,7 @@ python -m http.server 8000
     function at(x,y){for(var i=0;i<arr.length;i++){var c=arr[i];if(c.x===x&&c.y===y&&c.level===level)return c;}return null;}
     function edge(a,b){
       if(!b)return {cls:'e-wall',title:'BOUNDARY'};
-      var k=[a,b].sort().join('|'),e=byKey[k],t=e?e.type:'wall',st=doors[k];
+      var k=[a,b].sort().join('|'),e=byKey[k],t=e?e[2]:'wall',st=doors[k];
       if(t==='door')return {cls:st==='open'?'e-door-open':'e-door',title:'DOOR'+(st?' ('+st+')':'')};
       if(t==='glass')return {cls:'e-glass',title:'GLASS'};
       if(t==='open')return {cls:'e-open',title:'OPEN'};
