@@ -349,7 +349,7 @@ python -m http.server 8000
           return '<div class="token" style="top:'+(4+i*13)+'px" title="'+esc(t.name+' / '+t.role)+'">'+esc(t.id)+
             '<span class="r">'+esc(t.role)+'</span></div>';}).join('');
         var ovHtml='';
-        if(OV.light&&lm[c.id]!=null&&lm[c.id]>(S.map.ambient||0)+0.3)
+        if(OV.light&&vis.has(c.id)&&lm[c.id]!=null&&lm[c.id]>(S.map.ambient||0)+0.3)
           ovHtml+='<div class="ov-light" style="opacity:'+Math.min(0.9,((lm[c.id]-(S.map.ambient||0))/8)).toFixed(2)+'" title="light '+Number(lm[c.id]).toFixed(1)+'"></div>';
         if(OV.los&&coneCells.has(c.id))ovHtml+='<div class="ov-los" title="sight line"></div>';
         if(OV.cam&&camCells.has(c.id))ovHtml+='<div class="ov-cam" title="camera visible"></div>';
