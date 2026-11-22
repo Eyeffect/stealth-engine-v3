@@ -416,6 +416,7 @@ function makeEngine(cfg){
     const pNow=player();
     for(const n of world.npcs){
       if(n.alive===false||!B[n.id])continue;
+      if(!n.weapon||n.weapon==='none')continue;   // unarmed NPCs cannot shoot
       const d=B[n.id];
       const sees=d.seesPlayer;
       const hostile=(d.gunshotHeard||d.suspicion>=2||(d.told||[]).some(t=>t.content&&t.content.playerCell));

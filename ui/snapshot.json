@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T19:02:59.736Z",
+  "generatedAt": "2026-11-22T19:07:25.439Z",
   "exporterVersion": 2,
   "missionId": "m1_manifest",
   "campaign": {
@@ -788,14 +788,16 @@
     ]
   },
   "view": {
-    "clock": 17,
+    "clock": 21.5,
     "mission": "OBJECTIVE",
     "you": {
       "cell": "L0-C2",
       "room": "Ticket Hall",
       "posture": "crouch",
-      "hp": 100,
-      "wounds": [],
+      "hp": 88,
+      "wounds": [
+        "Ticket Clerk gunshot (12 hp)"
+      ],
       "ammo": 0,
       "gear": [
         "knife",
@@ -803,7 +805,6 @@
         "crowbar",
         "jammer",
         "radio",
-        "gas",
         "gas",
         "gas",
         "gas",
@@ -843,16 +844,10 @@
     ],
     "heard": [
       {
-        "desc": "moving through Ticket Hall",
-        "at": 15,
+        "desc": "tranquilizer gas released",
+        "at": 21.5,
         "cell": "L0-C2",
-        "db": 43
-      },
-      {
-        "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 15,
-        "cell": "L0-D2",
-        "db": 50
+        "db": 30
       }
     ],
     "heat": 25,
@@ -891,6 +886,21 @@
         "cell": "L0-C2",
         "what": "Ticket Clerk spotted you",
         "t": 17
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Bodyguard Rusk spotted you",
+        "t": 19.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 19.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 21.5
       }
     ],
     "objectives": [
@@ -905,7 +915,7 @@
     ],
     "light": 0.55,
     "material": "tile",
-    "exposure": "OK"
+    "exposure": "WOUNDED"
   },
   "overlays": {
     "lightmap": {
@@ -941,22 +951,6 @@
       "L0-F5": 0.3
     },
     "sounds": [
-      {
-        "cell": "L0-B2",
-        "db": 43,
-        "type": "action",
-        "desc": "moving through Staff Corridor",
-        "at": 6,
-        "heard": true
-      },
-      {
-        "cell": "L0-E1",
-        "db": 50,
-        "type": "footstep",
-        "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 6,
-        "heard": true
-      },
       {
         "cell": "L0-B2",
         "db": 30,
@@ -1004,6 +998,14 @@
         "desc": "Bodyguard Rusk footsteps on marble",
         "at": 15,
         "heard": true
+      },
+      {
+        "cell": "L0-C2",
+        "db": 30,
+        "type": "action",
+        "desc": "tranquilizer gas released",
+        "at": 21.5,
+        "heard": true
       }
     ],
     "cameras": [],
@@ -1031,9 +1033,9 @@
         "L0-B2": 0,
         "L0-E1": 0,
         "L0-D1": 0,
-        "L0-D2": 1,
+        "L0-D2": 0,
         "L0-C2": 12,
-        "L0-F3": 1
+        "L0-F3": 0
       },
       "fired": [
         "GLOBAL||CHECKIN|12",
@@ -1300,10 +1302,7 @@
         "id": "T-04",
         "role": "bodyguard",
         "cell": "L0-D2",
-        "seesPlayer": {
-          "cell": "L0-C2",
-          "at": 17
-        },
+        "seesPlayer": null,
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -1424,7 +1423,7 @@
         "cell": "L0-C2",
         "seesPlayer": {
           "cell": "L0-C2",
-          "at": 17
+          "at": 21.5
         },
         "heard": [
           {
@@ -1485,6 +1484,16 @@
             "believedCell": "L0-D2",
             "level": 45.95880017344075,
             "margin": 17.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 21.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
             "gunshot": false
           }
         ],
@@ -1615,26 +1624,26 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T18:58:27.192Z\",\"label\":\"T-02:noise:nerve\",\"target\":60,\"roll\":44,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.193Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":60,\"margin\":-15,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:58:27.193Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":65,\"margin\":-15,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.878Z\",\"label\":\"sight T-01 -> player\",\"target\":36,\"roll\":36,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.880Z\",\"label\":\"sight T-04 -> player\",\"target\":35,\"roll\":55,\"margin\":-20,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.880Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":74,\"margin\":21,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.882Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":64,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.882Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":53,\"margin\":-8,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.883Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":41,\"margin\":14,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:19.883Z\",\"label\":\"T-02 close door behind\",\"target\":60,\"roll\":53,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.726Z\",\"label\":\"threaten T-05\",\"target\":30,\"roll\":87,\"margin\":-57,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.728Z\",\"label\":\"T-04 gas resist\",\"target\":35,\"roll\":22,\"margin\":13,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.730Z\",\"label\":\"sight T-01 -> player\",\"target\":36,\"roll\":68,\"margin\":-32,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.731Z\",\"label\":\"sight T-04 -> player\",\"target\":36,\"roll\":20,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.732Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":24,\"margin\":71,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.733Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":45,\"margin\":15,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":52,\"margin\":-7,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":26,\"margin\":29,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T19:02:59.734Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":69,\"margin\":-9,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:02:59.735Z\",\"label\":\"T-05 fires at player\",\"target\":45,\"roll\":58,\"margin\":-13,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
+      "{\"ts\":\"2026-11-22T19:02:59.735Z\",\"label\":\"T-05 fires at player\",\"target\":45,\"roll\":58,\"margin\":-13,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.940Z\",\"label\":\"sight T-01 -> player\",\"target\":36,\"roll\":48,\"margin\":-12,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.942Z\",\"label\":\"sight T-04 -> player\",\"target\":36,\"roll\":26,\"margin\":10,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.943Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":32,\"margin\":63,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.945Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":19,\"margin\":41,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.945Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":26,\"margin\":19,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.945Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":13,\"margin\":42,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.946Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":40,\"margin\":20,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:06:05.946Z\",\"label\":\"T-05 fires at player\",\"target\":45,\"roll\":16,\"margin\":29,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.430Z\",\"label\":\"T-05 gas resist\",\"target\":35,\"roll\":76,\"margin\":-41,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.433Z\",\"label\":\"sight T-01 -> player\",\"target\":17,\"roll\":83,\"margin\":-66,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.434Z\",\"label\":\"sight T-04 -> player\",\"target\":17,\"roll\":21,\"margin\":-4,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.435Z\",\"label\":\"same-cell T-05\",\"target\":95,\"roll\":91,\"margin\":4,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.436Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":47,\"margin\":13,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.437Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":84,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.437Z\",\"label\":\"T-05:lockdown:nerve\",\"target\":55,\"roll\":5,\"margin\":50,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:07:25.437Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":40,\"margin\":20,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
       "3 | T-04 door L0-E2|L0-E3 closed",

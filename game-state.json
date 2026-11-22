@@ -41,14 +41,16 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 17,
+    "clock": 21.5,
     "deadline": 240,
     "player": {
       "cell": "L0-C2",
       "facing": "N",
       "posture": "crouch",
-      "hp": 100,
-      "wounds": [],
+      "hp": 88,
+      "wounds": [
+        "Ticket Clerk gunshot (12 hp)"
+      ],
       "gun": null,
       "ammo": 0,
       "gear": [
@@ -57,7 +59,6 @@
         "crowbar",
         "jammer",
         "radio",
-        "gas",
         "gas",
         "gas",
         "gas",
@@ -80,9 +81,11 @@
         "gloves",
         "zip_ties"
       ],
-      "sway": 0.14,
+      "sway": 0.23,
       "darkness": 0.85,
-      "movedAt": 15
+      "movedAt": 15,
+      "maskOn": "gasmask",
+      "filterUntil": 77
     },
     "npcs": [
       {
@@ -311,6 +314,14 @@
         "time": 15,
         "type": "footstep",
         "desc": "Bodyguard Rusk footsteps on marble"
+      },
+      {
+        "id": "GAS",
+        "cell": "L0-C2",
+        "db": 30,
+        "time": 21.5,
+        "type": "action",
+        "desc": "tranquilizer gas released"
       }
     ],
     "evidence": [
@@ -355,6 +366,14 @@
         "content": {},
         "time": 17,
         "confidence": 1
+      },
+      {
+        "from": "T-05",
+        "to": "SYSTEM",
+        "text": "HIT PLAYER -12",
+        "content": {},
+        "time": 19.5,
+        "confidence": 1
       }
     ],
     "observations": [
@@ -392,6 +411,21 @@
         "cell": "L0-C2",
         "what": "Ticket Clerk spotted you",
         "t": 17
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Bodyguard Rusk spotted you",
+        "t": 19.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 19.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 21.5
       }
     ],
     "movementLog": [
@@ -480,9 +514,9 @@
         "L0-B2": 0,
         "L0-E1": 0,
         "L0-D1": 0,
-        "L0-D2": 1,
+        "L0-D2": 0,
         "L0-C2": 12,
-        "L0-F3": 1
+        "L0-F3": 0
       },
       "fired": [
         "GLOBAL||CHECKIN|12",
@@ -515,6 +549,11 @@
         "cell": "L0-D2",
         "from": 10,
         "until": 30
+      },
+      {
+        "cell": "L0-C2",
+        "from": 19.5,
+        "until": 39.5
       }
     ],
     "beliefs": {
@@ -777,10 +816,7 @@
         "id": "T-04",
         "role": "bodyguard",
         "cell": "L0-D2",
-        "seesPlayer": {
-          "cell": "L0-C2",
-          "at": 17
-        },
+        "seesPlayer": null,
         "heard": [
           {
             "soundId": "STEP-T-04-3",
@@ -901,7 +937,7 @@
         "cell": "L0-C2",
         "seesPlayer": {
           "cell": "L0-C2",
-          "at": 17
+          "at": 21.5
         },
         "heard": [
           {
@@ -962,6 +998,16 @@
             "believedCell": "L0-D2",
             "level": 45.95880017344075,
             "margin": 17.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 21.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
             "gunshot": false
           }
         ],
