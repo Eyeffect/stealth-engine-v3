@@ -265,11 +265,15 @@ python -m http.server 8000
     fatal('Opened with file:// — fetch() cannot read local files in most browsers.');
     return;
   }
+  var booted=false,lastStamp='';
   function loadSnapshot(){
     fetch('snapshot.json?_='+Date.now(),{cache:'no-store'}).then(function(r){
       if(!r.ok)throw new Error('HTTP '+r.status);
       return r.json();
-    }).then(init).catch(function(e){
+    }).then(function(data){
+      if(!booted){booted=true;lastStamp=data.generatedAt;init(data);}
+      else if(data.generatedAt!==lastStamp){lastStamp=data.generatedAt;refresh(data);}
+    }).catch(function(e){
       fatal('Could not load snapshot.json: '+e.message);
     });
   }
@@ -280,24 +284,31 @@ python -m http.server 8000
   function init(data){
     S=data;
     document.getElementById('app').classList.remove('hidden');
-    var v=S.view,m=S.mission;
     document.getElementById('campaignTitle').textContent=S.campaign.title;
+    document.getElementById('mapTitle').textContent=S.map.name;
+    document.getElementById('mapSub').textContent='LEVEL '+S.map.level+' // '+Object.keys(S.map.cells).length+' CELLS';
+    renderTabs();renderPresets();setAction({type:'wait',seconds:6});
+    refresh(data,true);
+  }
+  // Dynamic-only refresh: updates text and map, never rebuilds tabs/presets/input.
+  function refresh(data,first){
+    S=data;
+    var v=S.view,m=S.mission;
     document.getElementById('missionName').textContent=m.name;
-    document.getElementById('statePill').textContent='STATE: '+v.mission;
-    var stateCls=v.mission==='COMPROMISED'?'state-bad':
-      (v.mission==='COMPLETE'?'state-ok':'state-warn');
-    document.getElementById('statePill').className='pill '+stateCls;
+    var pill=document.getElementById('statePill');
+    pill.textContent='STATE: '+v.mission;
+    pill.className='pill '+(v.mission==='COMPROMISED'?'state-bad':
+      (v.mission==='COMPLETE'?'state-ok':'state-warn'));
     document.getElementById('clock').textContent=fmtClock(v.clock)+' / '+fmtClock(m.deadline);
     var h=Math.round(Number(v.heat)||0);
     document.getElementById('heatVal').textContent=h;
     var hl=h>=75?['LOCKDOWN','state-bad']:h>=40?['SWEEP','state-bad']:h>=12?['CHECKIN','state-warn']:['LOW','state-ok'];
     var ht=document.getElementById('heatTag');ht.textContent=hl[0];ht.className='pill '+hl[1];
-    document.getElementById('mapTitle').textContent=S.map.name;
-    document.getElementById('mapSub').textContent='LEVEL '+S.map.level+' // '+Object.keys(S.map.cells).length+' CELLS';
     document.getElementById('composerCell').textContent=short(v.you.cell);
     document.getElementById('meta').textContent='SNAPSHOT '+String(S.generatedAt||'').replace('T',' ').replace(/\.\d+Z$/,'Z')+
       '  //  MISSION '+S.missionId+'  //  '+(S.actions||[]).length+' ACTIONS';
-    renderMap();renderTabs();renderPresets();setAction({type:'wait',seconds:6});
+    renderMap();
+    if(currentTab!=='SHOP')renderTabBody();
   }
 
   // ---------------- map ----------------
@@ -375,6 +386,9 @@ python -m http.server 8000
       var b=e.target.closest('button[data-tab]');if(!b)return;
       currentTab=b.dataset.tab;renderTabs();
     };
+    renderTabBody();
+  }
+  function renderTabBody(){
     var fn={OPERATOR:tabOperator,TARGET:tabTarget,INTEL:tabIntel,SHOP:tabShop,GM:tabGM}[currentTab];
     document.getElementById('tabbody').innerHTML=fn?fn():'';
     if(currentTab==='SHOP')bindShop();
