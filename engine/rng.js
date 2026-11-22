@@ -7,10 +7,9 @@ function d100(label,target,context){
   const success=roll<=target;
   const margin=target-roll;
   const entry={
-    ts:new Date().toISOString(),label,target,roll,margin,
-    verdict:success?'SUCCESS':'FAILURE',
-    grade:margin<=-20?'CRITICAL_FAIL':margin<0?'FAIL':margin<20?'SUCCESS':'CRITICAL_SUCCESS',
-    context:context||null
+    ts:new Date().toISOString(),label,target,roll,margin,success,
+    grade:!success?(margin<=-20?'CRITICAL_FAIL':'FAIL'):(margin>=20?'CRITICAL_SUCCESS':'SUCCESS'),
+    context:context||null,verdict:success?'SUCCESS':'FAILURE'
   };
   fs.appendFileSync(LOG,JSON.stringify(entry)+'\n');
   return entry;
