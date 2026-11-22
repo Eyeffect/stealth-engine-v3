@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-22T18:43:37.613Z",
-  "exporterVersion": 1,
+  "generatedAt": "2026-11-22T18:45:49.909Z",
+  "exporterVersion": 2,
   "missionId": "m1_manifest",
   "campaign": {
     "title": "THE QUIET LEDGER",
@@ -144,13 +144,15 @@
         "id": "obj_copy",
         "type": "copy",
         "target": "D3",
-        "desc": "Copy the manifest from the courier's sealed case in the Parcel Office."
+        "desc": "Copy the manifest from the courier's sealed case in the Parcel Office.",
+        "done": false
       },
       {
         "id": "obj_extract",
         "type": "extract",
         "target": "A1",
-        "desc": "Leave the hub through the service tunnel."
+        "desc": "Leave the hub through the service tunnel.",
+        "done": false
       }
     ]
   },
@@ -786,10 +788,10 @@
     ]
   },
   "view": {
-    "clock": 6,
+    "clock": 3,
     "mission": "OBJECTIVE",
     "you": {
-      "cell": "L0-A1",
+      "cell": "L0-A2",
       "room": "Service Tunnel",
       "posture": "crouch",
       "hp": 100,
@@ -827,12 +829,25 @@
       ]
     },
     "visible": [
-      "L0-A1"
+      "L0-A2"
     ],
     "contacts": [],
-    "heard": [],
-    "heat": 2,
-    "observations": [],
+    "heard": [
+      {
+        "desc": "moving through Service Tunnel",
+        "at": 3,
+        "cell": "L0-A2",
+        "db": 41
+      }
+    ],
+    "heat": 3,
+    "observations": [
+      {
+        "cell": "L0-A2",
+        "what": "you entered Service Tunnel",
+        "t": 3
+      }
+    ],
     "objectives": [
       {
         "desc": "Copy the manifest from the courier's sealed case in the Parcel Office.",
@@ -843,7 +858,7 @@
         "done": false
       }
     ],
-    "light": 0.3,
+    "light": 0.3208333333333333,
     "material": "concrete",
     "exposure": "OK"
   },
@@ -882,24 +897,33 @@
     },
     "sounds": [
       {
+        "cell": "L0-A2",
+        "db": 41,
+        "type": "action",
+        "desc": "moving through Service Tunnel",
+        "at": 3,
+        "heard": true
+      },
+      {
         "cell": "L0-E2",
         "db": 50,
         "type": "footstep",
         "desc": "Bodyguard Rusk footsteps on marble",
-        "at": 6,
+        "at": 3,
         "heard": false
       }
     ],
     "cameras": [],
     "guardCones": [],
     "visible": [
-      "L0-A1"
+      "L0-A2"
     ]
   },
   "diagnostics": {
     "heat": {
-      "global": 2,
+      "global": 3,
       "cells": {
+        "L0-A2": 1,
         "L0-E2": 2
       },
       "fired": []
@@ -1012,7 +1036,7 @@
         "cell": "L0-E2",
         "mode": "shield",
         "target": "L0-A1",
-        "movedAt": 6,
+        "movedAt": 3,
         "facing": "W"
       },
       "T-05": {
@@ -1031,8 +1055,6 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T18:43:20.954Z\",\"label\":\"S-08:flee:nerve\",\"target\":40,\"roll\":57,\"margin\":-17,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:43:20.955Z\",\"label\":\"sight S-08 -> player\",\"target\":17,\"roll\":99,\"margin\":-82,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":60,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":51,\"margin\":9,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":49,\"margin\":11,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
@@ -1050,11 +1072,13 @@
       "{\"ts\":\"2026-11-22T18:43:20.960Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":55,\"margin\":25,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:20.960Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":87,\"margin\":-37,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T18:43:20.960Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":17,\"margin\":28,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:43:37.599Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":4,\"margin\":56,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
+      "{\"ts\":\"2026-11-22T18:43:37.599Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":4,\"margin\":56,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:44:37.649Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":23,\"margin\":37,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:45:49.908Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":25,\"margin\":35,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
-      "6 | T-04 door L0-E2|L0-E3 closed",
-      "6 | T-04 L0-E3 -> L0-E2 50dB"
+      "3 | T-04 door L0-E2|L0-E3 closed",
+      "3 | T-04 L0-E3 -> L0-E2 50dB"
     ],
     "trigger": {
       "armed": null,
@@ -1525,16 +1549,13 @@
     {
       "type": "move",
       "label": "MOVE",
-      "hint": "Move to a cell; short id (B1) or full id (L0-B1).",
       "template": {
-        "type": "move",
-        "cell": "B1"
+        "type": "move"
       }
     },
     {
       "type": "crouch",
       "label": "CROUCH",
-      "hint": "Drop to crouched posture (lower sight score).",
       "template": {
         "type": "crouch"
       }
@@ -1542,52 +1563,55 @@
     {
       "type": "stand",
       "label": "STAND",
-      "hint": "Return to standing posture.",
       "template": {
         "type": "stand"
       }
     },
     {
       "type": "openDoor",
-      "label": "OPEN DOOR",
-      "hint": "key = sorted full ids \"L0-A1|L0-B1\", or an adjacent cell.",
+      "label": "OPENDOOR",
       "template": {
-        "type": "openDoor",
-        "key": "L0-A1|L0-B1"
+        "type": "openDoor"
       }
     },
     {
       "type": "closeDoor",
-      "label": "CLOSE DOOR",
-      "hint": "Close a door using the same key format.",
+      "label": "CLOSEDOOR",
       "template": {
-        "type": "closeDoor",
-        "key": "L0-A1|L0-B1"
+        "type": "closeDoor"
       }
     },
     {
       "type": "wedge",
       "label": "WEDGE",
-      "hint": "Jam a door open with a wedge.",
       "template": {
-        "type": "wedge",
-        "key": "L0-A1|L0-B1"
+        "type": "wedge"
       }
     },
     {
       "type": "shoot",
       "label": "SHOOT",
-      "hint": "target = npc id; aim = center | head | leg.",
       "template": {
-        "type": "shoot",
-        "target": "T-01",
-        "aim": "center"
+        "type": "shoot"
+      }
+    },
+    {
+      "type": "don",
+      "label": "DON",
+      "template": {
+        "type": "don"
+      }
+    },
+    {
+      "type": "gas",
+      "label": "GAS",
+      "template": {
+        "type": "gas"
       }
     },
     {
       "type": "copy",
       "label": "COPY",
-      "hint": "Copy data in your current cell.",
       "template": {
         "type": "copy"
       }
@@ -1595,7 +1619,6 @@
     {
       "type": "deactivate",
       "label": "DEACTIVATE",
-      "hint": "Disable an alarm/relay in your current cell.",
       "template": {
         "type": "deactivate"
       }
@@ -1603,53 +1626,27 @@
     {
       "type": "search",
       "label": "SEARCH",
-      "hint": "id = downed npc id, in the same cell.",
       "template": {
-        "type": "search",
-        "id": "T-01"
+        "type": "search"
       }
     },
     {
       "type": "drag",
       "label": "DRAG",
-      "hint": "id = downed npc id; to = destination cell.",
       "template": {
-        "type": "drag",
-        "id": "T-01",
-        "to": "A1"
+        "type": "drag"
       }
     },
     {
       "type": "radio",
       "label": "RADIO",
-      "hint": "text = transmission; optional channel.",
       "template": {
-        "type": "radio",
-        "text": "All clear."
-      }
-    },
-    {
-      "type": "don",
-      "label": "DON MASK",
-      "hint": "Put on the respirator mask (60 s filter).",
-      "template": {
-        "type": "don",
-        "mask": "gasmask"
-      }
-    },
-    {
-      "type": "gas",
-      "label": "GAS",
-      "hint": "Release a tranquilizer gas cloud in a cell.",
-      "template": {
-        "type": "gas",
-        "cell": "D3"
+        "type": "radio"
       }
     },
     {
       "type": "extract",
       "label": "EXTRACT",
-      "hint": "",
       "template": {
         "type": "extract"
       }
@@ -1657,10 +1654,8 @@
     {
       "type": "wait",
       "label": "WAIT",
-      "hint": "seconds = time to let the world run.",
       "template": {
-        "type": "wait",
-        "seconds": 6
+        "type": "wait"
       }
     }
   ]

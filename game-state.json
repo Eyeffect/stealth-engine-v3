@@ -1,0 +1,468 @@
+{
+  "missionId": "m1_manifest",
+  "acct": {
+    "credits": 13485,
+    "reputation": 50,
+    "gear": [
+      "knife",
+      "lockpick",
+      "crowbar",
+      "jammer",
+      "radio",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "flashbang",
+      "flashbang",
+      "flashbang",
+      "medkit",
+      "gasmask",
+      "gasmask",
+      "gloves",
+      "zip_ties"
+    ],
+    "missions": [],
+    "kills": 0
+  },
+  "world": {
+    "campaign": "THE QUIET LEDGER",
+    "missionId": "m1_manifest",
+    "missionName": "THE MANIFEST",
+    "level": "L0",
+    "clock": 3,
+    "deadline": 240,
+    "player": {
+      "cell": "L0-A2",
+      "facing": "N",
+      "posture": "crouch",
+      "hp": 100,
+      "wounds": [],
+      "gun": null,
+      "ammo": 0,
+      "gear": [
+        "knife",
+        "lockpick",
+        "crowbar",
+        "jammer",
+        "radio",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "flashbang",
+        "flashbang",
+        "flashbang",
+        "medkit",
+        "gasmask",
+        "gasmask",
+        "gloves",
+        "zip_ties"
+      ],
+      "sway": 0.14,
+      "darkness": 0.85,
+      "movedAt": 3
+    },
+    "npcs": [
+      {
+        "id": "T-01",
+        "name": "Concourse Guard",
+        "role": "guard",
+        "cell": "D2",
+        "facing": "E",
+        "range": 7,
+        "weapon": "pistol",
+        "patrol": [
+          "D2",
+          "E2",
+          "D2",
+          "C2"
+        ],
+        "alive": true,
+        "carried": []
+      },
+      {
+        "id": "T-02",
+        "name": "Platform Guard",
+        "role": "guard",
+        "cell": "F2",
+        "facing": "N",
+        "range": 7,
+        "weapon": "pistol",
+        "patrol": [
+          "F2",
+          "F3",
+          "F4",
+          "F3"
+        ],
+        "alive": true,
+        "carried": []
+      },
+      {
+        "id": "T-03",
+        "name": "Courier Dell",
+        "role": "courier",
+        "cell": "D3",
+        "facing": "S",
+        "range": 0,
+        "weapon": "none",
+        "traits": {
+          "alertness": 45,
+          "curiosity": 20,
+          "nerve": 40,
+          "discipline": 40
+        },
+        "alive": true,
+        "carried": []
+      },
+      {
+        "id": "T-04",
+        "name": "Bodyguard Rusk",
+        "role": "bodyguard",
+        "cell": "E3",
+        "facing": "W",
+        "range": 8,
+        "weapon": "smg",
+        "alive": true,
+        "carried": []
+      },
+      {
+        "id": "T-05",
+        "name": "Ticket Clerk",
+        "role": "technician",
+        "cell": "C2",
+        "facing": "S",
+        "range": 0,
+        "weapon": "none",
+        "alive": true,
+        "carried": []
+      },
+      {
+        "id": "T-06",
+        "name": "Transit Officer",
+        "role": "guard",
+        "cell": "E4",
+        "facing": "N",
+        "range": 7,
+        "weapon": "pistol",
+        "alive": true,
+        "carried": []
+      }
+    ],
+    "positions": {
+      "T-01": {
+        "cell": "L0-D2",
+        "mode": "patrol",
+        "target": "L0-E2",
+        "movedAt": 0,
+        "facing": "E"
+      },
+      "T-02": {
+        "cell": "L0-F2",
+        "mode": "patrol",
+        "target": "L0-F3",
+        "movedAt": 0,
+        "facing": "N"
+      },
+      "T-03": {
+        "cell": "L0-D3",
+        "mode": "hold",
+        "target": "L0-D3",
+        "movedAt": 0,
+        "facing": "S"
+      },
+      "T-04": {
+        "cell": "L0-E2",
+        "mode": "shield",
+        "target": "L0-A1",
+        "movedAt": 3,
+        "facing": "W"
+      },
+      "T-05": {
+        "cell": "L0-C2",
+        "mode": "station",
+        "target": "L0-C2",
+        "movedAt": 0,
+        "facing": "S"
+      },
+      "T-06": {
+        "cell": "L0-E4",
+        "mode": "patrol",
+        "target": null,
+        "movedAt": 0,
+        "facing": "N"
+      }
+    },
+    "doors": {
+      "L0-A2|L0-B2": "open",
+      "L0-B2|L0-C2": "closed",
+      "L0-C2|L0-D2": "open",
+      "L0-B1|L0-C1": "closed",
+      "L0-B2|L0-B3": "closed",
+      "L0-A2|L0-A3": "closed",
+      "L0-A3|L0-A4": "closed",
+      "L0-B3|L0-B4": "closed",
+      "L0-B4|L0-C4": "closed",
+      "L0-C2|L0-C3": "closed",
+      "L0-C3|L0-D3": "locked",
+      "L0-C4|L0-C5": "closed",
+      "L0-D5|L0-E5": "closed",
+      "L0-E5|L0-F5": "open",
+      "L0-E1|L0-E2": "open",
+      "L0-E2|L0-F2": "open",
+      "L0-F2|L0-F3": "open",
+      "L0-F3|L0-F4": "open",
+      "L0-E4|L0-F4": "open",
+      "L0-E2|L0-E3": "closed",
+      "L0-E1|L0-F1": "open"
+    },
+    "sounds": [
+      {
+        "id": "MOVE",
+        "cell": "L0-A2",
+        "db": 41,
+        "time": 3,
+        "type": "action",
+        "desc": "moving through Service Tunnel"
+      },
+      {
+        "id": "STEP-T-04-3",
+        "cell": "L0-E2",
+        "db": 50,
+        "time": 3,
+        "type": "footstep",
+        "desc": "Bodyguard Rusk footsteps on marble"
+      }
+    ],
+    "evidence": [],
+    "messages": [],
+    "observations": [
+      {
+        "cell": "L0-A2",
+        "what": "you entered Service Tunnel",
+        "t": 3
+      }
+    ],
+    "movementLog": [
+      "3 | T-04 door L0-E2|L0-E3 closed",
+      "3 | T-04 L0-E3 -> L0-E2 50dB"
+    ],
+    "objectives": [
+      {
+        "id": "obj_copy",
+        "type": "copy",
+        "target": "D3",
+        "desc": "Copy the manifest from the courier's sealed case in the Parcel Office.",
+        "done": false
+      },
+      {
+        "id": "obj_extract",
+        "type": "extract",
+        "target": "A1",
+        "desc": "Leave the hub through the service tunnel.",
+        "done": false
+      }
+    ],
+    "exit": {
+      "cell": "A1"
+    },
+    "rewards": {
+      "credits": 4500,
+      "reputation": 8
+    },
+    "radioChannel": "SEC",
+    "deadman": false,
+    "triggerDisarmed": false,
+    "triggerArmedAt": null,
+    "triggerFired": false,
+    "lockdown": false,
+    "compromised": false,
+    "objectivesDone": false,
+    "resolver": [],
+    "kills": 0,
+    "missionDef": {},
+    "missionState": {
+      "def": {},
+      "state": "OBJECTIVE",
+      "history": [
+        {
+          "from": "BRIEFING",
+          "to": "INFILTRATION",
+          "event": "START",
+          "ts": "2026-11-22T18:45:49.903Z"
+        },
+        {
+          "from": "INFILTRATION",
+          "to": "OBJECTIVE",
+          "event": "ENTER",
+          "ts": "2026-11-22T18:45:49.904Z"
+        }
+      ],
+      "log": []
+    },
+    "heat": {
+      "decay": 1,
+      "thresholds": [
+        {
+          "at": 12,
+          "event": "CHECKIN"
+        },
+        {
+          "at": 40,
+          "event": "SWEEP"
+        },
+        {
+          "at": 75,
+          "event": "LOCKDOWN"
+        }
+      ],
+      "global": 3,
+      "cells": {
+        "L0-A2": 1,
+        "L0-E2": 2
+      },
+      "fired": [],
+      "pending": []
+    },
+    "resolvedEvents": {
+      "ids": [],
+      "resolved": {}
+    },
+    "briefing": "A courier is carrying the Quiet Ledger manifest through Meridian Transit Hub in a sealed data case. Lift a copy in the Parcel Office and leave the way you came. The courier is not the target — the case is.",
+    "intel": {
+      "summary": "Courier Dell carries the manifest in a sealed case inside the Parcel Office at D3.",
+      "patrolWindow": "The platform guard loops F2-F4 roughly every 40 seconds.",
+      "cameraBlind": "The glass partition at B3 is unwatched; the parcel cam covers only D3.",
+      "hazard": "The parcel office door C3-D3 is locked; the main archway C1-D1 stands open.",
+      "hint": "Copy the case at D3. Killing the courier is unnecessary and burns the contract."
+    },
+    "gasClouds": [],
+    "beliefs": {
+      "T-01": {
+        "id": "T-01",
+        "role": "guard",
+        "cell": "L0-D2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-02": {
+        "id": "T-02",
+        "role": "guard",
+        "cell": "L0-F2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-03": {
+        "id": "T-03",
+        "role": "courier",
+        "cell": "L0-D3",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-04": {
+        "id": "T-04",
+        "role": "bodyguard",
+        "cell": "L0-E3",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-05": {
+        "id": "T-05",
+        "role": "technician",
+        "cell": "L0-C2",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      },
+      "T-06": {
+        "id": "T-06",
+        "role": "guard",
+        "cell": "L0-E4",
+        "seesPlayer": null,
+        "heard": [],
+        "evidence": [],
+        "told": [],
+        "suspicion": 0,
+        "noiseRead": null,
+        "gunshotHeard": false
+      }
+    },
+    "brainTrace": [
+      "T-01 (guard) @ Main Concourse: patrol → East Concourse",
+      "T-02 (guard) @ Platform 2: patrol → Platform 3",
+      "T-03 (courier) @ Parcel Office: hold → Parcel Office",
+      "T-04 (bodyguard) @ Information Desk: shield → Service Tunnel",
+      "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
+      "T-06 (guard) @ Signal Control: patrol → —"
+    ]
+  },
+  "mapDoors": {
+    "L0-A2|L0-B2": "open",
+    "L0-B2|L0-C2": "closed",
+    "L0-C2|L0-D2": "open",
+    "L0-B1|L0-C1": "closed",
+    "L0-B2|L0-B3": "closed",
+    "L0-A2|L0-A3": "closed",
+    "L0-A3|L0-A4": "closed",
+    "L0-B3|L0-B4": "closed",
+    "L0-B4|L0-C4": "closed",
+    "L0-C2|L0-C3": "closed",
+    "L0-C3|L0-D3": "locked",
+    "L0-C4|L0-C5": "closed",
+    "L0-D5|L0-E5": "closed",
+    "L0-E5|L0-F5": "open",
+    "L0-E1|L0-E2": "open",
+    "L0-E2|L0-F2": "open",
+    "L0-F2|L0-F3": "open",
+    "L0-F3|L0-F4": "open",
+    "L0-E4|L0-F4": "open",
+    "L0-E2|L0-E3": "closed",
+    "L0-E1|L0-F1": "open"
+  }
+}
