@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T18:11:59.349Z",
+  "generatedAt": "2026-11-22T18:32:52.594Z",
   "exporterVersion": 1,
   "missionId": "m1_manifest",
   "campaign": {
@@ -742,7 +742,7 @@
       "L0-F2|L0-F3": "open",
       "L0-F3|L0-F4": "open",
       "L0-E4|L0-F4": "open",
-      "L0-E2|L0-E3": "closed",
+      "L0-E2|L0-E3": "open",
       "L0-E1|L0-F1": "open"
     },
     "lights": [
@@ -1005,29 +1005,29 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T09:14:56.488Z\",\"label\":\"S-08:flee:nerve\",\"target\":40,\"roll\":66,\"margin\":-26,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.489Z\",\"label\":\"sight S-08 -> player\",\"target\":20,\"roll\":9,\"margin\":11,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.490Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":2,\"margin\":58,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.490Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":44,\"margin\":16,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.490Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":2,\"margin\":58,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.490Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":18,\"margin\":22,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.490Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":29,\"margin\":51,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.491Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":44,\"margin\":36,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.491Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":9,\"margin\":41,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.491Z\",\"label\":\"S-08:flee:nerve\",\"target\":40,\"roll\":81,\"margin\":-41,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.493Z\",\"label\":\"sight S-08 -> player\",\"target\":20,\"roll\":60,\"margin\":-40,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.493Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":32,\"margin\":28,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.493Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":46,\"margin\":14,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.493Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":2,\"margin\":58,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.493Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":79,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.494Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":16,\"margin\":64,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.494Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":56,\"margin\":24,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.494Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":61,\"margin\":-11,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T09:14:56.494Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":21,\"margin\":24,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:11:59.325Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":5,\"margin\":55,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
+      "{\"ts\":\"2026-11-22T18:32:40.124Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":20,\"margin\":60,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.124Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":37,\"margin\":13,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.125Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":51,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.127Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":12,\"margin\":48,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.127Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":64,\"margin\":-4,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.127Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":38,\"margin\":22,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.128Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":35,\"margin\":5,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.128Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":10,\"margin\":70,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.128Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":80,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.128Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":80,\"margin\":-30,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.128Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":30,\"margin\":15,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.130Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":23,\"margin\":37,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.131Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":79,\"margin\":-19,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.131Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":78,\"margin\":-18,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.131Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":99,\"margin\":-59,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.131Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":44,\"margin\":36,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":6,\"margin\":74,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":77,\"margin\":-27,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":76,\"margin\":-31,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:32:52.583Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":99,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
     ],
     "movement": [
-      "6 | T-04 door L0-E2|L0-E3 closed",
+      "6 | T-04 door L0-E2|L0-E3 left open",
       "6 | T-04 L0-E3 -> L0-E2 50dB"
     ],
     "trigger": {
@@ -1314,6 +1314,20 @@
       "noise": 30,
       "weight": 0.3
     },
+    "gasmask": {
+      "id": "gasmask",
+      "name": "Respirator Mask",
+      "cost": 360,
+      "category": "support",
+      "specs": [
+        "blocks gas + smoke",
+        "60 s filter",
+        "+15% detection in light"
+      ],
+      "timeCost": 2.5,
+      "noise": 0,
+      "weight": 0.8
+    },
     "flashbang": {
       "id": "flashbang",
       "name": "Flashbang",
@@ -1560,6 +1574,24 @@
       "template": {
         "type": "radio",
         "text": "All clear."
+      }
+    },
+    {
+      "type": "don",
+      "label": "DON MASK",
+      "hint": "Put on the respirator mask (60 s filter).",
+      "template": {
+        "type": "don",
+        "mask": "gasmask"
+      }
+    },
+    {
+      "type": "gas",
+      "label": "GAS",
+      "hint": "Release a tranquilizer gas cloud in a cell.",
+      "template": {
+        "type": "gas",
+        "cell": "D3"
       }
     },
     {

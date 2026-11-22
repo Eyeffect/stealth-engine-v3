@@ -142,6 +142,23 @@ console.log('\n== LEDGER WIRING ==');
   check('ledger used by engine',!!e.ledger&&typeof e.ledger.resolveOnce==='function');
 }
 
+// ---------- gas mask protection ----------
+console.log('\n== GAS MASK ==');
+{
+  const I=require('../content/items').ITEMS;
+  check('gas mask exists in catalog',!!I.gasmask&&I.gasmask.cost>0);
+  check('gas mask has filter spec',I.gasmask&&I.gasmask.specs.some(function(s){return /filter/i.test(s)}));
+  const e=boot('m1_manifest');
+  e.world.player.gear.push('gasmask');
+  const r=e.turn({type:'don',mask:'gasmask'});
+  check('mask can be donned',r.action.ok===true&&!!e.world.player.maskOn);
+  check('filter has duration',e.world.player.filterUntil>e.world.clock);
+  const hp=e.world.player.hp;
+  e.world.gasClouds.push({cell:e.world.player.cell,from:e.world.clock,until:e.world.clock+20});
+  e.turn({type:'wait',seconds:1});
+  check('mask protects from gas',e.world.player.hp===hp,'hp '+e.world.player.hp);
+}
+
 // ---------- fog of war: player view has no GM keys ----------
 console.log('\n== FOG OF WAR ==');
 {

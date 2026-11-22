@@ -107,6 +107,11 @@ const ITEMS = {
     specs: ['4 m cloud', 'incapacitates', 'single use'],
     timeCost: 2, noise: 30, weight: 0.3
   },
+  gasmask: {
+    id: 'gasmask', name: 'Respirator Mask', cost: 360, category: 'support',
+    specs: ['blocks gas + smoke', '60 s filter', '+15% detection in light'],
+    timeCost: 2.5, noise: 0, weight: 0.8
+  },
   flashbang: {
     id: 'flashbang', name: 'Flashbang', cost: 350, category: 'consumables',
     specs: ['6 m radius', 'blinds + deafens', 'single use'],

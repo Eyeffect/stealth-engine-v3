@@ -301,6 +301,24 @@ function makeEngine(cfg){
         text:text,content:{},time:world.clock,confidence:0.8});
       return{ok:true,msg:'Transmitted'};
     },
+    don(a){
+      const which=a.mask||a.item||'gasmask';
+      if(!(player().gear||[]).includes(which))return{ok:false,msg:'No '+which+' in gear'};
+      player().maskOn=which;
+      player().filterUntil=world.clock+60;
+      player().sway=Math.min(0.5,(player().sway||0.14)+0.03);
+      applyCost({id:'DON',timeCost:2.5,noise:0,desc:'donning '+which});
+      return{ok:true,msg:which+' on, filter 60s'};
+    },
+    gas(a){
+      if(!(player().gear||[]).includes('gas'))return{ok:false,msg:'No gas grenade'};
+      const idx=player().gear.indexOf('gas');player().gear.splice(idx,1);
+      const cell=norm(a.cell||player().cell);
+      world.gasClouds=world.gasClouds||[];
+      world.gasClouds.push({cell:cell,from:world.clock,until:world.clock+20});
+      applyCost({id:'GAS',cell:cell,timeCost:2,noise:30,desc:'tranquilizer gas released'});
+      return{ok:true,msg:'Gas released at '+room(cell)+' (20s)'};
+    },
     extract(a){
       const cell=norm(a.cell||player().cell);
       if(cell!==norm(player().cell))return{ok:false,msg:'Not at extraction point'};
@@ -341,6 +359,29 @@ function makeEngine(cfg){
         if(e.event==='LOCKDOWN')world.lockdown=true;
         return e;
       });
+    }
+    // gas clouds: anyone inside without a working mask is incapacitated
+    world.gasClouds=(world.gasClouds||[]).filter(g=>g.until>world.clock);
+    for(const g of world.gasClouds){
+      for(const n of world.npcs){
+        if(n.alive===false)continue;
+        if(norm(posOf(n.id).cell||n.cell)!==g.cell)continue;
+        const r=d100(n.id+' gas resist',35);
+        if(r.success){n.alive=false;world.kills=(world.kills||0)+1;
+          world.evidence.push({id:'GAS-BODY-'+n.id,type:'body',cell:g.cell,time:world.clock,desc:'incapacitated by gas'});}
+      }
+      if(norm(player().cell)===g.cell){
+        const protectedNow=player().maskOn&&(player().filterUntil||0)>world.clock;
+        if(!protectedNow){
+          const r=d100('player gas resist',45);
+          if(r.success){player().hp-=25;(player().wounds=player().wounds||[]).push('gas exposure');
+            if(player().hp<=0){world.compromised=true;mission.advance('FAIL')}}
+        }
+      }
+    }
+    // filter expires
+    if(player().maskOn&&(player().filterUntil||0)<=world.clock){
+      player().maskOn=null;world.messages.push({from:'SYSTEM',to:'PLAYER',text:'Gas filter expired',content:{},time:world.clock,confidence:1});
     }
     // project perception -> beliefs -> brain -> movement
     const B=projectBeliefs();
