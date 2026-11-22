@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T18:45:49.909Z",
+  "generatedAt": "2026-11-22T18:49:47.046Z",
   "exporterVersion": 2,
   "missionId": "m1_manifest",
   "campaign": {
@@ -829,7 +829,10 @@
       ]
     },
     "visible": [
-      "L0-A2"
+      "L0-A2",
+      "L0-A1",
+      "L0-B1",
+      "L0-B2"
     ],
     "contacts": [],
     "heard": [
@@ -840,7 +843,7 @@
         "db": 41
       }
     ],
-    "heat": 3,
+    "heat": 2,
     "observations": [
       {
         "cell": "L0-A2",
@@ -916,15 +919,18 @@
     "cameras": [],
     "guardCones": [],
     "visible": [
-      "L0-A2"
+      "L0-A2",
+      "L0-A1",
+      "L0-B1",
+      "L0-B2"
     ]
   },
   "diagnostics": {
     "heat": {
-      "global": 3,
+      "global": 2,
       "cells": {
-        "L0-A2": 1,
-        "L0-E2": 2
+        "L0-A2": 0,
+        "L0-E2": 1
       },
       "fired": []
     },
@@ -934,7 +940,18 @@
         "role": "guard",
         "cell": "L0-D2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -946,7 +963,18 @@
         "role": "guard",
         "cell": "L0-F2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -958,7 +986,18 @@
         "role": "courier",
         "cell": "L0-D3",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 34.94850021680094,
+            "margin": 6.948500216800937,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -968,9 +1007,20 @@
       "T-04": {
         "id": "T-04",
         "role": "bodyguard",
-        "cell": "L0-E3",
+        "cell": "L0-E2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 58,
+            "margin": 30,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -982,7 +1032,18 @@
         "role": "technician",
         "cell": "L0-C2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 31.93820026016113,
+            "margin": 3.9382002601611283,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -1004,9 +1065,9 @@
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: patrol → East Concourse",
-      "T-02 (guard) @ Platform 2: patrol → Platform 3",
+      "T-02 (guard) @ Platform 2: search → 3",
       "T-03 (courier) @ Parcel Office: hold → Parcel Office",
-      "T-04 (bodyguard) @ Information Desk: shield → Service Tunnel",
+      "T-04 (bodyguard) @ East Concourse: shield → Service Tunnel",
       "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
       "T-06 (guard) @ Signal Control: patrol → —"
     ],
@@ -1020,17 +1081,17 @@
       },
       "T-02": {
         "cell": "L0-F2",
-        "mode": "patrol",
-        "target": "L0-F3",
+        "mode": "search",
+        "target": "3",
         "movedAt": 0,
-        "facing": "N"
+        "facing": "W"
       },
       "T-03": {
         "cell": "L0-D3",
         "mode": "hold",
         "target": "L0-D3",
         "movedAt": 0,
-        "facing": "S"
+        "facing": "W"
       },
       "T-04": {
         "cell": "L0-E2",
@@ -1044,7 +1105,7 @@
         "mode": "station",
         "target": "L0-C2",
         "movedAt": 0,
-        "facing": "S"
+        "facing": "W"
       },
       "T-06": {
         "cell": "L0-E4",
@@ -1055,11 +1116,6 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":60,\"margin\":0,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-02:report:nerve\",\"target\":60,\"roll\":51,\"margin\":9,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-03:report:nerve\",\"target\":60,\"roll\":49,\"margin\":11,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-04:orient:alertness\",\"target\":40,\"roll\":69,\"margin\":-29,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:43:20.956Z\",\"label\":\"S-05:orient:alertness\",\"target\":80,\"roll\":10,\"margin\":70,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:20.957Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":26,\"margin\":54,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:20.957Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":74,\"margin\":-24,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T18:43:20.957Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":23,\"margin\":22,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
@@ -1074,7 +1130,12 @@
       "{\"ts\":\"2026-11-22T18:43:20.960Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":17,\"margin\":28,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:43:37.599Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":4,\"margin\":56,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:44:37.649Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":23,\"margin\":37,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T18:45:49.908Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":25,\"margin\":35,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
+      "{\"ts\":\"2026-11-22T18:45:49.908Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":25,\"margin\":35,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:49:47.043Z\",\"label\":\"T-01:noise:curiosity\",\"target\":55,\"roll\":100,\"margin\":-45,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:49:47.044Z\",\"label\":\"T-02:noise:curiosity\",\"target\":55,\"roll\":6,\"margin\":49,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:49:47.044Z\",\"label\":\"T-02:noise:nerve\",\"target\":60,\"roll\":90,\"margin\":-30,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:49:47.045Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":39,\"margin\":6,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T18:49:47.045Z\",\"label\":\"T-05:orient:alertness\",\"target\":50,\"roll\":1,\"margin\":49,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
       "3 | T-04 door L0-E2|L0-E3 closed",

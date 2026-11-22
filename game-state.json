@@ -181,17 +181,17 @@
       },
       "T-02": {
         "cell": "L0-F2",
-        "mode": "patrol",
-        "target": "L0-F3",
+        "mode": "search",
+        "target": "3",
         "movedAt": 0,
-        "facing": "N"
+        "facing": "W"
       },
       "T-03": {
         "cell": "L0-D3",
         "mode": "hold",
         "target": "L0-D3",
         "movedAt": 0,
-        "facing": "S"
+        "facing": "W"
       },
       "T-04": {
         "cell": "L0-E2",
@@ -205,7 +205,7 @@
         "mode": "station",
         "target": "L0-C2",
         "movedAt": 0,
-        "facing": "S"
+        "facing": "W"
       },
       "T-06": {
         "cell": "L0-E4",
@@ -338,10 +338,10 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 3,
+      "global": 2,
       "cells": {
-        "L0-A2": 1,
-        "L0-E2": 2
+        "L0-A2": 0,
+        "L0-E2": 1
       },
       "fired": [],
       "pending": []
@@ -365,7 +365,18 @@
         "role": "guard",
         "cell": "L0-D2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 37.95880017344075,
+            "margin": 9.95880017344075,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -377,7 +388,18 @@
         "role": "guard",
         "cell": "L0-F2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -389,7 +411,18 @@
         "role": "courier",
         "cell": "L0-D3",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 34.94850021680094,
+            "margin": 6.948500216800937,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -399,9 +432,20 @@
       "T-04": {
         "id": "T-04",
         "role": "bodyguard",
-        "cell": "L0-E3",
+        "cell": "L0-E2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 58,
+            "margin": 30,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -413,7 +457,18 @@
         "role": "technician",
         "cell": "L0-C2",
         "seesPlayer": null,
-        "heard": [],
+        "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 31.93820026016113,
+            "margin": 3.9382002601611283,
+            "gunshot": false
+          }
+        ],
         "evidence": [],
         "told": [],
         "suspicion": 0,
@@ -435,9 +490,9 @@
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: patrol → East Concourse",
-      "T-02 (guard) @ Platform 2: patrol → Platform 3",
+      "T-02 (guard) @ Platform 2: search → 3",
       "T-03 (courier) @ Parcel Office: hold → Parcel Office",
-      "T-04 (bodyguard) @ Information Desk: shield → Service Tunnel",
+      "T-04 (bodyguard) @ East Concourse: shield → Service Tunnel",
       "T-05 (technician) @ Ticket Hall: station → Ticket Hall",
       "T-06 (guard) @ Signal Control: patrol → —"
     ]

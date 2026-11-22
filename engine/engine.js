@@ -433,9 +433,9 @@ function makeEngine(cfg){
     const cell=norm(p.cell);
     const visible=new Set([cell]);
     for(const id in map.cells){
-      const f=map.level(id)===(cell.slice(0,2))?cell.slice(0,2)+'-'+id:id;
+      const f=String(id).indexOf('-')>=0?id:cell.slice(0,2)+'-'+id;
       if(map.level(id)!==cell.slice(0,2))continue;
-      if(map.dist(cell,f)<=8&&map.los(cell,f,{openDoors:openDoors()}).clear&&P.lightAt(map,f,lights,Object.assign({},env,{openDoors:currentOpenDoors()}))>=0.8)visible.add(f);
+      if(map.dist(cell,f)<=8&&map.los(cell,f,{openDoors:openDoors()}).clear&&P.lightAt(map,f,lights,Object.assign({},env,{openDoors:currentOpenDoors()}))>=0.25)visible.add(f);
     }
     const heard=world.sounds.filter(s=>world.clock-s.time<=6).filter(s=>audibility(cell,s).heard)
       .map(s=>({desc:s.desc,at:s.time,cell:P.localize('PLAYER',s,audibility(cell,s),map),db:s.level||s.db}));
@@ -458,7 +458,7 @@ function makeEngine(cfg){
       heard:!!audibility(player().cell,s).heard}));
     const seen=new Set([norm(player().cell)]);
     for(const f in map.cells){
-      if(map.los(player().cell,f,{openDoors:openDoors()}).clear&&lm[f]>=0.8)seen.add(f)}
+      if(map.los(player().cell,f,{openDoors:openDoors()}).clear&&lm[f]>=0.25)seen.add(f)}
     const cams=(mission.cameras||[]).map(c=>({
       id:c.id,cell:'L0-'+String(c.cell).replace('L0-',''),facing:c.facing,fov:c.fov,range:c.range,ir:!!c.ir,
       visible:seen.has('L0-'+String(c.cell).replace('L0-',''))}));
