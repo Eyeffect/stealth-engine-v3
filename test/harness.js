@@ -75,7 +75,7 @@ console.log('\n== SHOT RESOLUTION ==');
       const tcell=beyond.length?beyond[0].id:c;
       e.world.positions[shield.id]={cell:c,mode:'shield',movedAt:0};
       e.world.positions[target.id]={cell:tcell,mode:'compose',movedAt:0};
-      e.world.player.ammo=40;
+      e.world.player.ammo=40;e.world.player.gun='pistol';
       let hitResult=null;
       for(let i=0;i<20&&!hitResult;i++){
         const r=e.turn({type:'shoot',target:target.id,aim:'center'});
@@ -140,6 +140,20 @@ console.log('\n== LEDGER WIRING ==');
   e.world.deadman=true;
   const o=e.world.objectives.find(x=>x.type==='eliminate');
   check('ledger used by engine',!!e.ledger&&typeof e.ledger.resolveOnce==='function');
+}
+
+// ---------- ammo derives from gear ----------
+console.log('\n== AMMO DERIVATION ==');
+{
+  const A=require('../engine/account'),W=require('../engine/world');
+  const noGun=A.makeAccount({gear:['knife','lockpick']});
+  const x1=W.makeWorld('m1_manifest',noGun);
+  check('no gun = no ammo',x1.world.player.gun===null&&x1.world.player.ammo===0,
+    'gun '+x1.world.player.gun+' ammo '+x1.world.player.ammo);
+  const withGun=A.makeAccount({gear:['pistol','knife']});
+  const x2=W.makeWorld('m1_manifest',withGun);
+  check('pistol gives ammo',x2.world.player.gun==='pistol'&&x2.world.player.ammo===16,
+    'gun '+x2.world.player.gun+' ammo '+x2.world.player.ammo);
 }
 
 // ---------- gas mask protection ----------

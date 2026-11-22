@@ -24,7 +24,7 @@ let wins=0;
 for(const m of CAMPAIGN.missions){
   console.log('\n====== '+m.id+' : '+m.name+' ======');
   const {eng,world}=boot(m.id);
-  world.player.ammo=99;
+  world.player.ammo=99;world.player.gun="pistol";
   // order objectives: eliminate/deactivate/copy first, extract last
   const ordered=[...world.objectives].sort((a,b)=>(a.type==='extract')-(b.type==='extract'));
   for(const o of ordered){

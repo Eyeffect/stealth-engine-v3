@@ -55,7 +55,7 @@ console.log('\n== ACCOUNT PERSISTENCE ACROSS CAMPAIGN ==');
   const before=a.credits;
   for(const m of ['m1_manifest','m2_auditor','m3_glasshouse']){
     const {e,world}=boot(m,a);
-    world.player.ammo=99;
+    world.player.ammo=99;world.player.gun="pistol";
     for(const o of world.objectives){
       if(o.type==='eliminate'){const t=world.npcs.find(n=>n.id===o.target);if(t){world.player.cell=world.positions[t.id].cell;e.turn({type:'shoot',target:t.id})}}
       else if(o.type==='copy'||o.type==='deactivate'){world.player.cell='L0-'+o.target;for(let k=0;k<4&&!o.done;k++)e.turn({type:o.type,cell:'L0-'+o.target})}
@@ -73,7 +73,7 @@ console.log('\n== AIM SWAY AFFECTS SHOT ==');
     const {e,world}=boot('m2_auditor');
     const t=world.npcs.find(n=>n.role==='target');
     world.player.sway=sway;
-    world.player.ammo=200;
+    world.player.ammo=200;world.player.gun="pistol";
     let hits=0,shots=0;
     for(let i=0;i<40;i++){
       world.player.cell=world.positions[t.id].cell;

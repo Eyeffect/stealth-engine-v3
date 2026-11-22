@@ -23,7 +23,7 @@ for(const m of CAMPAIGN.missions){
   const s=c.start(m.id);
   check(m.id+' starts',s.ok);
   const {eng:e,world}=s;
-  world.player.ammo=99;
+  world.player.ammo=99;world.player.gun="pistol";
   if(world.player.gear.indexOf('decoder')<0)world.player.gear.push('decoder');
   world.decoder=true;
   const ordered=[...world.objectives].sort((a,b)=>(a.type==='extract')-(b.type==='extract'));
