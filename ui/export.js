@@ -14,8 +14,9 @@ const { ITEMS } = require('../content/items');
 
 const missionId = process.argv[2] || 'm1_manifest';
 
-// ---- boot ----
-const acct = makeAccount();
+// ---- boot ---- load the persistent live account if present ----
+const LIVE = path.join(__dirname, '..', 'live.json');
+const acct = fs.existsSync(LIVE) ? makeAccount(JSON.parse(fs.readFileSync(LIVE, 'utf8'))) : makeAccount();
 const { world, mapDef, mission } = makeWorld(missionId, acct);
 const eng = makeEngine({ world, mapDef, ambientDb: 32, rain: false, heatDecay: 1 });
 

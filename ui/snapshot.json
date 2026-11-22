@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T18:32:52.594Z",
+  "generatedAt": "2026-11-22T18:37:01.920Z",
   "exporterVersion": 1,
   "missionId": "m1_manifest",
   "campaign": {
@@ -742,7 +742,7 @@
       "L0-F2|L0-F3": "open",
       "L0-F3|L0-F4": "open",
       "L0-E4|L0-F4": "open",
-      "L0-E2|L0-E3": "open",
+      "L0-E2|L0-E3": "closed",
       "L0-E1|L0-F1": "open"
     },
     "lights": [
@@ -797,7 +797,33 @@
       "ammo": 8,
       "gear": [
         "knife",
-        "lockpick"
+        "lockpick",
+        "crowbar",
+        "jammer",
+        "radio",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "gas",
+        "flashbang",
+        "flashbang",
+        "flashbang",
+        "medkit",
+        "gasmask",
+        "gasmask",
+        "gloves",
+        "zip_ties"
       ]
     },
     "visible": [
@@ -1005,7 +1031,6 @@
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T18:32:40.124Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":20,\"margin\":60,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:32:40.124Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":37,\"margin\":13,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:32:40.125Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":51,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T18:32:40.127Z\",\"label\":\"S-01:report:nerve\",\"target\":60,\"roll\":12,\"margin\":48,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
@@ -1024,10 +1049,11 @@
       "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-06:orient:alertness\",\"target\":80,\"roll\":6,\"margin\":74,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
       "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-07:orient:alertness\",\"target\":50,\"roll\":77,\"margin\":-27,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
       "{\"ts\":\"2026-11-22T18:32:40.132Z\",\"label\":\"S-08:orient:alertness\",\"target\":45,\"roll\":76,\"margin\":-31,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T18:32:52.583Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":99,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}"
+      "{\"ts\":\"2026-11-22T18:32:52.583Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":99,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T18:37:01.908Z\",\"label\":\"T-04 close door behind\",\"target\":60,\"roll\":22,\"margin\":38,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
-      "6 | T-04 door L0-E2|L0-E3 left open",
+      "6 | T-04 door L0-E2|L0-E3 closed",
       "6 | T-04 L0-E3 -> L0-E2 50dB"
     ],
     "trigger": {
@@ -1038,11 +1064,37 @@
   },
   "contacts": [],
   "account": {
-    "credits": 25000,
+    "credits": 13485,
     "reputation": 50,
     "gear": [
       "knife",
-      "lockpick"
+      "lockpick",
+      "crowbar",
+      "jammer",
+      "radio",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "gas",
+      "flashbang",
+      "flashbang",
+      "flashbang",
+      "medkit",
+      "gasmask",
+      "gasmask",
+      "gloves",
+      "zip_ties"
     ],
     "missions": [],
     "kills": 0

@@ -2,13 +2,15 @@
 const {makeEngine}=require('./engine/engine');
 const {makeWorld}=require('./engine/world');
 const {makeAccount}=require('./engine/account');
+const fs=require('fs'),path=require('path');
 
 const args=process.argv.slice(2);
 const cmd=args[0]||'help';
 const missionId=args[1]||'m1';
 
 function boot(){
-  const acct=makeAccount();
+  const LIVE=path.join(__dirname,'live.json');
+  const acct=fs.existsSync(LIVE)?makeAccount(JSON.parse(fs.readFileSync(LIVE,'utf8'))):makeAccount();
   const {world,mapDef}=makeWorld(missionId,acct);
   const eng=makeEngine({world,mapDef,ambientDb:32,rain:false,heatDecay:1});
   return{eng,acct};
