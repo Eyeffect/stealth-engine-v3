@@ -41,10 +41,10 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 45.5,
+    "clock": 62.5,
     "deadline": 240,
     "player": {
-      "cell": "L0-D3",
+      "cell": "L0-A1",
       "facing": "N",
       "posture": "crouch",
       "hp": 100,
@@ -79,7 +79,7 @@
       ],
       "sway": 0.14,
       "darkness": 0.85,
-      "movedAt": 39.5,
+      "movedAt": 60.5,
       "maskOn": "gasmask",
       "filterUntil": 77
     },
@@ -180,16 +180,16 @@
       "T-02": {
         "cell": "L0-F3",
         "mode": "search",
-        "target": "17",
+        "target": "54.5",
         "movedAt": 15,
         "facing": "W"
       },
       "T-03": {
-        "cell": "L0-C3",
-        "mode": "hold",
-        "target": "L0-C3",
-        "movedAt": 39.5,
-        "facing": "W"
+        "cell": "L0-C2",
+        "mode": "freeze",
+        "target": "L0-C2",
+        "movedAt": 48.5,
+        "facing": "S"
       },
       "T-04": {
         "cell": "L0-D2",
@@ -202,7 +202,7 @@
       "T-06": {
         "cell": "L0-E4",
         "mode": "search",
-        "target": "17",
+        "target": "54.5",
         "movedAt": 0,
         "facing": "W"
       }
@@ -382,6 +382,54 @@
         "time": 45.5,
         "type": "action",
         "desc": "data transfer"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-C3",
+        "db": 33,
+        "time": 48.5,
+        "type": "action",
+        "desc": "moving through Parcel Office"
+      },
+      {
+        "id": "STEP-T-03-48.5",
+        "cell": "L0-C2",
+        "db": 47,
+        "time": 48.5,
+        "type": "footstep",
+        "desc": "Courier Dell footsteps on tile"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-C2",
+        "db": 43,
+        "time": 51.5,
+        "type": "action",
+        "desc": "moving through Ticket Hall"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-B2",
+        "db": 43,
+        "time": 54.5,
+        "type": "action",
+        "desc": "moving through Staff Corridor"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-A2",
+        "db": 41,
+        "time": 57.5,
+        "type": "action",
+        "desc": "moving through Service Tunnel"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-A1",
+        "db": 41,
+        "time": 60.5,
+        "type": "action",
+        "desc": "moving through Service Tunnel"
       }
     ],
     "evidence": [
@@ -440,6 +488,14 @@
         "text": "HIT PLAYER -12",
         "content": {},
         "time": 19.5,
+        "confidence": 1
+      },
+      {
+        "from": "SYSTEM",
+        "to": "all",
+        "text": "SWEEP — heat 40",
+        "content": {},
+        "time": 54.5,
         "confidence": 1
       }
     ],
@@ -533,6 +589,56 @@
         "cell": "L0-D3",
         "what": "Courier Dell spotted you",
         "t": 39.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "you entered Parcel Office",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Courier Dell spotted you",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Ticket Clerk spotted you",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "you entered Ticket Hall",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Courier Dell spotted you",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-B2",
+        "what": "you entered Staff Corridor",
+        "t": 54.5
+      },
+      {
+        "cell": "L0-A2",
+        "what": "you entered Service Tunnel",
+        "t": 57.5
+      },
+      {
+        "cell": "L0-A2",
+        "what": "Courier Dell spotted you",
+        "t": 57.5
+      },
+      {
+        "cell": "L0-A1",
+        "what": "you entered Service Tunnel",
+        "t": 60.5
       }
     ],
     "movementLog": [
@@ -545,7 +651,9 @@
       "15 | T-02 L0-F2 -> L0-F3 45dB",
       "15 | T-04 L0-D1 -> L0-D2 50dB",
       "39.5 | T-03 door L0-C3|L0-D3 left open",
-      "39.5 | T-03 L0-D3 -> L0-C3 37dB"
+      "39.5 | T-03 L0-D3 -> L0-C3 37dB",
+      "48.5 | T-03 door L0-C2|L0-C3 left open",
+      "48.5 | T-03 L0-C3 -> L0-C2 47dB"
     ],
     "objectives": [
       {
@@ -560,7 +668,7 @@
         "type": "extract",
         "target": "A1",
         "desc": "Leave the hub through the service tunnel.",
-        "done": false
+        "done": true
       }
     ],
     "exit": {
@@ -577,13 +685,13 @@
     "triggerFired": false,
     "lockdown": false,
     "compromised": false,
-    "objectivesDone": false,
+    "objectivesDone": true,
     "resolver": [],
     "kills": 0,
     "missionDef": {},
     "missionState": {
       "def": {},
-      "state": "OBJECTIVE",
+      "state": "COMPLETE",
       "history": [
         {
           "from": "BRIEFING",
@@ -596,6 +704,18 @@
           "to": "OBJECTIVE",
           "event": "ENTER",
           "ts": "2026-11-22T18:45:49.904Z"
+        },
+        {
+          "from": "OBJECTIVE",
+          "to": "EXTRACTION",
+          "event": "OBJECTIVE_DONE",
+          "ts": "2026-11-22T19:26:45.447Z"
+        },
+        {
+          "from": "EXTRACTION",
+          "to": "COMPLETE",
+          "event": "COMPLETE",
+          "ts": "2026-11-22T19:26:45.448Z"
         }
       ],
       "log": []
@@ -616,7 +736,7 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 34,
+      "global": 40,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
@@ -624,25 +744,33 @@
         "L0-E1": 0,
         "L0-D1": 0,
         "L0-D2": 0,
-        "L0-C2": 7,
+        "L0-C2": 5,
         "L0-F3": 0,
-        "L0-C3": 2,
-        "L0-D3": 2
+        "L0-C3": 0,
+        "L0-D3": 0,
+        "L0-A1": 0
       },
       "fired": [
-        "GLOBAL||CHECKIN|12"
+        "GLOBAL||CHECKIN|12",
+        "GLOBAL||SWEEP|40"
       ],
       "pending": []
     },
     "resolvedEvents": {
       "ids": [
-        "heat-CHECKIN-17"
+        "heat-CHECKIN-17",
+        "heat-SWEEP-54.5"
       ],
       "resolved": {
         "heat-CHECKIN-17": {
           "event": "CHECKIN",
           "level": 12,
           "reason": "Platform Guard movement"
+        },
+        "heat-SWEEP-54.5": {
+          "event": "SWEEP",
+          "level": 40,
+          "reason": "moving through Staff Corridor"
         }
       }
     },
@@ -654,13 +782,7 @@
       "hazard": "The parcel office door C3-D3 is locked; the main archway C1-D1 stands open.",
       "hint": "Copy the case at D3. Killing the courier is unnecessary and burns the contract."
     },
-    "gasClouds": [
-      {
-        "cell": "L0-D3",
-        "from": 30.5,
-        "until": 50.5
-      }
-    ],
+    "gasClouds": [],
     "beliefs": {
       "T-01": {
         "id": "T-01",
@@ -737,6 +859,36 @@
             "level": 58,
             "margin": 30,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C3",
+            "level": 39.95880017344075,
+            "margin": 11.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -773,6 +925,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -842,6 +1001,13 @@
             "content": {},
             "at": 17,
             "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
+            "confidence": 1
           }
         ],
         "suspicion": 0,
@@ -852,17 +1018,47 @@
       "T-03": {
         "id": "T-03",
         "role": "courier",
-        "cell": "L0-C3",
+        "cell": "L0-C2",
         "seesPlayer": null,
         "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 31.93820026016113,
+            "margin": 3.9382002601611283,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 6,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-6",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 6,
+            "believedCell": "L0-E2",
+            "level": 38.96910013008056,
+            "margin": 10.969100130080562,
+            "gunshot": false
+          },
           {
             "soundId": "STEP-T-04-10",
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
-            "believedCell": "L0-C1",
-            "level": 30.969100130080566,
-            "margin": 2.969100130080566,
+            "believedCell": "L0-D1",
+            "level": 42.94850021680094,
+            "margin": 14.948500216800937,
             "gunshot": false
           },
           {
@@ -870,9 +1066,9 @@
             "type": "action",
             "desc": "moving through Ticket Hall",
             "at": 15,
-            "believedCell": "L0-B2",
-            "level": 35.95880017344075,
-            "margin": 7.95880017344075,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
             "gunshot": false
           },
           {
@@ -880,23 +1076,69 @@
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 15,
-            "believedCell": "L0-D3",
-            "level": 34.94850021680094,
-            "margin": 6.948500216800937,
+            "believedCell": "L0-D2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
             "gunshot": false
           },
           {
-            "soundId": "STEP-T-03-39.5",
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 21.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
+            "gunshot": false
+          },
+          {
+            "soundId": "DOOR",
+            "type": "action",
+            "desc": "door opened",
+            "at": 25.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
             "type": "footstep",
-            "desc": "Courier Dell footsteps on carpet",
-            "at": 39.5,
-            "believedCell": "L0-C3",
-            "level": 32,
-            "margin": 4,
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C2",
+            "level": 52,
+            "margin": 24,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
             "gunshot": false
           }
         ],
-        "evidence": [],
+        "evidence": [
+          {
+            "id": "GAS-BODY-T-05",
+            "desc": "incapacitated by gas",
+            "at": 27.5
+          }
+        ],
         "told": [
           {
             "from": "T-05",
@@ -919,6 +1161,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1002,6 +1251,36 @@
             "level": 58,
             "margin": 30,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C3",
+            "level": 39.95880017344075,
+            "margin": 11.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-A2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1038,6 +1317,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1131,6 +1417,36 @@
             "level": 35,
             "margin": 7,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C2",
+            "level": 52,
+            "margin": 24,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1162,6 +1478,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1211,6 +1534,13 @@
             "content": {},
             "at": 17,
             "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
+            "confidence": 1
           }
         ],
         "suspicion": 0,
@@ -1221,11 +1551,11 @@
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: down → —",
-      "T-02 (guard) @ Platform 3: search → 17",
-      "T-03 (courier) @ Parcel Office: hold → Parcel Office",
+      "T-02 (guard) @ Platform 3: search → 54.5",
+      "T-03 (courier) @ Ticket Hall: freeze → Ticket Hall",
       "T-04 (bodyguard) @ Main Concourse: down → —",
       "T-05 (technician) @ Ticket Hall: down → —",
-      "T-06 (guard) @ Signal Control: search → 17"
+      "T-06 (guard) @ Signal Control: search → 54.5"
     ]
   },
   "mapDoors": {

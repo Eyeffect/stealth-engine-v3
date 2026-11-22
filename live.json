@@ -1,6 +1,6 @@
 {
-  "credits": 13485,
-  "reputation": 50,
+  "credits": 17985,
+  "reputation": 58,
   "gear": [
     "knife",
     "lockpick",
@@ -31,6 +31,14 @@
     "gloves",
     "zip_ties"
   ],
-  "missions": [],
+  "missions": [
+    {
+      "id": "m1_manifest",
+      "result": "COMPLETE",
+      "time": "2026-11-22T19:27:29.071Z",
+      "kills": 0,
+      "creditsEarned": 4500
+    }
+  ],
   "kills": 0
 }

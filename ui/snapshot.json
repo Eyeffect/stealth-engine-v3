@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T19:23:38.540Z",
+  "generatedAt": "2026-11-22T19:26:45.455Z",
   "exporterVersion": 2,
   "missionId": "m1_manifest",
   "campaign": {
@@ -152,7 +152,7 @@
         "type": "extract",
         "target": "A1",
         "desc": "Leave the hub through the service tunnel.",
-        "done": false
+        "done": true
       }
     ]
   },
@@ -788,11 +788,11 @@
     ]
   },
   "view": {
-    "clock": 45.5,
-    "mission": "OBJECTIVE",
+    "clock": 62.5,
+    "mission": "COMPLETE",
     "you": {
-      "cell": "L0-D3",
-      "room": "Parcel Office",
+      "cell": "L0-A1",
+      "room": "Service Tunnel",
       "posture": "crouch",
       "hp": 100,
       "wounds": [],
@@ -825,70 +825,26 @@
       ]
     },
     "visible": [
-      "L0-D3",
-      "L0-A2",
-      "L0-B2",
-      "L0-B3",
-      "L0-C3"
+      "L0-A1",
+      "L0-A2"
     ],
-    "contacts": [
-      {
-        "id": "T-03",
-        "name": "Courier Dell",
-        "role": "courier",
-        "cell": "L0-C3"
-      }
-    ],
+    "contacts": [],
     "heard": [
       {
-        "desc": "data transfer",
-        "at": 45.5,
-        "cell": "L0-D3",
-        "db": 34
+        "desc": "moving through Service Tunnel",
+        "at": 57.5,
+        "cell": "L0-A2",
+        "db": 41
+      },
+      {
+        "desc": "moving through Service Tunnel",
+        "at": 60.5,
+        "cell": "L0-A1",
+        "db": 41
       }
     ],
-    "heat": 34,
+    "heat": 40,
     "observations": [
-      {
-        "cell": "L0-A2",
-        "what": "you entered Service Tunnel",
-        "t": 3
-      },
-      {
-        "cell": "L0-B2",
-        "what": "you entered Staff Corridor",
-        "t": 6
-      },
-      {
-        "cell": "L0-C2",
-        "what": "you entered Ticket Hall",
-        "t": 15
-      },
-      {
-        "cell": "L0-C2",
-        "what": "Concourse Guard spotted you",
-        "t": 15
-      },
-      {
-        "cell": "L0-C2",
-        "what": "Ticket Clerk spotted you",
-        "t": 15
-      },
-      {
-        "cell": "L0-C2",
-        "what": "Bodyguard Rusk spotted you",
-        "t": 17
-      },
-      {
-        "cell": "L0-C2",
-        "what": "Ticket Clerk spotted you",
-        "t": 17
-      },
-      {
-        "cell": "L0-C2",
-        "what": "Bodyguard Rusk spotted you",
-        "t": 19.5
-      },
       {
         "cell": "L0-C2",
         "what": "Ticket Clerk spotted you",
@@ -938,6 +894,56 @@
         "cell": "L0-D3",
         "what": "Courier Dell spotted you",
         "t": 39.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "you entered Parcel Office",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Courier Dell spotted you",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C3",
+        "what": "Ticket Clerk spotted you",
+        "t": 48.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "you entered Ticket Hall",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Courier Dell spotted you",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-C2",
+        "what": "Ticket Clerk spotted you",
+        "t": 51.5
+      },
+      {
+        "cell": "L0-B2",
+        "what": "you entered Staff Corridor",
+        "t": 54.5
+      },
+      {
+        "cell": "L0-A2",
+        "what": "you entered Service Tunnel",
+        "t": 57.5
+      },
+      {
+        "cell": "L0-A2",
+        "what": "Courier Dell spotted you",
+        "t": 57.5
+      },
+      {
+        "cell": "L0-A1",
+        "what": "you entered Service Tunnel",
+        "t": 60.5
       }
     ],
     "objectives": [
@@ -947,11 +953,11 @@
       },
       {
         "desc": "Leave the hub through the service tunnel.",
-        "done": false
+        "done": true
       }
     ],
-    "light": 1.232148869802242,
-    "material": "carpet",
+    "light": 0.3,
+    "material": "concrete",
     "exposure": "OK"
   },
   "overlays": {
@@ -989,58 +995,48 @@
     },
     "sounds": [
       {
-        "cell": "L0-C3",
-        "db": 30,
+        "cell": "L0-C2",
+        "db": 43,
         "type": "action",
-        "desc": "door opened",
-        "at": 36.5,
+        "desc": "moving through Ticket Hall",
+        "at": 51.5,
         "heard": false
       },
       {
-        "cell": "L0-D3",
-        "db": 33,
+        "cell": "L0-B2",
+        "db": 43,
         "type": "action",
-        "desc": "moving through Parcel Office",
-        "at": 39.5,
+        "desc": "moving through Staff Corridor",
+        "at": 54.5,
         "heard": false
       },
       {
-        "cell": "L0-C3",
-        "db": 37,
-        "type": "footstep",
-        "desc": "Courier Dell footsteps on carpet",
-        "at": 39.5,
-        "heard": false
+        "cell": "L0-A2",
+        "db": 41,
+        "type": "action",
+        "desc": "moving through Service Tunnel",
+        "at": 57.5,
+        "heard": true
       },
       {
-        "cell": "L0-D3",
-        "db": 34,
+        "cell": "L0-A1",
+        "db": 41,
         "type": "action",
-        "desc": "data transfer",
-        "at": 45.5,
+        "desc": "moving through Service Tunnel",
+        "at": 60.5,
         "heard": true
       }
     ],
     "cameras": [],
-    "guardCones": [
-      {
-        "id": "T-03",
-        "cell": "L0-C3",
-        "facing": "W",
-        "range": 20
-      }
-    ],
+    "guardCones": [],
     "visible": [
-      "L0-D3",
-      "L0-A2",
-      "L0-B2",
-      "L0-B3",
-      "L0-C3"
+      "L0-A1",
+      "L0-A2"
     ]
   },
   "diagnostics": {
     "heat": {
-      "global": 34,
+      "global": 40,
       "cells": {
         "L0-A2": 0,
         "L0-E2": 0,
@@ -1048,13 +1044,15 @@
         "L0-E1": 0,
         "L0-D1": 0,
         "L0-D2": 0,
-        "L0-C2": 7,
+        "L0-C2": 5,
         "L0-F3": 0,
-        "L0-C3": 2,
-        "L0-D3": 2
+        "L0-C3": 0,
+        "L0-D3": 0,
+        "L0-A1": 0
       },
       "fired": [
-        "GLOBAL||CHECKIN|12"
+        "GLOBAL||CHECKIN|12",
+        "GLOBAL||SWEEP|40"
       ]
     },
     "beliefs": {
@@ -1133,6 +1131,36 @@
             "level": 58,
             "margin": 30,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C3",
+            "level": 39.95880017344075,
+            "margin": 11.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1169,6 +1197,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1238,6 +1273,13 @@
             "content": {},
             "at": 17,
             "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
+            "confidence": 1
           }
         ],
         "suspicion": 0,
@@ -1248,17 +1290,47 @@
       "T-03": {
         "id": "T-03",
         "role": "courier",
-        "cell": "L0-C3",
+        "cell": "L0-C2",
         "seesPlayer": null,
         "heard": [
+          {
+            "soundId": "STEP-T-04-3",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 3,
+            "believedCell": "L0-E2",
+            "level": 31.93820026016113,
+            "margin": 3.9382002601611283,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 6,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-04-6",
+            "type": "footstep",
+            "desc": "Bodyguard Rusk footsteps on marble",
+            "at": 6,
+            "believedCell": "L0-E2",
+            "level": 38.96910013008056,
+            "margin": 10.969100130080562,
+            "gunshot": false
+          },
           {
             "soundId": "STEP-T-04-10",
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 10,
-            "believedCell": "L0-C1",
-            "level": 30.969100130080566,
-            "margin": 2.969100130080566,
+            "believedCell": "L0-D1",
+            "level": 42.94850021680094,
+            "margin": 14.948500216800937,
             "gunshot": false
           },
           {
@@ -1266,9 +1338,9 @@
             "type": "action",
             "desc": "moving through Ticket Hall",
             "at": 15,
-            "believedCell": "L0-B2",
-            "level": 35.95880017344075,
-            "margin": 7.95880017344075,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
             "gunshot": false
           },
           {
@@ -1276,23 +1348,69 @@
             "type": "footstep",
             "desc": "Bodyguard Rusk footsteps on marble",
             "at": 15,
-            "believedCell": "L0-D3",
-            "level": 34.94850021680094,
-            "margin": 6.948500216800937,
+            "believedCell": "L0-D2",
+            "level": 45.95880017344075,
+            "margin": 17.95880017344075,
             "gunshot": false
           },
           {
-            "soundId": "STEP-T-03-39.5",
+            "soundId": "GAS",
+            "type": "action",
+            "desc": "tranquilizer gas released",
+            "at": 21.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
+            "gunshot": false
+          },
+          {
+            "soundId": "DOOR",
+            "type": "action",
+            "desc": "door opened",
+            "at": 25.5,
+            "believedCell": "L0-C2",
+            "level": 35,
+            "margin": 7,
+            "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
             "type": "footstep",
-            "desc": "Courier Dell footsteps on carpet",
-            "at": 39.5,
-            "believedCell": "L0-C3",
-            "level": 32,
-            "margin": 4,
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C2",
+            "level": 52,
+            "margin": 24,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
             "gunshot": false
           }
         ],
-        "evidence": [],
+        "evidence": [
+          {
+            "id": "GAS-BODY-T-05",
+            "desc": "incapacitated by gas",
+            "at": 27.5
+          }
+        ],
         "told": [
           {
             "from": "T-05",
@@ -1315,6 +1433,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1398,6 +1523,36 @@
             "level": 58,
             "margin": 30,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C3",
+            "level": 39.95880017344075,
+            "margin": 11.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C3",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-A2",
+            "level": 29.93820026016113,
+            "margin": 1.9382002601611283,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1434,6 +1589,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1527,6 +1689,36 @@
             "level": 35,
             "margin": 7,
             "gunshot": false
+          },
+          {
+            "soundId": "STEP-T-03-48.5",
+            "type": "footstep",
+            "desc": "Courier Dell footsteps on tile",
+            "at": 48.5,
+            "believedCell": "L0-C2",
+            "level": 52,
+            "margin": 24,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Ticket Hall",
+            "at": 51.5,
+            "believedCell": "L0-C2",
+            "level": 48,
+            "margin": 20,
+            "gunshot": false
+          },
+          {
+            "soundId": "MOVE",
+            "type": "action",
+            "desc": "moving through Staff Corridor",
+            "at": 54.5,
+            "believedCell": "L0-B2",
+            "level": 35.95880017344075,
+            "margin": 7.95880017344075,
+            "gunshot": false
           }
         ],
         "evidence": [
@@ -1558,6 +1750,13 @@
             "text": "CHECKIN — heat 13",
             "content": {},
             "at": 17,
+            "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
             "confidence": 1
           }
         ],
@@ -1607,6 +1806,13 @@
             "content": {},
             "at": 17,
             "confidence": 1
+          },
+          {
+            "from": "SYSTEM",
+            "text": "SWEEP — heat 40",
+            "content": {},
+            "at": 54.5,
+            "confidence": 1
           }
         ],
         "suspicion": 0,
@@ -1617,11 +1823,11 @@
     },
     "brainTrace": [
       "T-01 (guard) @ Main Concourse: down → —",
-      "T-02 (guard) @ Platform 3: search → 17",
-      "T-03 (courier) @ Parcel Office: hold → Parcel Office",
+      "T-02 (guard) @ Platform 3: search → 54.5",
+      "T-03 (courier) @ Ticket Hall: freeze → Ticket Hall",
       "T-04 (bodyguard) @ Main Concourse: down → —",
       "T-05 (technician) @ Ticket Hall: down → —",
-      "T-06 (guard) @ Signal Control: search → 17"
+      "T-06 (guard) @ Signal Control: search → 54.5"
     ],
     "positions": {
       "T-01": {
@@ -1631,16 +1837,16 @@
       "T-02": {
         "cell": "L0-F3",
         "mode": "search",
-        "target": "17",
+        "target": "54.5",
         "movedAt": 15,
         "facing": "W"
       },
       "T-03": {
-        "cell": "L0-C3",
-        "mode": "hold",
-        "target": "L0-C3",
-        "movedAt": 39.5,
-        "facing": "W"
+        "cell": "L0-C2",
+        "mode": "freeze",
+        "target": "L0-C2",
+        "movedAt": 48.5,
+        "facing": "S"
       },
       "T-04": {
         "cell": "L0-D2",
@@ -1653,32 +1859,32 @@
       "T-06": {
         "cell": "L0-E4",
         "mode": "search",
-        "target": "17",
+        "target": "54.5",
         "movedAt": 0,
         "facing": "W"
       }
     },
     "audit": [
-      "{\"ts\":\"2026-11-22T19:20:07.632Z\",\"label\":\"open door L0-C3|L0-D3\",\"target\":78,\"roll\":57,\"margin\":21,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.634Z\",\"label\":\"T-03 gas resist\",\"target\":35,\"roll\":61,\"margin\":-26,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.637Z\",\"label\":\"sight T-03 -> player\",\"target\":28,\"roll\":68,\"margin\":-40,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.638Z\",\"label\":\"sight T-05 -> player\",\"target\":28,\"roll\":21,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.639Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":7,\"margin\":53,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.639Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":46,\"margin\":-1,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:20:07.640Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":57,\"margin\":3,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.518Z\",\"label\":\"T-03 gas resist\",\"target\":35,\"roll\":41,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.521Z\",\"label\":\"same-cell T-03\",\"target\":95,\"roll\":26,\"margin\":69,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.522Z\",\"label\":\"sight T-05 -> player\",\"target\":78,\"roll\":81,\"margin\":-3,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.524Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":3,\"margin\":57,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.524Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":38,\"margin\":2,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.524Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":68,\"margin\":-8,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:02.525Z\",\"label\":\"T-03 close door behind\",\"target\":40,\"roll\":91,\"margin\":-51,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.532Z\",\"label\":\"copy data\",\"target\":75,\"roll\":15,\"margin\":60,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.536Z\",\"label\":\"sight T-03 -> player\",\"target\":40,\"roll\":60,\"margin\":-20,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.537Z\",\"label\":\"sight T-05 -> player\",\"target\":39,\"roll\":53,\"margin\":-14,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.539Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":32,\"margin\":28,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.539Z\",\"label\":\"T-03:orient:alertness\",\"target\":45,\"roll\":39,\"margin\":6,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
-      "{\"ts\":\"2026-11-22T19:23:38.539Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":40,\"margin\":20,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
+      "{\"ts\":\"2026-11-22T19:25:15.768Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":16,\"margin\":44,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:25:15.769Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":52,\"margin\":-12,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:15.769Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":20,\"margin\":40,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.251Z\",\"label\":\"sight T-03 -> player\",\"target\":31,\"roll\":64,\"margin\":-33,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.252Z\",\"label\":\"sight T-04 -> player\",\"target\":29,\"roll\":31,\"margin\":-2,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.253Z\",\"label\":\"sight T-05 -> player\",\"target\":31,\"roll\":78,\"margin\":-47,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.254Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":82,\"margin\":-22,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.254Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":44,\"margin\":-4,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:36.255Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":37,\"margin\":23,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:25:58.392Z\",\"label\":\"sight T-03 -> player\",\"target\":23,\"roll\":14,\"margin\":9,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:25:58.394Z\",\"label\":\"sight T-05 -> player\",\"target\":23,\"roll\":33,\"margin\":-10,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:58.395Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":67,\"margin\":-7,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:58.395Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":46,\"margin\":-6,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:25:58.395Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":53,\"margin\":7,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:26:20.457Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":58,\"margin\":2,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:26:20.458Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":85,\"margin\":-45,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:26:20.459Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":71,\"margin\":-11,\"success\":false,\"grade\":\"FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:26:45.452Z\",\"label\":\"T-02:report:nerve\",\"target\":60,\"roll\":12,\"margin\":48,\"success\":true,\"grade\":\"CRITICAL_SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}",
+      "{\"ts\":\"2026-11-22T19:26:45.453Z\",\"label\":\"T-03:flee:nerve\",\"target\":40,\"roll\":79,\"margin\":-39,\"success\":false,\"grade\":\"CRITICAL_FAIL\",\"context\":null,\"verdict\":\"FAILURE\"}",
+      "{\"ts\":\"2026-11-22T19:26:45.453Z\",\"label\":\"T-06:report:nerve\",\"target\":60,\"roll\":49,\"margin\":11,\"success\":true,\"grade\":\"SUCCESS\",\"context\":null,\"verdict\":\"SUCCESS\"}"
     ],
     "movement": [
       "3 | T-04 door L0-E2|L0-E3 closed",
@@ -1690,7 +1896,9 @@
       "15 | T-02 L0-F2 -> L0-F3 45dB",
       "15 | T-04 L0-D1 -> L0-D2 50dB",
       "39.5 | T-03 door L0-C3|L0-D3 left open",
-      "39.5 | T-03 L0-D3 -> L0-C3 37dB"
+      "39.5 | T-03 L0-D3 -> L0-C3 37dB",
+      "48.5 | T-03 door L0-C2|L0-C3 left open",
+      "48.5 | T-03 L0-C3 -> L0-C2 47dB"
     ],
     "trigger": {
       "armed": null,
@@ -1698,14 +1906,7 @@
       "disarmed": false
     }
   },
-  "contacts": [
-    {
-      "id": "T-03",
-      "name": "Courier Dell",
-      "role": "courier",
-      "cell": "L0-C3"
-    }
-  ],
+  "contacts": [],
   "account": {
     "credits": 13485,
     "reputation": 50,
