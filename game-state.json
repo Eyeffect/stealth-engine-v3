@@ -41,10 +41,10 @@
     "missionId": "m1_manifest",
     "missionName": "THE MANIFEST",
     "level": "L0",
-    "clock": 3,
+    "clock": 6,
     "deadline": 240,
     "player": {
-      "cell": "L0-A2",
+      "cell": "L0-B2",
       "facing": "N",
       "posture": "crouch",
       "hp": 100,
@@ -83,7 +83,7 @@
       ],
       "sway": 0.14,
       "darkness": 0.85,
-      "movedAt": 3
+      "movedAt": 6
     },
     "npcs": [
       {
@@ -194,10 +194,10 @@
         "facing": "W"
       },
       "T-04": {
-        "cell": "L0-E2",
+        "cell": "L0-E1",
         "mode": "shield",
         "target": "L0-A1",
-        "movedAt": 3,
+        "movedAt": 6,
         "facing": "W"
       },
       "T-05": {
@@ -205,7 +205,7 @@
         "mode": "station",
         "target": "L0-C2",
         "movedAt": 0,
-        "facing": "W"
+        "facing": "S"
       },
       "T-06": {
         "cell": "L0-E4",
@@ -254,6 +254,22 @@
         "time": 3,
         "type": "footstep",
         "desc": "Bodyguard Rusk footsteps on marble"
+      },
+      {
+        "id": "MOVE",
+        "cell": "L0-B2",
+        "db": 43,
+        "time": 6,
+        "type": "action",
+        "desc": "moving through Staff Corridor"
+      },
+      {
+        "id": "STEP-T-04-6",
+        "cell": "L0-E1",
+        "db": 50,
+        "time": 6,
+        "type": "footstep",
+        "desc": "Bodyguard Rusk footsteps on marble"
       }
     ],
     "evidence": [],
@@ -263,11 +279,18 @@
         "cell": "L0-A2",
         "what": "you entered Service Tunnel",
         "t": 3
+      },
+      {
+        "cell": "L0-B2",
+        "what": "you entered Staff Corridor",
+        "t": 6
       }
     ],
     "movementLog": [
       "3 | T-04 door L0-E2|L0-E3 closed",
-      "3 | T-04 L0-E3 -> L0-E2 50dB"
+      "3 | T-04 L0-E3 -> L0-E2 50dB",
+      "6 | T-04 door L0-E1|L0-E2 closed",
+      "6 | T-04 L0-E2 -> L0-E1 50dB"
     ],
     "objectives": [
       {
@@ -338,10 +361,12 @@
           "event": "LOCKDOWN"
         }
       ],
-      "global": 2,
+      "global": 5,
       "cells": {
         "L0-A2": 0,
-        "L0-E2": 1
+        "L0-E2": 0,
+        "L0-B2": 1,
+        "L0-E1": 2
       },
       "fired": [],
       "pending": []
@@ -512,7 +537,7 @@
     "L0-C4|L0-C5": "closed",
     "L0-D5|L0-E5": "closed",
     "L0-E5|L0-F5": "open",
-    "L0-E1|L0-E2": "open",
+    "L0-E1|L0-E2": "closed",
     "L0-E2|L0-F2": "open",
     "L0-F2|L0-F3": "open",
     "L0-F3|L0-F4": "open",
