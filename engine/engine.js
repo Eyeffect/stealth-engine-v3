@@ -74,7 +74,7 @@ function makeEngine(cfg){
     const dcells=map.dist(nc,pc);
     const light=P.lightAt(map,pc,lights,env);
     if(dcells===0){
-      const r=d100('same-cell '+n.id,light>=1?95:60);
+      const r=d100('same-cell '+n.id,light>=0.4?95:75);
       return{seen:r.success,entry:r,grade:grade(r)};
     }
     if(dcells*4>(n.range||22))return{seen:false};
@@ -116,7 +116,7 @@ function makeEngine(cfg){
           if(m.content&&m.content.playerCell)b.reportedPlayer=m.content.playerCell;
         }
       }
-      if(pendingGunshot&&b.heard.some(h=>h.gunshot))b.gunshotHeard=true;
+      if(b.heard.some(h=>h.gunshot))b.gunshotHeard=true;
       B[n.id]=b;
     }
     return B;
@@ -329,12 +329,35 @@ function makeEngine(cfg){
     for(const e of heatEvents){
       world.messages.push({from:'SYSTEM',to:'all',text:e.event+' — heat '+Math.round(e.level||heat.global()),
         content:{},time:world.clock,confidence:1});
-      if(e.event==='LOCKDOWN')world.lockdown=true;
+      ledger.resolveOnce('heat-'+e.event+'-'+world.clock,()=>{
+        if(e.event==='LOCKDOWN')world.lockdown=true;
+        return e;
+      });
     }
     // project perception -> beliefs -> brain -> movement
     const B=projectBeliefs();
     world.beliefs=B;
     thinkAndMove(B);
+    // hostile fire: an alert guard with sight of the player shoots
+    const pNow=player();
+    for(const n of world.npcs){
+      if(n.alive===false||!B[n.id])continue;
+      const d=B[n.id];
+      const sees=d.seesPlayer;
+      const hostile=(d.gunshotHeard||d.suspicion>=2||(d.told||[]).some(t=>t.content&&t.content.playerCell));
+      if(!sees||!hostile)continue;
+      const cell=norm(posOf(n.id).cell||n.cell);
+      if(!map.los(cell,norm(pNow.cell),{openDoors:openDoors()}).clear)continue;
+      const r=d100(n.id+' fires at player',45-(pNow.posture==='crouched'?10:0));
+      if(r.success){
+        const dmg=12+((n.weapon==='rifle'||n.weapon==='SMG')?8:0);
+        pNow.hp-=dmg;
+        (pNow.wounds=pNow.wounds||[]).push(n.name+' gunshot ('+dmg+' hp)');
+        pNow.sway=Math.min(0.5,(pNow.sway||0.14)+0.06);
+        world.messages.push({from:n.id,to:'SYSTEM',text:'HIT PLAYER -'+dmg,content:{},time:world.clock,confidence:1});
+        if(pNow.hp<=0){world.compromised=true;mission.advance('FAIL')}
+      }
+    }
     // dead-man trigger: if target died and switch not disarmed, schedule transmission
     const targetMissionTarget=(world.objectives||[]).find(o=>o.type==='eliminate');
     if(targetMissionTarget&&world.deadman&&!world.triggerDisarmed){
@@ -342,9 +365,12 @@ function makeEngine(cfg){
       if(dead&&dead.alive===false&&!world.triggerArmedAt){world.triggerArmedAt=world.clock+90}
     }
     if(world.triggerArmedAt&&world.clock>=world.triggerArmedAt&&!world.triggerFired){
-      world.triggerFired=true;world.compromised=true;
-      mission.advance('FAIL');
-      world.messages.push({from:'SYSTEM',to:'all',text:'DEAD-MAN TRIGGER — file transmitted',content:{},time:world.clock,confidence:1});
+      const fired=ledger.resolveOnce('deadman-trigger',()=>true);
+      if(fired.fired){
+        world.triggerFired=true;world.compromised=true;
+        mission.advance('FAIL');
+        world.messages.push({from:'SYSTEM',to:'all',text:'DEAD-MAN TRIGGER — file transmitted',content:{},time:world.clock,confidence:1});
+      }
     }
     if(world.clock>=world.deadline&&!world.compromised){world.compromised=true;mission.advance('FAIL')}
     world.heat=heat.dump();

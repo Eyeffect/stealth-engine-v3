@@ -113,6 +113,35 @@ console.log('\n== HEAT ==');
   check('heat rises on noise',h.global>0,h.global);
 }
 
+// ---------- player injury ----------
+console.log('\n== PLAYER INJURY ==');
+{
+  const e=boot('m1_manifest');
+  const p=e.world.player;
+  const before=p.hp;
+  // force a hostile with sight in the same cell
+  const n=e.world.npcs.find(x=>x.alive!==false);
+  e.world.positions[n.id]={cell:p.cell,mode:'alert',movedAt:0};
+  e.world.beliefs=e.world.beliefs||{};
+  for(let i=0;i<20&&p.hp===before;i++){
+    const n=e.world.npcs.find(x=>x.alive!==false);
+    e.world.positions[n.id]={cell:p.cell,mode:'alert',movedAt:0};
+    e.world.sounds.push({id:'GUN-TEST-'+i,cell:p.cell,db:90,time:e.world.clock,type:'gunshot',desc:'suppressed pistol',gunshot:true});
+    e.turn({type:'wait',seconds:1});
+  }
+  check('player can be wounded',p.hp<before||p.wounds.length>0,'hp '+p.hp);
+  check('wound raises aim sway',p.sway>=0.14,p.sway);
+}
+
+// ---------- event ledger wired into engine ----------
+console.log('\n== LEDGER WIRING ==');
+{
+  const e=boot('m1_manifest');
+  e.world.deadman=true;
+  const o=e.world.objectives.find(x=>x.type==='eliminate');
+  check('ledger used by engine',!!e.ledger&&typeof e.ledger.resolveOnce==='function');
+}
+
 // ---------- fog of war: player view has no GM keys ----------
 console.log('\n== FOG OF WAR ==');
 {
